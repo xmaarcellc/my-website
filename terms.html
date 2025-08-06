@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=1024, maximum-scale=1.0, user-scalable=no">
+  <title>Terms & Conditions - Signature Scents</title>
+  <style>
+    body {
+      font-family: 'Segoe UI', sans-serif;
+      background: #fff8f0;
+      margin: 0;
+      padding: 2rem;
+      color: #4a4a4a;
+      line-height: 1.6;
+      font-size: 0.95rem;
+    }
+
+    .terms-container {
+      max-width: 800px;
+      margin: auto;
+      background: #fff;
+      padding: 2rem;
+      border-radius: 12px;
+      box-shadow: 0 6px 14px rgba(0,0,0,0.08);
+    }
+
+    h1 {
+      text-align: center;
+      color: #6a4e42;
+      margin-bottom: 1.5rem;
+    }
+
+    h3 {
+      color: #5c4036;
+      margin-top: 1.5rem;
+    }
+
+    .back-btn {
+      display: block;
+      margin: 2rem auto 0;
+      padding: 0.6rem 1.2rem;
+      background: #6a4e42;
+      color: white;
+      border: none;
+      border-radius: 8px;
+      cursor: pointer;
+      font-size: 1rem;
+      text-align: center;
+    }
+
+    .back-btn:hover {
+      background: #5c4036;
+    }
+
+    @media (max-width: 768px) {
+      body {
+        padding: 1rem;
+      }
+      .terms-container {
+        padding: 1.5rem;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="terms-container">
+    <h1>Terms & Conditions</h1>
+
+    <h3>1. Purchases</h3>
+    <p>All purchases made through our website are final. Please review your order carefully before completing checkout. Once submitted, orders cannot be changed or canceled. </p>
+
+<h3 id="returns">2. Returns, Refunds, Order Fulfillment, and Limitation of Guarantee</h3>
+<div style="font-size: 0.95rem;">
+  <p>
+    Signature Scents, hereinafter referred to as "the Company," endeavors to provide exceptional service and deliver its products with the highest degree of care and attention. However, due to the boutique and artisan nature of our offerings, which are handcrafted in limited batches, the Company maintains a strict, clearly articulated returns and fulfillment policy as outlined herein. 
+Signature Scents currently only ships orders within the United States. We do not offer international shipping at this time.
+  </p>
+
+  <p>
+    All purchases made through the Company's website are considered <strong>final and non-refundable</strong>. Customers are urged, encouraged, and advised to carefully review all product descriptions, pricing, scent notes, and ingredient disclosures prior to completing their transaction. The Company does not permit or accept any returns, exchanges, or modifications to orders once submitted unless explicitly mandated by governing consumer law in the customer's region of residence. Signature Scents currently only ships orders within the United States. We do not offer international shipping at this time.
+  </p>
+
+  <p style="background-color: #fff0c2; padding: 0.8rem; border-left: 4px solid #d49700; border-radius: 6px;">
+    <strong>Important Notice:</strong> Due to the highly selective, small-batch production process, coupled with fluctuating demand that may, at times, exceed available supply, <u>not all orders are guaranteed to be fulfilled</u>. Orders may be subject to cancellation, delay, or substitution at the sole discretion of the Company based on inventory limitations and logistical considerations.
+  </p>
+
+  <p>
+    In the rare event that a customer’s order cannot be fulfilled in its original form, the Company shall initiate communication via the email address provided at checkout to inform the customer of the issue. If fulfillment becomes impossible, a full refund for the affected item(s) will be processed. This shall constitute the complete and final remedy for any such situation and does not imply future eligibility for compensation, credit, or substitution unless expressly stated by the Company in writing.
+  </p>
+
+  <p>
+    The Company disclaims all liability for dissatisfaction with fragrance preference, packaging aesthetics, or perceived performance of the product. Because scent perception is inherently subjective and can vary due to personal chemistry, environmental factors, and olfactory fatigue, Signature Scents cannot be held responsible for individual reactions to any product. By completing a transaction, the customer acknowledges, accepts, and agrees to these conditions without reservation.
+  </p>
+
+  <p>
+    This section is subject to updates at the Company’s discretion, and customers are advised to revisit the policy prior to each purchase. Continued use of the website and placement of orders signifies ongoing agreement to the terms presented herein and any future amendments.
+  </p>
+</div>
+
+<script>
+  window.addEventListener('load', () => {
+    const hash = window.location.hash;
+    if (hash === '#returns') {
+      const section = document.getElementById('returns');
+      section.style.transition = 'background-color 0.5s ease';
+      section.style.backgroundColor = '#fff0c2';
+      setTimeout(() => {
+        section.style.backgroundColor = 'transparent';
+      }, 500);
+    }
+  });
+</script>
+
+
+</body>
+</html>
+

@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=1024, maximum-scale=1.0, user-scalable=no">
+  <title>Thank You - Signature Scents</title>
+  <style>
+    body {
+      font-family: 'Segoe UI', sans-serif;
+      background: #fff8f0;
+      margin: 0;
+      padding: 2rem;
+      color: #4a4a4a;
+      text-align: center;
+    }
+
+    .thankyou-container {
+      max-width: 600px;
+      margin: auto;
+      background: #fff;
+      padding: 2rem;
+      border-radius: 12px;
+      box-shadow: 0 6px 14px rgba(0,0,0,0.1);
+    }
+
+    h1 {
+      color: #6a4e42;
+    }
+
+    .confirmation {
+      background: #f2f2f2;
+      margin-top: 1rem;
+      padding: 1rem;
+      border-radius: 8px;
+      font-size: 1.1rem;
+      font-weight: bold;
+      color: #333;
+    }
+
+    .back-btn {
+      margin-top: 2rem;
+      background: #6a4e42;
+      color: white;
+      border: none;
+      padding: 0.7rem 1.5rem;
+      border-radius: 8px;
+      font-size: 1rem;
+      cursor: pointer;
+    }
+
+    .back-btn:hover {
+      background: #5c4036;
+    }
+  </style>
+</head>
+<body>
+  <div class="thankyou-container">
+    <h1>Thank You for Your Purchase!</h1>
+    <p>Your order has been received and is being processed.</p>
+    <div class="confirmation">
+      Your Confirmation Number:<br />
+      <span id="confirm-number"></span>
+    </div>
+    <button class="back-btn" onclick="window.location.href='quantity.html'">← Back to Homepage</button>
+  </div>
+
+  <script>
+    function generateConfirmationNumber() {
+      const prefix = "SS";
+      const digits = Math.floor(Math.random() * 900000 + 100000); // 6-digit number
+      return `${prefix}-${digits}`;
+    }
+
+    document.getElementById("confirm-number").textContent = generateConfirmationNumber();
+  </script>
+</body>
+</html>
