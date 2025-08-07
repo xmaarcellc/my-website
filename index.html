@@ -338,13 +338,17 @@ transition: transform 0.1s ease;
 }
 
 .video-section {
-  position: relative;
-  height: 400vh;
-  overflow: hidden;
-  margin-top: 300px;
+  display: flex;
+  flex-direction: column;
 }
 
-.video-section video {
+.video-block {
+  position: relative;
+  height: 100vh;
+  overflow: hidden;
+}
+
+.video-block video {
   position: absolute;
   top: 0;
   left: 0;
@@ -353,34 +357,46 @@ transition: transform 0.1s ease;
   object-fit: cover;
   opacity: 0.88;
   z-index: -1;
-  transition: opacity 1s ease-in-out;
+}
+
+
+.video-section video {
+position: absolute;
+top: 0;
+left: 0;
+min-width: 100%;
+min-height: 100%;
+object-fit: cover;
+opacity: 0.88;
+z-index: -1;
+transition: opacity 1s ease-in-out;
 }
 
 #video2 {
-  opacity: 0;
-  pointer-events: none;
+opacity: 0;
+pointer-events: none;
 }
 
-
+.fade-in {
+opacity: 0.88 !important;
+}
 
 </style>
 </head>
 <body>
 <div class="video-section">
-  <video id="video1" autoplay loop muted playsinline>
-    <source src="Car.video.mp4" type="video/mp4">
-  </video>
-
-  <!-- All the content that should be on top of the video -->
-  <div class="about-text" id="about-section">
-    <h2>About Signature Scents</h2>
-    <p>Signature Scents offers uniquely crafted colognes...</p>
+  <div class="video-block">
+    <video autoplay loop muted playsinline>
+      <source src="Car.mp4" type="video/mp4">
+    </video>
   </div>
-
-  <div class="container">
-    <!-- Product cards go here -->
+  <div class="video-block">
+    <video autoplay loop muted playsinline>
+      <source src="Bottle.mp4" type="video/mp4">
+    </video>
   </div>
 </div>
+
 
 <div class="cart-icon" onclick="toggleCart()">
 <i class="fas fa-shopping-cart"></i>
@@ -412,19 +428,19 @@ transition: transform 0.1s ease;
 
 <header>
 <div class="promo-ribbon" style="
- background: linear-gradient(120deg, #000 25%, #333 50%, #000 75%);
- background-size: 200% 200%;
- color: white;
- text-align: center;
- font-weight: bold;
- font-size: 1.05rem;
- padding: 0.75rem 1.25rem;
- border-radius: 50px;
- margin: 1.2rem auto 0;
- max-width: 620px;
- box-shadow: 0 4px 12px rgba(0,0,0,0.1);
- letter-spacing: 0.4px;
- animation: lenticular-move 6s infinite linear;
+background: linear-gradient(120deg, #000 25%, #333 50%, #000 75%);
+background-size: 200% 200%;
+color: white;
+text-align: center;
+font-weight: bold;
+font-size: 1.05rem;
+padding: 0.75rem 1.25rem;
+border-radius: 50px;
+margin: 1.2rem auto 0;
+max-width: 620px;
+box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+letter-spacing: 0.4px;
+animation: lenticular-move 6s infinite linear;
 ">
 
 <button class="about-btn" onclick="toggleLogin()">Login</button>
@@ -440,19 +456,19 @@ transition: transform 0.1s ease;
 
 </header>
 <div class="promo-ribbon" style="
- background: linear-gradient(120deg, #000 25%, #333 50%, #000 75%);
- background-size: 200% 200%;
- color: white;
- text-align: center;
- font-weight: bold;
- font-size: 1.05rem;
- padding: 0.75rem 1.25rem;
- border-radius: 50px;
- margin: 1.2rem auto 0;
- max-width: 620px;
- box-shadow: 0 4px 12px rgba(0,0,0,0.1);
- letter-spacing: 0.4px;
- animation: lenticular-move 6s infinite linear;
+background: linear-gradient(120deg, #000 25%, #333 50%, #000 75%);
+background-size: 200% 200%;
+color: white;
+text-align: center;
+font-weight: bold;
+font-size: 1.05rem;
+padding: 0.75rem 1.25rem;
+border-radius: 50px;
+margin: 1.2rem auto 0;
+max-width: 620px;
+box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+letter-spacing: 0.4px;
+animation: lenticular-move 6s infinite linear;
 ">
 <span>Sign up today to stay updated with the promotions and offers !</span>
 </div>
@@ -538,13 +554,13 @@ count += cart[item].qty;
 const el = document.createElement("div");
 el.className = "cart-item";
 el.innerHTML = `
-         <span>${item} - $${cart[item].price}</span>
-         <div class="qty-btns">
-           <button onclick="changeQty('${item}', -1, event)">-</button>
-           <input type="number" min="1" value="${cart[item].qty}" onchange="manualQty('${item}', this.value, event)" />
-           <button onclick="changeQty('${item}', 1, event)">+</button>
-         </div>
-       `;
+        <span>${item} - $${cart[item].price}</span>
+        <div class="qty-btns">
+          <button onclick="changeQty('${item}', -1, event)">-</button>
+          <input type="number" min="1" value="${cart[item].qty}" onchange="manualQty('${item}', this.value, event)" />
+          <button onclick="changeQty('${item}', 1, event)">+</button>
+        </div>
+      `;
 cartItemsContainer.appendChild(el);
 }
 document.getElementById("cart-count").textContent = count;
@@ -631,13 +647,13 @@ count += cart[item].qty;
 const el = document.createElement("div");
 el.className = "cart-item";
 el.innerHTML = `
-       <span>${item} - $${cart[item].price}</span>
-       <div class="qty-btns">
-         <button onclick="changeQty('${item}', -1, event)">-</button>
-         <input type="number" min="1" value="${cart[item].qty}" onchange="manualQty('${item}', this.value, event)" />
-         <button onclick="changeQty('${item}', 1, event)">+</button>
-       </div>
-     `;
+      <span>${item} - $${cart[item].price}</span>
+      <div class="qty-btns">
+        <button onclick="changeQty('${item}', -1, event)">-</button>
+        <input type="number" min="1" value="${cart[item].qty}" onchange="manualQty('${item}', this.value, event)" />
+        <button onclick="changeQty('${item}', 1, event)">+</button>
+      </div>
+    `;
 cartItemsContainer.appendChild(el);
 }
 document.getElementById("cart-count").textContent = count;
@@ -708,17 +724,10 @@ updateCartDisplay();
 <a href="#" style="font-size: 0.9rem; color: #6a4e42;">Forgot Password?</a>
 </div>
 </div>
-<script>
-
-</script>
 
 
 </body>
 </html>
-
-
-
-
 
 
 
