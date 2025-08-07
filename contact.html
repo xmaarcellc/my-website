@@ -116,7 +116,7 @@
       <textarea id="message" name="message" required></textarea>
 
       <label for="resume">Upload Resume (PDF/DOC) <span style="font-weight: normal;">(optional)</span>:</label>
-      <input type="file" id="resume" accept=".pdf,.doc,.docx">
+    
 
       <button type="submit" class="submit-btn">Send Message</button>
     </form>
@@ -128,7 +128,7 @@
     document.getElementById('contact-form').addEventListener('submit', function(e) {
       e.preventDefault();
 
-      emailjs.sendForm('service_02aotpn', 'template_sr96bdb', this)
+     emailjs.sendForm('service_02aotpn', 'template_sr96bdb', '#contact-form')
         .then(() => {
           alert('Message sent successfully!');
           document.getElementById('contact-form').reset();
@@ -140,3 +140,4 @@
   </script>
 </body>
 </html>
+
