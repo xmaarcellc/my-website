@@ -337,62 +337,14 @@
   100% { background-position: 100% 50%; }
 }
 
-.video-section {
-  position: relative;
-  height: 100vh;
-  overflow: hidden;
-}
 
-.video-section video {
-  position: absolute;
-  top: 0;
-  left: 0;
-  min-width: 100%;
-  min-height: 100%;
-  object-fit: cover;
-  opacity: 0.88;
-  z-index: -1;
-  transition: opacity 1s ease-in-out;
-}
 
-#video2 {
-  opacity: 0;
-  pointer-events: none;
-}
 
-.fade-in {
-  opacity: 0.88 !important;
-}
-.background-video {
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-  opacity: 0.4;
-  z-index: -1;
-  pointer-events: none;
-}
-
-.section {
-  position: relative;
-  z-index: 1;
-}
 
   </style>
 </head>
 <body>
-  <div class="video-section">
-  <video class="background-video" autoplay loop muted playsinline id="carVideo">
-  <source src="Car.video" type="video/mp4">
-</video>
-
-<video class="background-video" autoplay loop muted playsinline id="bottleVideo" style="display: none;">
-  <source src="Bottle.video" type="video/mp4">
-</video>
-
-</div>
+ 
 
   <div class="cart-icon" onclick="toggleCart()">
     <i class="fas fa-shopping-cart"></i>
@@ -720,38 +672,13 @@ document.addEventListener("click", function(e) {
     <a href="#" style="font-size: 0.9rem; color: #6a4e42;">Forgot Password?</a>
   </div>
 </div>
-<script>
-  window.addEventListener("scroll", () => {
-    const scrollY = window.scrollY;
-    const triggerPoint = window.innerHeight / 2;
 
-    const video2 = document.getElementById("video2");
 
-    if (scrollY > triggerPoint) {
-      video2.classList.add("fade-in");
-    } else {
-      video2.classList.remove("fade-in");
-    }
-  });
-</script>
-<script>
-  const carVideo = document.getElementById("carVideo");
-  const bottleVideo = document.getElementById("bottleVideo");
 
-  window.addEventListener("scroll", () => {
-    const trigger = window.innerHeight / 1.5;
-
-    if (window.scrollY > trigger) {
-      carVideo.style.display = "none";
-      bottleVideo.style.display = "block";
-    } else {
-      carVideo.style.display = "block";
-      bottleVideo.style.display = "none";
-    }
-  });
 </script>
 </body>
 </html>
+
 
 
 
