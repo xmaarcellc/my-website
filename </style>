@@ -363,17 +363,35 @@
 .fade-in {
   opacity: 0.88 !important;
 }
+.background-video {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  opacity: 0.4;
+  z-index: -1;
+  pointer-events: none;
+}
+
+.section {
+  position: relative;
+  z-index: 1;
+}
 
   </style>
 </head>
 <body>
   <div class="video-section">
-  <video id="video1" autoplay loop muted playsinline>
-    <source src="Car.video" type="video/mp4">
-  </video>
-  <video id="video2" autoplay loop muted playsinline>
-    <source src="Bottle.video" type="video/mp4">
-  </video>
+  <video class="background-video" autoplay loop muted playsinline id="carVideo">
+  <source src="Car.video" type="video/mp4">
+</video>
+
+<video class="background-video" autoplay loop muted playsinline id="bottleVideo" style="display: none;">
+  <source src="Bottle.video" type="video/mp4">
+</video>
+
 </div>
 
   <div class="cart-icon" onclick="toggleCart()">
@@ -716,10 +734,25 @@ document.addEventListener("click", function(e) {
     }
   });
 </script>
+<script>
+  const carVideo = document.getElementById("carVideo");
+  const bottleVideo = document.getElementById("bottleVideo");
 
+  window.addEventListener("scroll", () => {
+    const trigger = window.innerHeight / 1.5;
 
+    if (window.scrollY > trigger) {
+      carVideo.style.display = "none";
+      bottleVideo.style.display = "block";
+    } else {
+      carVideo.style.display = "block";
+      bottleVideo.style.display = "none";
+    }
+  });
+</script>
 </body>
 </html>
+
 
 
 
