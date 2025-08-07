@@ -1,687 +1,677 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=1024, maximum-scale=1.0, user-scalable=no">
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=1024, maximum-scale=1.0, user-scalable=no">
 
-  <title>Signature Scents</title>
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"/>
-  <style>
-    body {
-      font-family: Arial, sans-serif;
-      background: #f2f2f2;
-      margin: 0;
-      padding: 0;
-    }
+<title>Signature Scents</title>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"/>
+<style>
+body {
+font-family: Arial, sans-serif;
+background: #f2f2f2;
+margin: 0;
+padding: 0;
+}
 
-    header {
-      background: #222;
-      color: white;
-      padding: 1rem 2rem;
-      text-align: center;
-    }
+header {
+background: #222;
+color: white;
+padding: 1rem 2rem;
+text-align: center;
+}
 
-    .cart-icon {
-      position: fixed;
-      top: 1rem;
-      right: 1rem;
-      font-size: 2rem;
-      cursor: pointer;
-      z-index: 10;
-      background: #fff;
-      padding: 1.5rem;
-      border-radius: 50%;
-      box-shadow: 0 2px 8px rgba(0,0,0,0.15);
-    }
+.cart-icon {
+position: fixed;
+top: 1rem;
+right: 1rem;
+font-size: 2rem;
+cursor: pointer;
+z-index: 10;
+background: #fff;
+padding: 1.5rem;
+border-radius: 50%;
+box-shadow: 0 2px 8px rgba(0,0,0,0.15);
+}
 
-    .cart-count {
-      position: absolute;
-      top: -10px;
-      right: -10px;
-      background: red;
-      color: white;
-      font-size: 1.2rem;
-      padding: .3px .6px;
-      border-radius: 50%;
-      font-weight: bold;
-    }
+.cart-count {
+position: absolute;
+top: -10px;
+right: -10px;
+background: red;
+color: white;
+font-size: 1.2rem;
+padding: .3px .6px;
+border-radius: 50%;
+font-weight: bold;
+}
 
-    .cart-popup {
-      display: none;
-      position: fixed;
-      top: 3.5rem;
-      right: 1rem;
-      background: #fff;
-      border: 1px solid #ccc;
-      border-radius: 10px;
-      padding: 1rem;
-      box-shadow: 0 4px 8px rgba(0,0,0,0.2);
-      z-index: 20;
-      width: 240px;
-    }
+.cart-popup {
+display: none;
+position: fixed;
+top: 3.5rem;
+right: 1rem;
+background: #fff;
+border: 1px solid #ccc;
+border-radius: 10px;
+padding: 1rem;
+box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+z-index: 20;
+width: 240px;
+}
 
-    .cart-popup h4 {
-      margin-top: 0;
-    }
+.cart-popup h4 {
+margin-top: 0;
+}
 
-    .cart-item {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      margin-bottom: 0.5rem;
-    }
+.cart-item {
+display: flex;
+justify-content: space-between;
+align-items: center;
+margin-bottom: 0.5rem;
+}
 
-    .qty-btns {
-      display: flex;
-      gap: 0.3rem;
-      align-items: center;
-    }
+.qty-btns {
+display: flex;
+gap: 0.3rem;
+align-items: center;
+}
 
-    .qty-btns button {
-      padding: 0.2rem 0.5rem;
-      font-size: 0.8rem;
-      background: silver;
-      color: white;
-      border: none;
-      border-radius: 3px;
-      cursor: pointer;
-    }
+.qty-btns button {
+padding: 0.2rem 0.5rem;
+font-size: 0.8rem;
+background: silver;
+color: white;
+border: none;
+border-radius: 3px;
+cursor: pointer;
+}
 
-    .qty-btns input {
-      width: 32px;
-      text-align: center;
-      padding: 0.2rem;
-      font-size: 0.85rem;
-      border: 1px solid #ccc;
-      border-radius: 3px;
-    }
+.qty-btns input {
+width: 32px;
+text-align: center;
+padding: 0.2rem;
+font-size: 0.85rem;
+border: 1px solid #ccc;
+border-radius: 3px;
+}
 
-    .checkout-btn {
-      margin-top: 0.8rem;
-      padding: 0.4rem 1rem;
-      background: black;
-      color: white;
-      border: none;
-      border-radius: 5px;
-      cursor: pointer;
-      float: right;
-    }
+.checkout-btn {
+margin-top: 0.8rem;
+padding: 0.4rem 1rem;
+background: black;
+color: white;
+border: none;
+border-radius: 5px;
+cursor: pointer;
+float: right;
+}
 
-    .about-btn {
-      margin: 0.5rem;
-      padding: 0.4rem 0.8rem;
-      background: silver;
-      color: white;
-      font-weight: bold;
-      border: none;
-      border-radius: 5px;
-      cursor: pointer;
-    }
+.about-btn {
+margin: 0.5rem;
+padding: 0.4rem 0.8rem;
+background: silver;
+color: white;
+font-weight: bold;
+border: none;
+border-radius: 5px;
+cursor: pointer;
+}
 
-    .video-banner {
-      position: relative;
-      overflow: hidden;
-      height: 300px;
-    }
+.video-banner {
+position: relative;
+overflow: hidden;
+height: 300px;
+}
 
-    .video-banner video {
-      position: absolute;
-      width: 100%;
-      height: 100%;
-      object-fit: cover;
-      opacity: 0.88;
-    }
+.video-banner video {
+position: absolute;
+width: 100%;
+height: 100%;
+object-fit: cover;
+opacity: 0.88;
+}
 
-    .about-text {
-      position: relative;
-      z-index: 1;
-      color: #111;
-      background-color: rgba(255, 255, 255, 0.85);
-      text-align: center;
-      padding: 2rem 1rem;
-      max-width: 700px;
-      margin: auto;
-      border-radius: 10px;
-      top: 50px;
-    }
+.about-text {
+position: relative;
+z-index: 1;
+color: #111;
+background-color: rgba(255, 255, 255, 0.85);
+text-align: center;
+padding: 2rem 1rem;
+max-width: 700px;
+margin: auto;
+border-radius: 10px;
+top: 50px;
+}
 
-    .container {
-      display: flex;
-      flex-wrap: wrap;
-      justify-content: center;
-      gap: 2rem;
-      padding: 2rem;
-    }
+.container {
+display: flex;
+flex-wrap: wrap;
+justify-content: center;
+gap: 2rem;
+padding: 2rem;
+}
 
-    .product-box {
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      width: 300px;
-    }
+.product-box {
+display: flex;
+flex-direction: column;
+align-items: center;
+width: 300px;
+}
 
-    .video-preview {
-      width: 100%;
-      height: 200px;
-      border-radius: 10px;
-      overflow: hidden;
-      box-shadow: 0 4px 8px rgba(0,0,0,0.1);
-      margin-bottom: 0.5rem;
-      position: relative;
-    }
+.video-preview {
+width: 100%;
+height: 200px;
+border-radius: 10px;
+overflow: hidden;
+box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+margin-bottom: 0.5rem;
+position: relative;
+}
 
-    .video-preview video {
-      width: 100%;
-      height: 100%;
-      object-fit: cover;
-      opacity: 0.88;
-    }
+.video-preview video {
+width: 100%;
+height: 100%;
+object-fit: cover;
+opacity: 0.88;
+}
 
-    .bestseller-btn {
-      position: absolute;
-      top: 5px;
-      left: 17px;
-      background: red;
-      color: white;
-      border: none;
-      padding: 0.3rem 0.6rem;
-      border-radius: 4px;
-      font-weight: bold;
-      font-size: 0.8rem;
-      transform: rotate(10deg);
-      transform-origin: top left;
-      z-index: 2;
-    }
+.bestseller-btn {
+position: absolute;
+top: 5px;
+left: 17px;
+background: red;
+color: white;
+border: none;
+padding: 0.3rem 0.6rem;
+border-radius: 4px;
+font-weight: bold;
+font-size: 0.8rem;
+transform: rotate(10deg);
+transform-origin: top left;
+z-index: 2;
+}
 
-    .card {
-      background: white;
-      border-radius: 10px;
-      box-shadow: 0 4px 8px rgba(0,0,0,0.1);
-      width: 100%;
-      padding: 1rem;
-      text-align: center;
-    }
+.card {
+background: white;
+border-radius: 10px;
+box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+width: 100%;
+padding: 1rem;
+text-align: center;
+}
 
-    .card h2 {
-      margin: 0.5rem 0;
-    }
+.card h2 {
+margin: 0.5rem 0;
+}
 
-    .card p {
-      color: #555;
-      background-color: none;
-      padding: 0.5rem;
-      border-radius: 5px;
-    }
+.card p {
+color: #555;
+background-color: none;
+padding: 0.5rem;
+border-radius: 5px;
+}
 
-    .price {
-      font-weight: bold;
-      color: #111;
-      margin-top: 1rem;
-    }
+.price {
+font-weight: bold;
+color: #111;
+margin-top: 1rem;
+}
 
-    .buy-btn {
-      padding: 0.5rem 1rem;
-      font-size: 1rem;
-      background: black;
-      color: white;
-      border: none;
-      border-radius: 5px;
-      cursor: pointer;
-      margin-top: 1rem;
-    }
+.buy-btn {
+padding: 0.5rem 1rem;
+font-size: 1rem;
+background: black;
+color: white;
+border: none;
+border-radius: 5px;
+cursor: pointer;
+margin-top: 1rem;
+}
 
-    .buy-btn:hover {
-      background: #333;
-    }
+.buy-btn:hover {
+background: #333;
+}
 
-    .footer {
-      text-align: center;
-      padding: 1.5rem 2rem;
-      background: #fff;
-      border-top: 1px solid #ccc;
-      font-size: 0.9rem;
-      color: #444;
-      margin-top: 3rem;
-    }
+.footer {
+text-align: center;
+padding: 1.5rem 2rem;
+background: #fff;
+border-top: 1px solid #ccc;
+font-size: 0.9rem;
+color: #444;
+margin-top: 3rem;
+}
 
-   .footer-links {
-  display: flex;
-  justify-content: center;
-  flex-wrap: nowrap; /* prevent wrapping */
-  gap: 2rem;
-  margin-top: 0.5rem;
-  flex-direction: row;
+.footer-links {
+display: flex;
+justify-content: center;
+flex-wrap: nowrap; /* prevent wrapping */
+gap: 2rem;
+margin-top: 0.5rem;
+flex-direction: row;
 }
 
 .login-popup {
-  display: none;
-  position: fixed;
-  top: 4rem;
-  right: 1rem;
-  background: white;
-  padding: 1rem;
-  border-radius: 10px;
-  box-shadow: 0 6px 12px rgba(0,0,0,0.2);
-  z-index: 30;
-  width: 250px;
-  text-align: center;
+display: none;
+position: fixed;
+top: 4rem;
+right: 1rem;
+background: white;
+padding: 1rem;
+border-radius: 10px;
+box-shadow: 0 6px 12px rgba(0,0,0,0.2);
+z-index: 30;
+width: 250px;
+text-align: center;
 }
 
 .login-popup h3 {
-  margin-top: 0;
-  color: #333;
+margin-top: 0;
+color: #333;
 }
 
 .login-popup input {
-  width: 100%;
-  padding: 0.5rem;
-  margin: 0.5rem 0;
-  font-size: 1rem;
-  border: 1px solid #ccc;
-  border-radius: 6px;
+width: 100%;
+padding: 0.5rem;
+margin: 0.5rem 0;
+font-size: 1rem;
+border: 1px solid #ccc;
+border-radius: 6px;
 }
 
 .login-submit {
-  background: black;
-  color: white;
-  border: none;
-  padding: 0.5rem 1rem;
-  width: 100%;
-  border-radius: 6px;
-  margin-top: 0.5rem;
-  cursor: pointer;
+background: black;
+color: white;
+border: none;
+padding: 0.5rem 1rem;
+width: 100%;
+border-radius: 6px;
+margin-top: 0.5rem;
+cursor: pointer;
 }
 
 .login-links {
-  margin-top: 0.75rem;
-  font-size: 0.85rem;
+margin-top: 0.75rem;
+font-size: 0.85rem;
 }
 
 .login-links a {
-  color: #6a4e42;
-  text-decoration: none;
+color: #6a4e42;
+text-decoration: none;
 }
 
 .login-links a:hover {
-  text-decoration: underline;
+text-decoration: underline;
 }
 
 .promo-ribbon {
-  position: relative;
-  background: linear-gradient(120deg, #ff4d4d 25%, #ff9999 50%, #ff4d4d 75%);
-  background-size: 200% 200%;
-  color: white;
-  text-align: center;
-  font-weight: bold;
-  font-size: 1.05rem;
-  padding: 0.75rem 1.25rem;
-  border-radius: 50px;
-  margin: 1.2rem auto 0;
-  max-width: 620px;
-  box-shadow: 0 4px 12px rgba(0,0,0,0.1);
-  letter-spacing: 0.4px;
-  animation: lenticular-move 6s infinite linear;
-  transition: transform 0.1s ease;
+position: relative;
+background: linear-gradient(120deg, #ff4d4d 25%, #ff9999 50%, #ff4d4d 75%);
+background-size: 200% 200%;
+color: white;
+text-align: center;
+font-weight: bold;
+font-size: 1.05rem;
+padding: 0.75rem 1.25rem;
+border-radius: 50px;
+margin: 1.2rem auto 0;
+max-width: 620px;
+box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+letter-spacing: 0.4px;
+animation: lenticular-move 6s infinite linear;
+transition: transform 0.1s ease;
 }
 
 @keyframes lenticular-move {
-  0%   { background-position: 0% 50%; }
-  50%  { background-position: 100% 50%; }
-  100% { background-position: 0% 50%; }
+0%   { background-position: 0% 50%; }
+50%  { background-position: 100% 50%; }
+100% { background-position: 0% 50%; }
 }
 
 }
 
 @keyframes shimmer {
-  0% { background-position: 0% 50%; }
-  100% { background-position: 100% 50%; }
+0% { background-position: 0% 50%; }
+100% { background-position: 100% 50%; }
 }
 
 
-
-
-
-  </style>
+</style>
 </head>
 <body>
- 
+<div class="cart-icon" onclick="toggleCart()">
+<i class="fas fa-shopping-cart"></i>
+<span class="cart-count" id="cart-count">0</span>
+</div>
 
-  <div class="cart-icon" onclick="toggleCart()">
-    <i class="fas fa-shopping-cart"></i>
-    <span class="cart-count" id="cart-count">0</span>
-  </div>
-
-  <div class="cart-popup" id="cart-popup">
-    <h4>Your Cart</h4>
-    <div id="cart-items"></div>
-    <button class="checkout-btn" onclick="goToCheckout()">Checkout</button>
-  </div>
+<div class="cart-popup" id="cart-popup">
+<h4>Your Cart</h4>
+<div id="cart-items"></div>
+<button class="checkout-btn" onclick="goToCheckout()">Checkout</button>
+</div>
 <div class="login-popup" id="login-popup" style="display: none;">
-  <label style="display:block;">Email</label>
-  <input type="text" style="width: 90%; height: 30px; margin-bottom: 0.5rem;" />
+<label style="display:block;">Email</label>
+<input type="text" style="width: 90%; height: 30px; margin-bottom: 0.5rem;" />
 
-  <label style="display:block;">Password</label>
-  <input type="password" style="width: 90%; height: 30px; margin-bottom: 1rem;" />
+<label style="display:block;">Password</label>
+<input type="password" style="width: 90%; height: 30px; margin-bottom: 1rem;" />
 
-  <button style="width: 100%; padding: 0.5rem; background: black; color: white; border: none; border-radius: 5px;">Login</button>
+<button style="width: 100%; padding: 0.5rem; background: black; color: white; border: none; border-radius: 5px;">Login</button>
 
-  <div style="margin-top: 1rem;">
-    <a href="#" style="display:block; margin-bottom: 0.4rem; color: #6a4e42; font-size: 0.9rem;">Register</a>
-    <a href="#" style="display:block; color: #6a4e42; font-size: 0.9rem;">Forgot Password?</a>
-  </div>
+<div style="margin-top: 1rem;">
+<a href="#" style="display:block; margin-bottom: 0.4rem; color: #6a4e42; font-size: 0.9rem;">Register</a>
+<a href="#" style="display:block; color: #6a4e42; font-size: 0.9rem;">Forgot Password?</a>
+</div>
 </div>
 
-  ...
+...
 </div>
 
-  <header>
+<header>
 <div class="promo-ribbon" style="
-  background: linear-gradient(120deg, #000 25%, #333 50%, #000 75%);
-  background-size: 200% 200%;
-  color: white;
-  text-align: center;
-  font-weight: bold;
-  font-size: 1.05rem;
-  padding: 0.75rem 1.25rem;
-  border-radius: 50px;
-  margin: 1.2rem auto 0;
-  max-width: 620px;
-  box-shadow: 0 4px 12px rgba(0,0,0,0.1);
-  letter-spacing: 0.4px;
-  animation: lenticular-move 6s infinite linear;
+ background: linear-gradient(120deg, #000 25%, #333 50%, #000 75%);
+ background-size: 200% 200%;
+ color: white;
+ text-align: center;
+ font-weight: bold;
+ font-size: 1.05rem;
+ padding: 0.75rem 1.25rem;
+ border-radius: 50px;
+ margin: 1.2rem auto 0;
+ max-width: 620px;
+ box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+ letter-spacing: 0.4px;
+ animation: lenticular-move 6s infinite linear;
 ">
-  
+
 <button class="about-btn" onclick="toggleLogin()">Login</button>
 
-  <h1>Signature Scents</h1>
-  <p>Explore Our Top 3 Colognes</p>
-  <div style="display: flex; justify-content: center; gap: 1rem;">
-  <button class="about-btn" onclick="scrollToAbout()">About Us</button>
-  <button class="about-btn" onclick="window.location.href='career.html'">Careers</button>
-  <button class="about-btn" onclick="window.location.href='faq.html'">FAQ</button>
+<h1>Signature Scents</h1>
+<p>Explore Our Top 3 Colognes</p>
+<div style="display: flex; justify-content: center; gap: 1rem;">
+<button class="about-btn" onclick="scrollToAbout()">About Us</button>
+<button class="about-btn" onclick="window.location.href='career.html'">Careers</button>
+<button class="about-btn" onclick="window.location.href='faq.html'">FAQ</button>
 </div>
 
 
 </header>
 <div class="promo-ribbon" style="
-  background: linear-gradient(120deg, #000 25%, #333 50%, #000 75%);
-  background-size: 200% 200%;
-  color: white;
-  text-align: center;
-  font-weight: bold;
-  font-size: 1.05rem;
-  padding: 0.75rem 1.25rem;
-  border-radius: 50px;
-  margin: 1.2rem auto 0;
-  max-width: 620px;
-  box-shadow: 0 4px 12px rgba(0,0,0,0.1);
-  letter-spacing: 0.4px;
-  animation: lenticular-move 6s infinite linear;
+ background: linear-gradient(120deg, #000 25%, #333 50%, #000 75%);
+ background-size: 200% 200%;
+ color: white;
+ text-align: center;
+ font-weight: bold;
+ font-size: 1.05rem;
+ padding: 0.75rem 1.25rem;
+ border-radius: 50px;
+ margin: 1.2rem auto 0;
+ max-width: 620px;
+ box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+ letter-spacing: 0.4px;
+ animation: lenticular-move 6s infinite linear;
 ">
-  <span>Sign up today to stay updated with the promotions and offers !</span>
+<span>Sign up today to stay updated with the promotions and offers !</span>
 </div>
 
 <div class="promo-ribbon">
-  <span>🔥 35% OFF orders over $150 + FREE Shipping! Ends 11/30 🔥</span>
+<span>🔥 35% OFF orders over $150 + FREE Shipping! Ends 11/30 🔥</span>
 </div>
 
 
-      <div class="about-text" id="about-section">
-      <h2>About Signature Scents</h2>
-      <p>Signature Scents offers uniquely crafted colognes for every mood and moment. Our scents blend boldness, freshness, and sophistication into every bottle — so you always leave a lasting impression. We currently offer two signature scents due to limited inventory, but more fragrances are coming soon!</p>
-    </div>
-  </div>
+<div class="about-text" id="about-section">
+<h2>About Signature Scents</h2>
+<p>Signature Scents offers uniquely crafted colognes for every mood and moment. Our scents blend boldness, freshness, and sophistication into every bottle — so you always leave a lasting impression. We currently offer two signature scents due to limited inventory, but more fragrances are coming soon!</p>
+</div>
+</div>
 
-  <div class="container">
-    <div class="product-box">
-      <div class="video-preview">
-       
-        <video autoplay loop muted playsinline>
-          <source src="20250729_2049_Elegant Perfume Display_simple_compose_01k1ccvxcdfe1rhnneh3pqtr13.mp4" type="video/mp4">
-        </video>
-      </div>
-      <div class="card">
-        <h2>Midnight Ember</h2>  
-        <p>Smoky, bold, and unforgettable. Perfect for evening wear (12.oz).</p>
-        <div class="price">$79.99</div>
-        <button class="buy-btn" onclick="addToCart('Midnight Ember', 79.99)">Add to Cart</button>
-      </div>
-   
+<div class="container">
+<div class="product-box">
+<div class="video-preview">
 
-    
-      
-    <div class="product-box">
-      <div class="video-preview">
-         <button class="bestseller-btn">Recently Added</button>
-        <video autoplay loop muted playsinline>
-          <source src="20250729_2249_Sleek Perfume Showcase_simple_compose_01k1ckq81gehw9ddtrm3eh830g.mp4" type="video/mp4">
-        </video>
-      </div>
-      <div class="card">
-        <h2>Urban Spice</h2>
-        <p>Spicy and modern. Great for daytime and office wear (12.oz).</p>
-        <div class="price">$54.99</div>
-        <button class="buy-btn" onclick="addToCart('Urban Spice', 54.99)">Add to Cart</button>
-    
-  </div>
-
-  <footer class="footer">
-    <div>© 2025 Signature Scents</div>
-    <div class="footer-links">
-     <a href="terms.html">Terms</a>
-     <a href="ingredients.html">Ingredients</a>
-    <a href="privacy.html">Privacy</a>
-
-      <a href="contact.html">Contact</a>
-     <a href="returnpolicy.html">Returns</a>
+<video autoplay loop muted playsinline>
+<source src="20250729_2049_Elegant Perfume Display_simple_compose_01k1ccvxcdfe1rhnneh3pqtr13.mp4" type="video/mp4">
+</video>
+</div>
+<div class="card">
+<h2>Midnight Ember</h2>  
+<p>Smoky, bold, and unforgettable. Perfect for evening wear (12.oz).</p>
+<div class="price">$79.99</div>
+<button class="buy-btn" onclick="addToCart('Midnight Ember', 79.99)">Add to Cart</button>
+</div>
 
 
-      <a href="#">FAQ</a>
+
+
+<div class="product-box">
+<div class="video-preview">
+<button class="bestseller-btn">Recently Added</button>
+<video autoplay loop muted playsinline>
+<source src="20250729_2249_Sleek Perfume Showcase_simple_compose_01k1ckq81gehw9ddtrm3eh830g.mp4" type="video/mp4">
+</video>
+</div>
+<div class="card">
+<h2>Urban Spice</h2>
+<p>Spicy and modern. Great for daytime and office wear (12.oz).</p>
+<div class="price">$54.99</div>
+<button class="buy-btn" onclick="addToCart('Urban Spice', 54.99)">Add to Cart</button>
+
+</div>
+
+<footer class="footer">
+<div>© 2025 Signature Scents</div>
+<div class="footer-links">
+<a href="terms.html">Terms</a>
+<a href="ingredients.html">Ingredients</a>
+<a href="privacy.html">Privacy</a>
+
+<a href="contact.html">Contact</a>
+<a href="returnpolicy.html">Returns</a>
+
+
+<a href="#">FAQ</a>
+      <a href="cookies.html">Manage Cookies</a>
      
 
-    </div>
-  </footer>
+</div>
+</footer>
 
-  <script>
-    const cart = {};
-    const cartItemsContainer = document.getElementById("cart-items");
-    const cartPopup = document.getElementById("cart-popup");
+<script>
+const cart = {};
+const cartItemsContainer = document.getElementById("cart-items");
+const cartPopup = document.getElementById("cart-popup");
 
-    function addToCart(name, price) {
-      if (!cart[name]) cart[name] = { price, qty: 0 };
-      cart[name].qty++;
-      updateCartDisplay();
-      cartPopup.style.display = "block";
-    }
+function addToCart(name, price) {
+if (!cart[name]) cart[name] = { price, qty: 0 };
+cart[name].qty++;
+updateCartDisplay();
+cartPopup.style.display = "block";
+}
 
-    function updateCartDisplay() {
-      let count = 0;
-      cartItemsContainer.innerHTML = "";
-      for (let item in cart) {
-        count += cart[item].qty;
-        const el = document.createElement("div");
-        el.className = "cart-item";
-        el.innerHTML = `
-          <span>${item} - $${cart[item].price}</span>
-          <div class="qty-btns">
-            <button onclick="changeQty('${item}', -1, event)">-</button>
-            <input type="number" min="1" value="${cart[item].qty}" onchange="manualQty('${item}', this.value, event)" />
-            <button onclick="changeQty('${item}', 1, event)">+</button>
-          </div>
-        `;
-        cartItemsContainer.appendChild(el);
-      }
-      document.getElementById("cart-count").textContent = count;
-    }
+function updateCartDisplay() {
+let count = 0;
+cartItemsContainer.innerHTML = "";
+for (let item in cart) {
+count += cart[item].qty;
+const el = document.createElement("div");
+el.className = "cart-item";
+el.innerHTML = `
+         <span>${item} - $${cart[item].price}</span>
+         <div class="qty-btns">
+           <button onclick="changeQty('${item}', -1, event)">-</button>
+           <input type="number" min="1" value="${cart[item].qty}" onchange="manualQty('${item}', this.value, event)" />
+           <button onclick="changeQty('${item}', 1, event)">+</button>
+         </div>
+       `;
+cartItemsContainer.appendChild(el);
+}
+document.getElementById("cart-count").textContent = count;
+}
 
-    function changeQty(item, delta, event) {
-      event.stopPropagation();
-      if (cart[item]) {
-        cart[item].qty += delta;
-        if (cart[item].qty <= 0) delete cart[item];
-        updateCartDisplay();
-      }
-    }
+function changeQty(item, delta, event) {
+event.stopPropagation();
+if (cart[item]) {
+cart[item].qty += delta;
+if (cart[item].qty <= 0) delete cart[item];
+updateCartDisplay();
+}
+}
 
-    function manualQty(item, val, event) {
-      event.stopPropagation();
-      const qty = parseInt(val);
-      if (!isNaN(qty) && qty > 0) {
-        cart[item].qty = qty;
-      } else {
-        delete cart[item];
-      }
-      updateCartDisplay();
-    }
+function manualQty(item, val, event) {
+event.stopPropagation();
+const qty = parseInt(val);
+if (!isNaN(qty) && qty > 0) {
+cart[item].qty = qty;
+} else {
+delete cart[item];
+}
+updateCartDisplay();
+}
 
-    function toggleCart() {
-      cartPopup.style.display = cartPopup.style.display === "block" ? "none" : "block";
-    }
-
-    document.addEventListener("click", function(e) {
-      if (!cartPopup.contains(e.target) && !e.target.closest(".cart-icon")) {
-        cartPopup.style.display = "none";
-      }
-    });
-
-    function goToCheckout() {
-localStorage.setItem("cart", JSON.stringify(cart));
-
-      window.location.href = "chkout.html";
-    }
-
-    function scrollToAbout() {
-      const section = document.getElementById("about-section");
-      section.scrollIntoView({ behavior: "smooth" });
-      section.style.transition = "background-color 0.5s ease";
-      section.style.backgroundColor = "#ffffcc";
-      setTimeout(() => {
-        section.style.backgroundColor = "rgba(255, 255, 255, 0.85)";
-      }, 500);
-    }
-function toggleLogin() {
-  const loginBox = document.getElementById("login-popup");
-  loginBox.style.display = loginBox.style.display === "block" ? "none" : "block";
+function toggleCart() {
+cartPopup.style.display = cartPopup.style.display === "block" ? "none" : "block";
 }
 
 document.addEventListener("click", function(e) {
-  const loginPopup = document.getElementById("login-popup");
-  if (loginPopup && !loginPopup.contains(e.target) && !e.target.closest(".about-btn")) {
-    loginPopup.style.display = "none";
-  }
+if (!cartPopup.contains(e.target) && !e.target.closest(".cart-icon")) {
+cartPopup.style.display = "none";
+}
+});
+
+function goToCheckout() {
+localStorage.setItem("cart", JSON.stringify(cart));
+
+window.location.href = "chkout.html";
+}
+
+function scrollToAbout() {
+const section = document.getElementById("about-section");
+section.scrollIntoView({ behavior: "smooth" });
+section.style.transition = "background-color 0.5s ease";
+section.style.backgroundColor = "#ffffcc";
+setTimeout(() => {
+section.style.backgroundColor = "rgba(255, 255, 255, 0.85)";
+}, 500);
+}
+function toggleLogin() {
+const loginBox = document.getElementById("login-popup");
+loginBox.style.display = loginBox.style.display === "block" ? "none" : "block";
+}
+
+document.addEventListener("click", function(e) {
+const loginPopup = document.getElementById("login-popup");
+if (loginPopup && !loginPopup.contains(e.target) && !e.target.closest(".about-btn")) {
+loginPopup.style.display = "none";
+}
 });
 
 
-  </script>
+</script>
 <script>
-  let cart = JSON.parse(localStorage.getItem("cart")) || {};
+let cart = JSON.parse(localStorage.getItem("cart")) || {};
 
-  const cartItemsContainer = document.getElementById("cart-items");
-  const cartPopup = document.getElementById("cart-popup");
+const cartItemsContainer = document.getElementById("cart-items");
+const cartPopup = document.getElementById("cart-popup");
 
-  function addToCart(name, price) {
-    if (!cart[name]) cart[name] = { price, qty: 0 };
-    cart[name].qty++;
-    saveCart();
-    updateCartDisplay();
-    cartPopup.style.display = "block";
-  }
+function addToCart(name, price) {
+if (!cart[name]) cart[name] = { price, qty: 0 };
+cart[name].qty++;
+saveCart();
+updateCartDisplay();
+cartPopup.style.display = "block";
+}
 
-  function updateCartDisplay() {
-    let count = 0;
-    cartItemsContainer.innerHTML = "";
-    for (let item in cart) {
-      count += cart[item].qty;
-      const el = document.createElement("div");
-      el.className = "cart-item";
-      el.innerHTML = `
-        <span>${item} - $${cart[item].price}</span>
-        <div class="qty-btns">
-          <button onclick="changeQty('${item}', -1, event)">-</button>
-          <input type="number" min="1" value="${cart[item].qty}" onchange="manualQty('${item}', this.value, event)" />
-          <button onclick="changeQty('${item}', 1, event)">+</button>
-        </div>
-      `;
-      cartItemsContainer.appendChild(el);
-    }
-    document.getElementById("cart-count").textContent = count;
-  }
+function updateCartDisplay() {
+let count = 0;
+cartItemsContainer.innerHTML = "";
+for (let item in cart) {
+count += cart[item].qty;
+const el = document.createElement("div");
+el.className = "cart-item";
+el.innerHTML = `
+       <span>${item} - $${cart[item].price}</span>
+       <div class="qty-btns">
+         <button onclick="changeQty('${item}', -1, event)">-</button>
+         <input type="number" min="1" value="${cart[item].qty}" onchange="manualQty('${item}', this.value, event)" />
+         <button onclick="changeQty('${item}', 1, event)">+</button>
+       </div>
+     `;
+cartItemsContainer.appendChild(el);
+}
+document.getElementById("cart-count").textContent = count;
+}
 
-  function changeQty(item, delta, event) {
-    event.stopPropagation();
-    if (cart[item]) {
-      cart[item].qty += delta;
-      if (cart[item].qty <= 0) delete cart[item];
-      saveCart();
-      updateCartDisplay();
-    }
-  }
+function changeQty(item, delta, event) {
+event.stopPropagation();
+if (cart[item]) {
+cart[item].qty += delta;
+if (cart[item].qty <= 0) delete cart[item];
+saveCart();
+updateCartDisplay();
+}
+}
 
-  function manualQty(item, val, event) {
-    event.stopPropagation();
-    const qty = parseInt(val);
-    if (!isNaN(qty) && qty > 0) {
-      cart[item].qty = qty;
-    } else {
-      delete cart[item];
-    }
-    saveCart();
-    updateCartDisplay();
-  }
+function manualQty(item, val, event) {
+event.stopPropagation();
+const qty = parseInt(val);
+if (!isNaN(qty) && qty > 0) {
+cart[item].qty = qty;
+} else {
+delete cart[item];
+}
+saveCart();
+updateCartDisplay();
+}
 
-  function toggleCart() {
-    cartPopup.style.display = cartPopup.style.display === "block" ? "none" : "block";
-  }
+function toggleCart() {
+cartPopup.style.display = cartPopup.style.display === "block" ? "none" : "block";
+}
 
-  document.addEventListener("click", function(e) {
-    if (!cartPopup.contains(e.target) && !e.target.closest(".cart-icon")) {
-      cartPopup.style.display = "none";
-    }
-  });
+document.addEventListener("click", function(e) {
+if (!cartPopup.contains(e.target) && !e.target.closest(".cart-icon")) {
+cartPopup.style.display = "none";
+}
+});
 
-  function goToCheckout() {
-    localStorage.setItem("cart", JSON.stringify(cart));
-    window.location.href = "chkout.html";
-  }
+function goToCheckout() {
+localStorage.setItem("cart", JSON.stringify(cart));
+window.location.href = "chkout.html";
+}
 
-  function saveCart() {
-    localStorage.setItem("cart", JSON.stringify(cart));
-  }
+function saveCart() {
+localStorage.setItem("cart", JSON.stringify(cart));
+}
 
-  function scrollToAbout() {
-    const section = document.getElementById("about-section");
-    section.scrollIntoView({ behavior: "smooth" });
-    section.style.transition = "background-color 0.5s ease";
-    section.style.backgroundColor = "#ffffcc";
-    setTimeout(() => {
-      section.style.backgroundColor = "rgba(255, 255, 255, 0.85)";
-    }, 500);
-  }
+function scrollToAbout() {
+const section = document.getElementById("about-section");
+section.scrollIntoView({ behavior: "smooth" });
+section.style.transition = "background-color 0.5s ease";
+section.style.backgroundColor = "#ffffcc";
+setTimeout(() => {
+section.style.backgroundColor = "rgba(255, 255, 255, 0.85)";
+}, 500);
+}
 
-  updateCartDisplay();
+updateCartDisplay();
 </script>
 <div class="login-popup" id="login-popup" style="display: none;">
-  <label style="display:block;">Email</label>
-  <input type="text" style="width: 95%; margin-bottom: 0.5rem; padding: 0.5rem;" />
-  <label style="display:block;">Password</label>
-  <input type="password" style="width: 95%; margin-bottom: 1rem; padding: 0.5rem;" />
-  <button style="width: 100%; padding: 0.5rem; background: black; color: white; border: none; border-radius: 5px;">Login</button>
-  <div style="margin-top: 0.75rem; text-align: center;">
-    <a href="register.html" style="font-size: 0.9rem; color: #6a4e42;">Register</a>
+<label style="display:block;">Email</label>
+<input type="text" style="width: 95%; margin-bottom: 0.5rem; padding: 0.5rem;" />
+<label style="display:block;">Password</label>
+<input type="password" style="width: 95%; margin-bottom: 1rem; padding: 0.5rem;" />
+<button style="width: 100%; padding: 0.5rem; background: black; color: white; border: none; border-radius: 5px;">Login</button>
+<div style="margin-top: 0.75rem; text-align: center;">
+<a href="register.html" style="font-size: 0.9rem; color: #6a4e42;">Register</a>
 
-    <a href="#" style="font-size: 0.9rem; color: #6a4e42;">Forgot Password?</a>
-  </div>
+<a href="#" style="font-size: 0.9rem; color: #6a4e42;">Forgot Password?</a>
+</div>
 </div>
 
 
-
-</script>
 </body>
 </html>
-
-
-
-
 
 
 
