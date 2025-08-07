@@ -244,21 +244,15 @@
       margin-top: 3rem;
     }
 
-    .footer-links {
-      display: flex;
-      justify-content: center;
-      flex-wrap: wrap;
-      gap: 1rem;
-    }
+   .footer-links {
+  display: flex;
+  justify-content: center;
+  flex-wrap: nowrap; /* prevent wrapping */
+  gap: 2rem;
+  margin-top: 0.5rem;
+  flex-direction: row;
+}
 
-    .footer-links a {
-      text-decoration: none;
-      color: #444;
-    }
-
-    .footer-links a:hover {
-      text-decoration: underline;
-    }
 .login-popup {
   display: none;
   position: fixed;
@@ -677,6 +671,7 @@ document.addEventListener("click", function(e) {
 
 </body>
 </html>
+
 
 
 
