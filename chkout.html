@@ -127,7 +127,7 @@
   <script>
 
     const cart = JSON.parse(localStorage.getItem("cart")) || {};
-    const upsellPrice = 1.99;
+    const upsellPrice = 0.99;
     const yearSelect = document.getElementById('exp-year');
     for (let y = new Date().getFullYear(); y <= 2035; y++) {
       const opt = document.createElement(\"option\");
@@ -181,7 +181,7 @@
 
 
 <script>
-  const upsellPrice = 1.99;
+  const upsellPrice = 0.99;
 
   const products = {
     "Midnight Ember": 79.99,
@@ -374,4 +374,5 @@ if (subtotal > 150) {
 
 </body>
 </html>
+
 
