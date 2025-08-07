@@ -621,91 +621,91 @@ loginPopup.style.display = "none";
 </script>
 <script>
 let cart = JSON.parse(localStorage.getItem("cart")) || {};
-
 const cartItemsContainer = document.getElementById("cart-items");
 const cartPopup = document.getElementById("cart-popup");
 
 function addToCart(name, price) {
-if (!cart[name]) cart[name] = { price, qty: 0 };
-cart[name].qty++;
-saveCart();
-updateCartDisplay();
-cartPopup.style.display = "block";
+  if (!cart[name]) cart[name] = { price, qty: 0 };
+  cart[name].qty++;
+  saveCart();
+  updateCartDisplay();
+  cartPopup.style.display = "block";
 }
 
 function updateCartDisplay() {
-let count = 0;
-cartItemsContainer.innerHTML = "";
-for (let item in cart) {
-count += cart[item].qty;
-const el = document.createElement("div");
-el.className = "cart-item";
-el.innerHTML = `
-     <span>${item} - $${cart[item].price}</span>
-     <div class="qty-btns">
-       <button onclick="changeQty('${item}', -1, event)">-</button>
-       <input type="number" min="1" value="${cart[item].qty}" onchange="manualQty('${item}', this.value, event)" />
-       <button onclick="changeQty('${item}', 1, event)">+</button>
-     </div>
-   `;
-cartItemsContainer.appendChild(el);
-}
-document.getElementById("cart-count").textContent = count;
+  let count = 0;
+  cartItemsContainer.innerHTML = "";
+  for (let item in cart) {
+    count += cart[item].qty;
+    const el = document.createElement("div");
+    el.className = "cart-item";
+    el.innerHTML = `
+      <span>${item} - $${cart[item].price}</span>
+      <div class="qty-btns">
+        <button onclick="changeQty('${item}', -1, event)">-</button>
+        <input type="number" min="1" value="${cart[item].qty}" onchange="manualQty('${item}', this.value, event)" />
+        <button onclick="changeQty('${item}', 1, event)">+</button>
+      </div>
+    `;
+    cartItemsContainer.appendChild(el);
+  }
+  document.getElementById("cart-count").textContent = count;
 }
 
 function changeQty(item, delta, event) {
-event.stopPropagation();
-if (cart[item]) {
-cart[item].qty += delta;
-if (cart[item].qty <= 0) delete cart[item];
-saveCart();
-updateCartDisplay();
-}
+  event.stopPropagation();
+  if (cart[item]) {
+    cart[item].qty += delta;
+    if (cart[item].qty <= 0) delete cart[item];
+    saveCart();
+    updateCartDisplay();
+  }
 }
 
 function manualQty(item, val, event) {
-event.stopPropagation();
-const qty = parseInt(val);
-if (!isNaN(qty) && qty > 0) {
-cart[item].qty = qty;
-} else {
-delete cart[item];
-}
-saveCart();
-updateCartDisplay();
+  event.stopPropagation();
+  const qty = parseInt(val);
+  if (!isNaN(qty) && qty > 0) {
+    cart[item].qty = qty;
+  } else {
+    delete cart[item];
+  }
+  saveCart();
+  updateCartDisplay();
 }
 
 function toggleCart() {
-cartPopup.style.display = cartPopup.style.display === "block" ? "none" : "block";
+  cartPopup.style.display = cartPopup.style.display === "block" ? "none" : "block";
 }
 
 document.addEventListener("click", function(e) {
-if (!cartPopup.contains(e.target) && !e.target.closest(".cart-icon")) {
-cartPopup.style.display = "none";
-}
+  if (!cartPopup.contains(e.target) && !e.target.closest(".cart-icon")) {
+    cartPopup.style.display = "none";
+  }
 });
 
 function goToCheckout() {
-localStorage.setItem("cart", JSON.stringify(cart));
-window.location.href = "chkout.html";
+  localStorage.setItem("cart", JSON.stringify(cart));
+  window.location.href = "chkout.html";
 }
 
 function saveCart() {
-localStorage.setItem("cart", JSON.stringify(cart));
+  localStorage.setItem("cart", JSON.stringify(cart));
 }
 
 function scrollToAbout() {
-const section = document.getElementById("about-section");
-section.scrollIntoView({ behavior: "smooth" });
-section.style.transition = "background-color 0.5s ease";
-section.style.backgroundColor = "#ffffcc";
-setTimeout(() => {
-section.style.backgroundColor = "rgba(255, 255, 255, 0.85)";
-}, 500);
+  const section = document.getElementById("about-section");
+  section.scrollIntoView({ behavior: "smooth" });
+  section.style.transition = "background-color 0.5s ease";
+  section.style.backgroundColor = "#ffffcc";
+  setTimeout(() => {
+    section.style.backgroundColor = "rgba(255, 255, 255, 0.85)";
+  }, 500);
 }
 
 updateCartDisplay();
 </script>
+
 <div class="login-popup" id="login-popup" style="display: none;">
 <label style="display:block;">Email</label>
 <input type="text" style="width: 95%; margin-bottom: 0.5rem; padding: 0.5rem;" />
@@ -722,6 +722,7 @@ updateCartDisplay();
 
 </body>
 </html>
+
 
 
 
