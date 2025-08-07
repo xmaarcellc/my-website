@@ -529,9 +529,7 @@ animation: lenticular-move 6s infinite linear;
 </footer>
 
 <script>
-const cart = {};
-const cartItemsContainer = document.getElementById("cart-items");
-const cartPopup = document.getElementById("cart-popup");
+
 
 function addToCart(name, price) {
 if (!cart[name]) cart[name] = { price, qty: 0 };
@@ -722,6 +720,7 @@ updateCartDisplay();
 
 </body>
 </html>
+
 
 
 
