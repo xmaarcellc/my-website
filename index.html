@@ -9,7 +9,7 @@
 <style>
 
 
-  
+
 body {
 font-family: Arial, sans-serif;
 background: #f2f2f2;
@@ -26,7 +26,7 @@ text-align: center;
 
 .cart-icon {
 position: fixed;
-top: 5rem;
+top: -3rem;
 right: 1rem;
 font-size: 2rem;
 cursor: pointer;
@@ -330,30 +330,28 @@ transition: transform 0.1s ease;
 }
 
 .video-section {
-  display: flex;
-  flex-direction: column;
-  margin: 0;
-  padding: 0;
+display: flex;
+flex-direction: column;
 }
 
 .video-block {
-  position: relative;
-  height: 100vh;
-  overflow: hidden;
-  margin: 0;
-  padding: 0;
+position: relative;
+height: 100vh;
+overflow: hidden;
+  margin: 0;          /* ✅ remove default margin */
+  padding: 0;         /* ✅ remove default padding */
 }
 
 
 .video-block video {
-  position: absolute;
-  top: 0;
-  left: 0;
-  min-width: 100%;
-  min-height: 100%;
-  object-fit: cover;
-  opacity: 0.88;
-  z-index: -1;
+position: absolute;
+top: 0;
+left: 0;
+min-width: 100%;
+min-height: 100%;
+object-fit: cover;
+opacity: 0.88;
+z-index: -1;
 }
 
 
@@ -378,38 +376,37 @@ pointer-events: none;
 opacity: 0.88 !important;
 }
 .about-section-container {
-  position: relative;
-  overflow: hidden;
+position: relative;
+overflow: hidden;
    margin: 0;     /* ✅ Add this */
   padding: 0;    /* ✅ Add this */
 }
 
 .about-bg {
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-  z-index: -1;
-  opacity: 0.75;
+position: absolute;
+top: 0;
+left: 0;
+width: 100%;
+height: 100%;
+object-fit: cover;
+z-index: -1;
+opacity: 0.75;
 }
 
 </style>
 </head>
 <body>
 <div class="video-section">
-  <div class="video-block">
-    <video autoplay loop muted playsinline>
-      <source src="Car.mp4" type="video/mp4">
-    </video>
-  </div>
-  <div class="video-block">
-    <video autoplay loop muted playsinline>
-      <source src="Bottle.mp4" type="video/mp4">
-    </video>
-
-  
+<div class="video-block">
+<video autoplay loop muted playsinline>
+<source src="Car.mp4" type="video/mp4">
+</video>
+</div>
+<div class="video-block">
+<video autoplay loop muted playsinline>
+<source src="Bottle.mp4" type="video/mp4">
+</video>
+</div>
 </div>
 
 
@@ -436,8 +433,10 @@ opacity: 0.88 !important;
 <a href="#" style="display:block; margin-bottom: 0.4rem; color: #6a4e42; font-size: 0.9rem;">Register</a>
 <a href="#" style="display:block; color: #6a4e42; font-size: 0.9rem;">Forgot Password?</a>
 </div>
+</div>
 
-
+...
+</div>
 
 <header>
 <div class="promo-ribbon" style="
@@ -491,13 +490,13 @@ animation: lenticular-move 6s infinite linear;
 </div>
 
 
-<div>
-  
-  <video autoplay loop muted playsinline class="about-bg">
-    <source src="Car.mp4" type="video/mp4">
-  </video>
-  <div class="about-text" id="about-section">
-      </div> 
+<div class="about-section-container">
+
+<video autoplay loop muted playsinline class="about-bg">
+<source src="Car.mp4" type="video/mp4">
+</video>
+<div class="about-text" id="about-section">
+</div> 
 </div> 
 
 
@@ -572,13 +571,13 @@ count += cart[item].qty;
 const el = document.createElement("div");
 el.className = "cart-item";
 el.innerHTML = `
-        <span>${item} - $${cart[item].price}</span>
-        <div class="qty-btns">
-          <button onclick="changeQty('${item}', -1, event)">-</button>
-          <input type="number" min="1" value="${cart[item].qty}" onchange="manualQty('${item}', this.value, event)" />
-          <button onclick="changeQty('${item}', 1, event)">+</button>
-        </div>
-      `;
+       <span>${item} - $${cart[item].price}</span>
+       <div class="qty-btns">
+         <button onclick="changeQty('${item}', -1, event)">-</button>
+         <input type="number" min="1" value="${cart[item].qty}" onchange="manualQty('${item}', this.value, event)" />
+         <button onclick="changeQty('${item}', 1, event)">+</button>
+       </div>
+     `;
 cartItemsContainer.appendChild(el);
 }
 document.getElementById("cart-count").textContent = count;
@@ -665,13 +664,13 @@ count += cart[item].qty;
 const el = document.createElement("div");
 el.className = "cart-item";
 el.innerHTML = `
-      <span>${item} - $${cart[item].price}</span>
-      <div class="qty-btns">
-        <button onclick="changeQty('${item}', -1, event)">-</button>
-        <input type="number" min="1" value="${cart[item].qty}" onchange="manualQty('${item}', this.value, event)" />
-        <button onclick="changeQty('${item}', 1, event)">+</button>
-      </div>
-    `;
+     <span>${item} - $${cart[item].price}</span>
+     <div class="qty-btns">
+       <button onclick="changeQty('${item}', -1, event)">-</button>
+       <input type="number" min="1" value="${cart[item].qty}" onchange="manualQty('${item}', this.value, event)" />
+       <button onclick="changeQty('${item}', 1, event)">+</button>
+     </div>
+   `;
 cartItemsContainer.appendChild(el);
 }
 document.getElementById("cart-count").textContent = count;
@@ -746,8 +745,6 @@ updateCartDisplay();
 
 </body>
 </html>
-
-
 
 
 
