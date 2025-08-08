@@ -742,9 +742,7 @@ saveCart();
 updateCartDisplay();
 }
 
-function toggleCart() {
-cartPopup.style.display = cartPopup.style.display === "block" ? "none" : "block";
-}
+
 
 document.addEventListener("click", function(e) {
 if (!cartPopup.contains(e.target) && !e.target.closest(".cart-icon")) {
@@ -790,6 +788,7 @@ updateCartDisplay();
 
 </body>
 </html>
+
 
 
 
