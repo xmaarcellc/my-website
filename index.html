@@ -91,18 +91,19 @@ font-weight: bold;
 }
 
 .cart-popup {
-display: none;
-position: absolute;
-top: 3.5rem;
-right: 1rem;
-background: #fff;
-border: 1px solid #ccc;
-border-radius: 10px;
-padding: 1rem;
-box-shadow: 0 4px 8px rgba(0,0,0,0.2);
-z-index: 20;
-width: 240px;
-}
+  display: none;
+  position: fixed; /* changed from absolute */
+  top: 65%;
+  right: 5rem;
+  background: #222;
+  color: white;
+  border: 1px solid #555;
+  border-radius: 10px;
+  padding: 1rem;
+  box-shadow: 0 4px 8px rgba(0,0,0,0.4);
+  z-index: 998;
+  width: 240px;}
+  
 
 .cart-popup h4 {
 margin-top: 0;
@@ -786,6 +787,7 @@ updateCartDisplay();
 
 </body>
 </html>
+
 
 
 
