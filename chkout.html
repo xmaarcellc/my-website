@@ -8,8 +8,8 @@
 
   <title>Checkout - Signature Scents</title>
   <style>
-    body { font-family: 'Segoe UI', sans-serif; background: #121212; margin: 0; padding: 0; color: #f5f5f5; }
-    header { background: #1f1f1f; color: white; padding: 1.5rem; text-align: center; font-size: 1.5rem; }
+    body { font-family: 'Segoe UI', sans-serif; background: #fef9f2; margin: 0; padding: 0; color: #4a4a4a; }
+    header { background: #6a4e42; color: white; padding: 1.5rem; text-align: center; font-size: 1.5rem; }
     .main-content { display: flex; justify-content: center; gap: 2rem; padding: 2rem; flex-wrap: wrap; }
     .checkout-container { background: white; padding: 1.5rem; border-radius: 15px; box-shadow: 0 6px 14px rgba(0,0,0,0.08); width: 360px; }
 
@@ -21,7 +21,7 @@
     input, select { width: 100%; padding: 0.6rem; margin-bottom: 1rem; border: 1px solid #ccc; border-radius: 8px; background: #fffdfa; }
     .inline-group { display: flex; gap: 1rem; }
     .inline-group > div { flex: 1; }
-    .checkout-btn { width: 100%; padding: 0.6rem; background: #121212; color: white; border: none; border-radius: 8px; cursor: pointer; font-size: 1rem; margin-top: 1rem; }
+    .checkout-btn { width: 100%; padding: 0.6rem; background: #6a4e42; color: white; border: none; border-radius: 8px; cursor: pointer; font-size: 1rem; margin-top: 1rem; }
     .checkout-btn:hover { background: #5c4036; }
     .toggle-btn { background: #c0a080; color: white; border: none; padding: 0.4rem 0.9rem; border-radius: 6px; cursor: pointer; margin-bottom: 1rem; font-size: 0.9rem; }
     .back-btn { background: #f0e3d0; color: #5c4036; border: none; border-radius: 8px; padding: 0.4rem 0.8rem; cursor: pointer; font-size: 0.9rem; }
@@ -149,7 +149,7 @@
     const summaryBox = document.getElementById(\"summary-box\");
     for (let item in cart) {
       const p = document.createElement(\"p\");
-      p.textContent = `${item} x ${cart[item].qty}`;
+      p.textContent = ${item} x ${cart[item].qty};
       summaryBox.appendChild(p);
     }
     const upsellContainer = document.getElementById(\"upsells\");
@@ -158,12 +158,12 @@
         if (other !== item) {
           const card = document.createElement(\"div\");
           card.className = \"sample-card\";
-          card.innerHTML = `
+          card.innerHTML = 
             <img src=\"#\" alt=\"Sample bottle\" />
             <h4>${other} Sample</h4>
             <p>0.5 oz sample — $${upsellPrice.toFixed(2)}</p>
             <label><input type=\"checkbox\" class=\"sample-option\" onchange=\"updateTotal()\"> Add to Cart</label>
-          `;
+          ;
           upsellContainer.appendChild(card);
         }
         break;
@@ -198,7 +198,7 @@
     if (!isNaN(qty) && qty > 0 && !isNaN(price)) {
       subtotal += qty * price;
       const p = document.createElement("p");
-      p.textContent = `${item} x ${qty} - $${(qty * price).toFixed(2)}`;
+      p.textContent = ${item} x ${qty} - $${(qty * price).toFixed(2)};
       summaryBox.appendChild(p);
     }
   }
@@ -207,7 +207,7 @@
   if (subtotal > 150) {
     const discountMsg = document.createElement("p");
     discountMsg.style.color = "green";
-    discountMsg.textContent = `35% discount applied: -$${(subtotal * 0.35).toFixed(2)}`;
+    discountMsg.textContent = 35% discount applied: -$${(subtotal * 0.35).toFixed(2)};
     summaryBox.appendChild(discountMsg);
   }
 if (subtotal > 150) {
@@ -219,7 +219,7 @@ if (subtotal > 150) {
   discountBanner.style.marginTop = "10px";
   discountBanner.style.borderRadius = "8px";
   discountBanner.style.fontWeight = "bold";
-  discountBanner.textContent = `🎉 35% discount applied: -$${(subtotal * 0.35).toFixed(2)}`;
+  discountBanner.textContent = 🎉 35% discount applied: -$${(subtotal * 0.35).toFixed(2)};
   summaryBox.appendChild(discountBanner);
 }
 
@@ -253,12 +253,12 @@ if (subtotal > 150) {
     upsellNames.forEach(name => {
       const card = document.createElement("div");
       card.className = "sample-card";
-      card.innerHTML = `
+      card.innerHTML = 
        
         <h4>${name} Sample</h4>
         <p>0.5 oz sample — $${upsellPrice.toFixed(2)}</p>
         <label><input type="checkbox" class="sample-option" onchange="recalculate()"> Add to Cart</label>
-      `;
+      ;
       upsellContainer.appendChild(card);
     });
   }
@@ -326,7 +326,7 @@ if (subtotal > 150) {
 
     let orderDetails = "";
     for (let item in cart) {
-      orderDetails += `${item} x ${cart[item].qty} - $${(cart[item].qty * cart[item].price).toFixed(2)}\n`;
+      orderDetails += ${item} x ${cart[item].qty} - $${(cart[item].qty * cart[item].price).toFixed(2)}\n;
     }
 
     // Validate Terms checkbox
