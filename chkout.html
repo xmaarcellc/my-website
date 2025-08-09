@@ -55,11 +55,13 @@
   <input type="tel" id="phone" name="phone" placeholder="Phone Number" required>
 </div>
 
+
       <div class="inline-group">
   <div>
     <label for="city">City:</label>
     <input type="text" id="city" maxlength="32" required>
   </div>
+
 
   <div>
     <label for="state">State:</label>
@@ -87,7 +89,6 @@
 <label>
   <input type="checkbox" id="pobox"> This is a PO Box
 </label>
-
 
         <label for="card">Credit Card Number:</label>
     <input type="password" id="card" maxlength="16" inputmode="numeric" pattern="\d*" required>
@@ -119,6 +120,9 @@
       <div class="summary-box" id="summary-box"></div>
     </div>
   </div>
+
+
+
 
   <script>
 
@@ -173,7 +177,6 @@
     updateTotal();
   </script>
 
-
 <script>
   const upsellPrice = 0.99;
 
@@ -223,15 +226,13 @@ if (subtotal > 150) {
   summaryBox.appendChild(discountBanner);
 }
 
-  updateTotal(subtotal); // Keep this at the end
-}
+  updateTotal(subtotal); // Keep this at the end}
+
 
   function updateTotal(subtotal) {
   let discount = 0;
   if (subtotal > 150) {
     discount = subtotal * 0.35; // 35% discount}
-
-
 
   let total = subtotal - discount;
 
@@ -260,16 +261,16 @@ if (subtotal > 150) {
         <label><input type="checkbox" class="sample-option" onchange="recalculate()"> Add to Cart</label>
       `;
       upsellContainer.appendChild(card);
-    });
-  }
+    });}
+
 
   function recalculate() {
     let subtotal = 0;
     for (let item in cart) {
       subtotal += cart[item].qty * cart[item].price;
     }
-    updateTotal(subtotal);
-  }
+    updateTotal(subtotal);}
+
 
   function toggleVisibility() {
     ['card', 'cvc'].forEach(id => {
@@ -305,8 +306,7 @@ if (subtotal > 150) {
   }
 </script>
 
-
-
+	
 <!-- EmailJS SDK v4 -->
 <script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"></script>
 <script>
