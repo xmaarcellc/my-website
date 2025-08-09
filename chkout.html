@@ -231,12 +231,14 @@ if (subtotal > 150) {
   discountBanner.style.fontWeight = "bold";
   discountBanner.textContent = `🎉 35% discount applied: -$${(subtotal * 0.35).toFixed(2)}`;
   summaryBox.appendChild(discountBanner);
-}
-
- updateTotal(subtotal); // Keep this at the end
-}
 
 
+ updateTotal(subtotal); // Keep this at the end}
+
+function updateTotal(subtotal) {
+  let discount = 0;
+  if (subtotal > 150) {
+    discount = subtotal * 0.35; // 35% discount
 
 
  function updateTotal(subtotal) {
@@ -380,6 +382,7 @@ if (subtotal > 150) {
 
 </body>
 </html>
+
 
 
 
