@@ -55,11 +55,13 @@
   <input type="tel" id="phone" name="phone" placeholder="Phone Number" required>
 </div>
 
+
       <div class="inline-group">
   <div>
     <label for="city">City:</label>
     <input type="text" id="city" maxlength="32" required>
   </div>
+
 
   <div>
     <label for="state">State:</label>
@@ -111,6 +113,15 @@
       <button type="button" class="checkout-btn" onclick="sendEmail(event)">Complete Purchase</button>
        <div class="total-box">Total: $<span id="total">0.00</span></div>
 
+
+
+
+
+
+
+
+
+
       </form>
     </div>
 
@@ -120,17 +131,19 @@
     </div>
   </div>
 
+
+
+
   <script>
 
     const cart = JSON.parse(localStorage.getItem("cart")) || {};
     const upsellPrice = 0.99;
     const yearSelect = document.getElementById('exp-year');
     for (let y = new Date().getFullYear(); y <= 2035; y++) {
-      const opt = document.createElement('option');
-
+      const opt = document.createElement(\"option\");
       opt.textContent = y;
-      yearSelect.appendChild(opt);}
-	  
+      yearSelect.appendChild(opt);
+    }
     function toggleVisibility() {
       ['card', 'cvc'].forEach(id => {
         const input = document.getElementById(id);
@@ -150,7 +163,7 @@
     const summaryBox = document.getElementById(\"summary-box\");
     for (let item in cart) {
       const p = document.createElement(\"p\");
-      p.textContent = ${item} x ${cart[item].qty};
+      p.textContent = `${item} x ${cart[item].qty}`;
       summaryBox.appendChild(p);
     }
     const upsellContainer = document.getElementById(\"upsells\");
@@ -159,12 +172,12 @@
         if (other !== item) {
           const card = document.createElement(\"div\");
           card.className = \"sample-card\";
-          card.innerHTML = 
+          card.innerHTML = `
             <img src=\"#\" alt=\"Sample bottle\" />
             <h4>${other} Sample</h4>
             <p>0.5 oz sample — $${upsellPrice.toFixed(2)}</p>
             <label><input type=\"checkbox\" class=\"sample-option\" onchange=\"updateTotal()\"> Add to Cart</label>
-          ;
+          `;
           upsellContainer.appendChild(card);
         }
         break;
@@ -173,6 +186,8 @@
     }
     updateTotal();
   </script>
+
+
 
 
 <script>
@@ -188,62 +203,86 @@
   const summaryBox = document.getElementById("summary-box");
   const totalDisplay = document.getElementById("total");
 
- function renderCartSummary() {
+  function renderCartSummary() {
   summaryBox.innerHTML = "";
   let subtotal = 0;
 
   for (let item in cart) {
-    const qty = parseInt(cart[item].qty, 10);
+    const qty = parseInt(cart[item].qty);
     const price = parseFloat(cart[item].price);
 
     if (!isNaN(qty) && qty > 0 && !isNaN(price)) {
       subtotal += qty * price;
-
       const p = document.createElement("p");
       p.textContent = `${item} x ${qty} - $${(qty * price).toFixed(2)}`;
       summaryBox.appendChild(p);
     }
   }
 
+  // 🔻 Add this block to show the discount message
   if (subtotal > 150) {
     const discountMsg = document.createElement("p");
     discountMsg.style.color = "green";
     discountMsg.textContent = `35% discount applied: -$${(subtotal * 0.35).toFixed(2)}`;
     summaryBox.appendChild(discountMsg);
-
-    const discountBanner = document.createElement("div");
-    discountBanner.style.backgroundColor = "#e0ffe0";
-    discountBanner.style.border = "2px solid green";
-    discountBanner.style.color = "#2e7d32";
-    discountBanner.style.padding = "10px";
-    discountBanner.style.marginTop = "10px";
-    discountBanner.style.borderRadius = "8px";
-    discountBanner.style.fontWeight = "bold";
-    discountBanner.textContent = `🎉 35% discount applied: -$${(subtotal * 0.35).toFixed(2)}`;
-    summaryBox.appendChild(discountBanner);
   }
-
-  updateTotal(subtotal);
+if (subtotal > 150) {
+  const discountBanner = document.createElement("div");
+  discountBanner.style.backgroundColor = "#e0ffe0";
+  discountBanner.style.border = "2px solid green";
+  discountBanner.style.color = "#2e7d32";
+  discountBanner.style.padding = "10px";
+  discountBanner.style.marginTop = "10px";
+  discountBanner.style.borderRadius = "8px";
+  discountBanner.style.fontWeight = "bold";
+  discountBanner.textContent = `🎉 35% discount applied: -$${(subtotal * 0.35).toFixed(2)}`;
+  summaryBox.appendChild(discountBanner);
 }
 
-function updateTotal(subtotal) {
-  // 35% off when subtotal > $150
+  updateTotal(subtotal); // Keep this at the end
+}
+
+
+
+
+  function updateTotal(subtotal) {
   let discount = 0;
   if (subtotal > 150) {
-    discount = subtotal * 0.35;
+    discount = subtotal * 0.35; // 35% discount
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
   }
 
-  // start from discounted subtotal
+
+
+
+
   let total = subtotal - discount;
 
-  // add any upsells
+  // Add upsells
   document.querySelectorAll('.sample-option').forEach(cb => {
     if (cb.checked) total += upsellPrice;
   });
 
   totalDisplay.textContent = total.toFixed(2);
 }
-
 
 
   function generateUpsells() {
@@ -256,15 +295,17 @@ function updateTotal(subtotal) {
     upsellNames.forEach(name => {
       const card = document.createElement("div");
       card.className = "sample-card";
-      card.innerHTML = 
+      card.innerHTML = `
        
         <h4>${name} Sample</h4>
         <p>0.5 oz sample — $${upsellPrice.toFixed(2)}</p>
         <label><input type="checkbox" class="sample-option" onchange="recalculate()"> Add to Cart</label>
-      ;
+      `;
       upsellContainer.appendChild(card);
     });
   }
+
+
 
   function recalculate() {
     let subtotal = 0;
@@ -273,6 +314,8 @@ function updateTotal(subtotal) {
     }
     updateTotal(subtotal);
   }
+
+
 
   function toggleVisibility() {
     ['card', 'cvc'].forEach(id => {
@@ -293,6 +336,8 @@ function updateTotal(subtotal) {
   renderCartSummary();
 </script>
 
+
+
 <script>
   function submitOrder() {
     const termsAccepted = document.getElementById("terms-checkbox").checked;
@@ -309,7 +354,7 @@ function updateTotal(subtotal) {
 </script>
 
 
-	
+
 <!-- EmailJS SDK v4 -->
 <script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"></script>
 <script>
@@ -327,11 +372,10 @@ function updateTotal(subtotal) {
     const total = document.getElementById("total").innerText;
     const confirmation = Math.floor(Math.random() * 1000000000);
 
-   let orderDetails = "";
-for (const item in cart) {
-  orderDetails += `${item} x ${cart[item].qty} - $${(cart[item].qty * cart[item].price).toFixed(2)}\n`;
-}
-
+    let orderDetails = "";
+    for (let item in cart) {
+      orderDetails += `${item} x ${cart[item].qty} - $${(cart[item].qty * cart[item].price).toFixed(2)}\n`;
+    }
 
     // Validate Terms checkbox
     if (!document.getElementById("terms-checkbox").checked) {
@@ -357,8 +401,9 @@ for (const item in cart) {
     });
   }
 </script>
+
+
+
+
 </body>
 </html>
-
-
-
