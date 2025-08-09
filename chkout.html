@@ -111,7 +111,17 @@
   <label for="terms-checkbox">I accept the <a href="terms.html" target="_blank">Terms and Conditions</a></label>
 </div>
       <button type="button" class="checkout-btn" onclick="sendEmail(event)">Complete Purchase</button>
-       <div class="total-box">Total: $<span id="total">0.00</span></div>
+     <div class="total-box">
+  Subtotal: $<span id="subtotal">0.00</span><br>
+  NJ Sales Tax (6.625%): $<span id="tax">0.00</span><br>
+  <strong>Total: $<span id="total">0.00</span></strong>
+</div>
+
+	 <div>
+  NJ Sales Tax (6.625%): $<span id="tax">0.00</span><br>
+  <strong>Total: $<span id="total">0.00</span></strong>
+</div>
+
       </form>
     </div>
 
@@ -229,17 +239,40 @@ if (subtotal > 150) {
   summaryBox.appendChild(discountBanner);
 }
 
-  updateTotal(subtotal); // Keep this at the end
+  ; // Keep this at the end
 }
 
 
 
 
-  function updateTotal(subtotal) {
-  let discount = 0;
-  if (subtotal > 150) {
-    discount = subtotal * 0.35; // 35% discount
+ function updateTotal(subtotal) {
+  // 35% promo if subtotal > $150
+  let discount = subtotal > 150 ? subtotal * 0.35 : 0;
+
+  // Upsells
+  let upsellsTotal = 0;
+  document.querySelectorAll('.sample-option').forEach(cb => {
+    if (cb.checked) upsellsTotal += 0.99; // your upsell price
+  });
+
+  // Taxable amount = (subtotal - discount + upsells)
+  const taxRate = 0.06625; // NJ 6.625%
+  const taxable = Math.max(0, subtotal - discount + upsellsTotal);
+  const taxAmount = taxable * taxRate;
+
+  const finalTotal = taxable + taxAmount;
+
+  // Update UI — optional elements for showing breakdown
+  if (document.getElementById('subtotal')) {
+    document.getElementById('subtotal').textContent = (subtotal - discount + upsellsTotal).toFixed(2);
   }
+  if (document.getElementById('tax')) {
+    document.getElementById('tax').textContent = taxAmount.toFixed(2);
+  }
+
+  document.getElementById('total').textContent = finalTotal.toFixed(2);
+}
+
 
   let total = subtotal - discount;
 
@@ -279,7 +312,7 @@ if (subtotal > 150) {
     for (let item in cart) {
       subtotal += cart[item].qty * cart[item].price;
     }
-    updateTotal(subtotal);
+    ;
   }
 
 
@@ -374,6 +407,7 @@ if (subtotal > 150) {
 
 </body>
 </html>
+
 
 
 
