@@ -55,13 +55,11 @@
   <input type="tel" id="phone" name="phone" placeholder="Phone Number" required>
 </div>
 
-
       <div class="inline-group">
   <div>
     <label for="city">City:</label>
     <input type="text" id="city" maxlength="32" required>
   </div>
-
 
   <div>
     <label for="state">State:</label>
@@ -113,15 +111,6 @@
       <button type="button" class="checkout-btn" onclick="sendEmail(event)">Complete Purchase</button>
        <div class="total-box">Total: $<span id="total">0.00</span></div>
 
-
-
-
-
-
-
-
-
-
       </form>
     </div>
 
@@ -130,9 +119,6 @@
       <div class="summary-box" id="summary-box"></div>
     </div>
   </div>
-
-
-
 
   <script>
 
@@ -188,8 +174,6 @@
   </script>
 
 
-
-
 <script>
   const upsellPrice = 0.99;
 
@@ -242,35 +226,10 @@ if (subtotal > 150) {
   updateTotal(subtotal); // Keep this at the end
 }
 
-
-
-
   function updateTotal(subtotal) {
   let discount = 0;
   if (subtotal > 150) {
-    discount = subtotal * 0.35; // 35% discount
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-  }
-
-
+    discount = subtotal * 0.35; // 35% discount}
 
 
 
@@ -281,8 +240,7 @@ if (subtotal > 150) {
     if (cb.checked) total += upsellPrice;
   });
 
-  totalDisplay.textContent = total.toFixed(2);
-}
+  totalDisplay.textContent = total.toFixed(2);}
 
 
   function generateUpsells() {
@@ -305,8 +263,6 @@ if (subtotal > 150) {
     });
   }
 
-
-
   function recalculate() {
     let subtotal = 0;
     for (let item in cart) {
@@ -314,8 +270,6 @@ if (subtotal > 150) {
     }
     updateTotal(subtotal);
   }
-
-
 
   function toggleVisibility() {
     ['card', 'cvc'].forEach(id => {
@@ -336,8 +290,6 @@ if (subtotal > 150) {
   renderCartSummary();
 </script>
 
-
-
 <script>
   function submitOrder() {
     const termsAccepted = document.getElementById("terms-checkbox").checked;
@@ -354,7 +306,7 @@ if (subtotal > 150) {
 </script>
 
 
-
+	
 <!-- EmailJS SDK v4 -->
 <script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"></script>
 <script>
@@ -401,11 +353,5 @@ if (subtotal > 150) {
     });
   }
 </script>
-
-
-
-
 </body>
 </html>
-
-
