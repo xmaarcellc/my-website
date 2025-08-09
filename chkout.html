@@ -199,8 +199,9 @@
     if (!isNaN(qty) && qty > 0 && !isNaN(price)) {
       subtotal += qty * price;
       const p = document.createElement("p");
-      p.textContent = ${item} x ${qty} - $${(qty * price).toFixed(2)};
-      summaryBox.appendChild(p);}
+    p.textContent = `${item} x ${qty} - $${(qty * price).toFixed(2)}`;
+summaryBox.appendChild(p);
+
 
   // 🔻 Add this block to show the discount message
   if (subtotal > 150) {
@@ -323,9 +324,11 @@ if (subtotal > 150) {
     const total = document.getElementById("total").innerText;
     const confirmation = Math.floor(Math.random() * 1000000000);
 
-    let orderDetails = "";
-    for (let item in cart) {
-      orderDetails += ${item} x ${cart[item].qty} - $${(cart[item].qty * cart[item].price).toFixed(2)}\n;}
+   let orderDetails = "";
+for (const item in cart) {
+  orderDetails += `${item} x ${cart[item].qty} - $${(cart[item].qty * cart[item].price).toFixed(2)}\n`;
+}
+
 
     // Validate Terms checkbox
     if (!document.getElementById("terms-checkbox").checked) {
@@ -353,4 +356,5 @@ if (subtotal > 150) {
 </script>
 </body>
 </html>
+
 
