@@ -126,10 +126,11 @@
     const upsellPrice = 0.99;
     const yearSelect = document.getElementById('exp-year');
     for (let y = new Date().getFullYear(); y <= 2035; y++) {
-      const opt = document.createElement(\"option\");
+      const opt = document.createElement('option');
+
       opt.textContent = y;
-      yearSelect.appendChild(opt);
-    }
+      yearSelect.appendChild(opt);}
+	  
     function toggleVisibility() {
       ['card', 'cvc'].forEach(id => {
         const input = document.getElementById(id);
@@ -199,9 +200,7 @@
       subtotal += qty * price;
       const p = document.createElement("p");
       p.textContent = ${item} x ${qty} - $${(qty * price).toFixed(2)};
-      summaryBox.appendChild(p);
-    }
-  }
+      summaryBox.appendChild(p);}
 
   // 🔻 Add this block to show the discount message
   if (subtotal > 150) {
@@ -326,8 +325,7 @@ if (subtotal > 150) {
 
     let orderDetails = "";
     for (let item in cart) {
-      orderDetails += ${item} x ${cart[item].qty} - $${(cart[item].qty * cart[item].price).toFixed(2)}\n;
-    }
+      orderDetails += ${item} x ${cart[item].qty} - $${(cart[item].qty * cart[item].price).toFixed(2)}\n;}
 
     // Validate Terms checkbox
     if (!document.getElementById("terms-checkbox").checked) {
@@ -355,3 +353,4 @@ if (subtotal > 150) {
 </script>
 </body>
 </html>
+
