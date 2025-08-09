@@ -188,59 +188,62 @@
   const summaryBox = document.getElementById("summary-box");
   const totalDisplay = document.getElementById("total");
 
-  function renderCartSummary() {
+ function renderCartSummary() {
   summaryBox.innerHTML = "";
   let subtotal = 0;
 
   for (let item in cart) {
-    const qty = parseInt(cart[item].qty);
+    const qty = parseInt(cart[item].qty, 10);
     const price = parseFloat(cart[item].price);
 
     if (!isNaN(qty) && qty > 0 && !isNaN(price)) {
       subtotal += qty * price;
+
       const p = document.createElement("p");
-    p.textContent = `${item} x ${qty} - $${(qty * price).toFixed(2)}`;
-summaryBox.appendChild(p);
+      p.textContent = `${item} x ${qty} - $${(qty * price).toFixed(2)}`;
+      summaryBox.appendChild(p);
+    }
+  }
 
-
-  // 🔻 Add this block to show the discount message
   if (subtotal > 150) {
     const discountMsg = document.createElement("p");
     discountMsg.style.color = "green";
-    discountMsg.textContent = 35% discount applied: -$${(subtotal * 0.35).toFixed(2)};
+    discountMsg.textContent = `35% discount applied: -$${(subtotal * 0.35).toFixed(2)}`;
     summaryBox.appendChild(discountMsg);
+
+    const discountBanner = document.createElement("div");
+    discountBanner.style.backgroundColor = "#e0ffe0";
+    discountBanner.style.border = "2px solid green";
+    discountBanner.style.color = "#2e7d32";
+    discountBanner.style.padding = "10px";
+    discountBanner.style.marginTop = "10px";
+    discountBanner.style.borderRadius = "8px";
+    discountBanner.style.fontWeight = "bold";
+    discountBanner.textContent = `🎉 35% discount applied: -$${(subtotal * 0.35).toFixed(2)}`;
+    summaryBox.appendChild(discountBanner);
   }
-if (subtotal > 150) {
-  const discountBanner = document.createElement("div");
-  discountBanner.style.backgroundColor = "#e0ffe0";
-  discountBanner.style.border = "2px solid green";
-  discountBanner.style.color = "#2e7d32";
-  discountBanner.style.padding = "10px";
-  discountBanner.style.marginTop = "10px";
-  discountBanner.style.borderRadius = "8px";
-  discountBanner.style.fontWeight = "bold";
-  discountBanner.textContent = 🎉 35% discount applied: -$${(subtotal * 0.35).toFixed(2)};
-  summaryBox.appendChild(discountBanner);
+
+  updateTotal(subtotal);
 }
 
-  updateTotal(subtotal); // Keep this at the end
-}
-
-  function updateTotal(subtotal) {
+function updateTotal(subtotal) {
+  // 35% off when subtotal > $150
   let discount = 0;
   if (subtotal > 150) {
-    discount = subtotal * 0.35; // 35% discount}
+    discount = subtotal * 0.35;
+  }
 
-
-
+  // start from discounted subtotal
   let total = subtotal - discount;
 
-  // Add upsells
+  // add any upsells
   document.querySelectorAll('.sample-option').forEach(cb => {
     if (cb.checked) total += upsellPrice;
   });
 
-  totalDisplay.textContent = total.toFixed(2);}
+  totalDisplay.textContent = total.toFixed(2);
+}
+
 
 
   function generateUpsells() {
@@ -356,5 +359,6 @@ for (const item in cart) {
 </script>
 </body>
 </html>
+
 
 
