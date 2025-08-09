@@ -111,8 +111,15 @@
   <label for="terms-checkbox">I accept the <a href="terms.html" target="_blank">Terms and Conditions</a></label>
 </div>
       <button type="button" class="checkout-btn" onclick="sendEmail(event)">Complete Purchase</button>
-	 
-<div class="total-box">Total: $<span id="total">0.00</span></div>
+       <div class="total-box">Total: $<span id="total">0.00</span></div>
+
+
+
+
+
+
+
+
 
 
       </form>
@@ -230,23 +237,42 @@ if (subtotal > 150) {
   discountBanner.style.fontWeight = "bold";
   discountBanner.textContent = `🎉 35% discount applied: -$${(subtotal * 0.35).toFixed(2)}`;
   summaryBox.appendChild(discountBanner);
+}
+
+  updateTotal(subtotal); // Keep this at the end
+}
 
 
- updateTotal(subtotal); // Keep this at the end}
 
-function updateTotal(subtotal) {
+
+  function updateTotal(subtotal) {
   let discount = 0;
   if (subtotal > 150) {
     discount = subtotal * 0.35; // 35% discount
 
 
- function updateTotal(subtotal) {
-  // 35% promo if subtotal > $150
-  let discount = subtotal > 150 ? subtotal * 0.35 : 0;
 
-  // Upsells
 
-	 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  }
+
+
+
+
 
   let total = subtotal - discount;
 
@@ -280,13 +306,13 @@ function updateTotal(subtotal) {
   }
 
 
- updateTotal(subtotal);
+
   function recalculate() {
     let subtotal = 0;
     for (let item in cart) {
       subtotal += cart[item].qty * cart[item].price;
     }
-    ;
+    updateTotal(subtotal);
   }
 
 
@@ -381,10 +407,5 @@ function updateTotal(subtotal) {
 
 </body>
 </html>
-
-
-
-
-
 
 
