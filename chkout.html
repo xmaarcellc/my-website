@@ -90,6 +90,7 @@
   <input type="checkbox" id="pobox"> This is a PO Box
 </label>
 
+
         <label for="card">Credit Card Number:</label>
     <input type="password" id="card" maxlength="16" inputmode="numeric" pattern="\d*" required>
         <label>Expiration Date:</label>
@@ -111,6 +112,15 @@
 </div>
       <button type="button" class="checkout-btn" onclick="sendEmail(event)">Complete Purchase</button>
        <div class="total-box">Total: $<span id="total">0.00</span></div>
+
+
+
+
+
+
+
+
+
 
       </form>
     </div>
@@ -177,6 +187,9 @@
     updateTotal();
   </script>
 
+
+
+
 <script>
   const upsellPrice = 0.99;
 
@@ -226,13 +239,40 @@ if (subtotal > 150) {
   summaryBox.appendChild(discountBanner);
 }
 
-  updateTotal(subtotal); // Keep this at the end}
+  updateTotal(subtotal); // Keep this at the end
+}
+
+
 
 
   function updateTotal(subtotal) {
   let discount = 0;
   if (subtotal > 150) {
     discount = subtotal * 0.35; // 35% discount}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
   let total = subtotal - discount;
 
@@ -242,6 +282,7 @@ if (subtotal > 150) {
   });
 
   totalDisplay.textContent = total.toFixed(2);}
+
 
 
   function generateUpsells() {
@@ -261,7 +302,9 @@ if (subtotal > 150) {
         <label><input type="checkbox" class="sample-option" onchange="recalculate()"> Add to Cart</label>
       `;
       upsellContainer.appendChild(card);
-    });}
+    });
+  }
+
 
 
   function recalculate() {
@@ -269,7 +312,9 @@ if (subtotal > 150) {
     for (let item in cart) {
       subtotal += cart[item].qty * cart[item].price;
     }
-    updateTotal(subtotal);}
+    updateTotal(subtotal);
+  }
+
 
 
   function toggleVisibility() {
@@ -291,6 +336,8 @@ if (subtotal > 150) {
   renderCartSummary();
 </script>
 
+
+
 <script>
   function submitOrder() {
     const termsAccepted = document.getElementById("terms-checkbox").checked;
@@ -305,6 +352,7 @@ if (subtotal > 150) {
     return false;
   }
 </script>
+
 
 	
 <!-- EmailJS SDK v4 -->
