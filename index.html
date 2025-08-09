@@ -8,6 +8,26 @@
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"/>
 <style>
 
+/* --- Ratings --- */
+.rating {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: .5rem;
+  margin-top: .4rem;
+}
+.rating .stars i {
+  font-size: 1rem;
+  /* gold stars on your dark theme */
+  color: #ffc107;
+}
+.rating .review-count {
+  color: #ccc;
+  font-weight: 600;
+  font-size: .95rem;
+}
+
+  
 body {
 background-color: #111; /* dark background */
 color: #eee; /* light text */
@@ -564,6 +584,10 @@ animation: lenticular-move 6s infinite linear;
 <button class="buy-btn" onclick="addToCart('Midnight Ember', 149.99)">Add to Cart</button>
 </div>
 
+<div class="rating" data-product="Midnight Ember">
+  <span class="stars"></span>
+  <span class="review-count">(0)</span>
+</div>
 
 
 
@@ -582,6 +606,13 @@ animation: lenticular-move 6s infinite linear;
 
 </div>
 
+<div class="rating" data-product="Urban Spice">
+  <span class="stars"></span>
+  <span class="review-count">(0)</span>
+</div>
+
+
+  
 <footer class="footer">
 <div>© 2025 Signature Scents</div>
 <div class="footer-links">
@@ -786,9 +817,52 @@ updateCartDisplay();
 </div>
 </div>
 
+  <script>
+  // Review data – you can tweak these numbers anytime
+  const productReviews = {
+    "Midnight Ember": { rating: 4.7, count: 128 },
+    "Urban Spice":    { rating: 4.3, count: 86  }
+  };
+
+  // Build star icons for a given rating (rounded to nearest 0.5)
+  function renderStars(r) {
+    // round to nearest 0.5
+    const rounded = Math.round(r * 2) / 2;
+    const full = Math.floor(rounded);
+    const half = (rounded - full) === 0.5 ? 1 : 0;
+    const empty = 5 - full - half;
+
+    let html = "";
+    for (let i = 0; i < full; i++)  html += '<i class="fa-solid fa-star"></i>';
+    if (half) html += '<i class="fa-solid fa-star-half-stroke"></i>';
+    for (let i = 0; i < empty; i++) html += '<i class="fa-regular fa-star"></i>';
+    return html;
+  }
+
+  // Populate all .rating blocks
+  document.querySelectorAll('.rating').forEach(el => {
+    const name = el.getAttribute('data-product');
+    const starsEl = el.querySelector('.stars');
+    const countEl = el.querySelector('.review-count');
+
+    if (productReviews[name]) {
+      const { rating, count } = productReviews[name];
+      starsEl.innerHTML = renderStars(rating);
+      countEl.textContent = `(${count})`;
+      // Optional: tooltip showing the exact rating
+      el.title = `${rating.toFixed(1)} out of 5`;
+    } else {
+      // fallback if product not found
+      starsEl.innerHTML = renderStars(0);
+      countEl.textContent = `(0)`;
+    }
+  });
+</script>
+
 
 </body>
 </html>
+
 
 
 
