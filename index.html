@@ -939,8 +939,9 @@ updateCartDisplay();
 
     if (productReviews[name]) {
       const { rating, count } = productReviews[name];
-      starsEl.innerHTML = renderStars(rating);
-      countEl.textContent = `(${count})`;
+     starsEl.innerHTML = `${rating.toFixed(1)} ` + renderStars(rating);
+     countEl.textContent = `(${count})`;
+
       // Optional: tooltip showing the exact rating
       el.title = `${rating.toFixed(1)} out of 5`;
     } else {
@@ -954,6 +955,7 @@ updateCartDisplay();
 
 </body>
 </html>
+
 
 
 
