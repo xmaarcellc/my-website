@@ -8,6 +8,29 @@
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"/>
 <style>
 
+/* === ADDITIVE: tagline flipping banner === */
+.tagline-banner {
+  background: #000;
+  color: #fff;
+  margin: 0 auto;
+  max-width: 920px;
+  padding: .9rem 1.25rem;
+  border-radius: 14px;
+  text-align: center;
+  font-weight: 700;
+  letter-spacing: .3px;
+  box-shadow: 0 6px 18px rgba(0,0,0,.35);
+}
+.tagline-text {
+  opacity: 0;
+  display: inline-block;
+  transition: opacity .9s ease;
+}
+.tagline-text.show {
+  opacity: 1;
+}
+  
+  
 /* --- Ratings --- */
 .rating {
   display: flex;
@@ -512,7 +535,35 @@ input, textarea, select {
 
 ...
 </div>
+<!-- ADDITIVE: Smooth-fade tagline banner -->
+<div class="tagline-banner" id="tagline-banner">
+  <span class="tagline-text" id="tagline-text"></span>
+</div>
+<script>
+(function(){
+  const lines = [
+    "Where Fragrance Meets Identity.",
+    "Fragrance That Speaks Before You Do.",
+    "Leave Your Mark in the Air."
+  ];
+  const el = document.getElementById('tagline-text');
+  let i = 0;
+  function cycle(){
+    el.classList.remove('show');
+    setTimeout(()=>{
+      el.textContent = lines[i];
+      el.classList.add('show');
+      i = (i+1) % lines.length;
+    }, 250);
+  }
+  cycle();
+  setInterval(cycle, 3500);
+})();
+</script>
 
+
+
+  
 <header>
 <div class="promo-ribbon" style="
 background: linear-gradient(120deg, #000 25%, #333 50%, #000 75%);
@@ -862,6 +913,7 @@ updateCartDisplay();
 
 </body>
 </html>
+
 
 
 
