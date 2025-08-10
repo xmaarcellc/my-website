@@ -15,16 +15,17 @@
   margin: 0 auto;
   max-width: 920px;
   padding: .9rem 1.25rem;
-  border-radius: 14px;
+  border-radius: 0.01px;
   text-align: center;
   font-weight: 700;
+  font-style: italic;
   letter-spacing: .3px;
   box-shadow: 0 6px 18px rgba(0,0,0,.35);
 }
 .tagline-text {
   opacity: 0;
   display: inline-block;
-  transition: opacity .9s ease;
+  transition: opacity 1.9s ease;
 }
 .tagline-text.show {
   opacity: 1;
@@ -557,7 +558,7 @@ input, textarea, select {
     }, 250);
   }
   cycle();
-  setInterval(cycle, 3500);
+  setInterval(cycle, 5500);
 })();
 </script>
 
@@ -913,6 +914,7 @@ updateCartDisplay();
 
 </body>
 </html>
+
 
 
 
