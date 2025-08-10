@@ -8,6 +8,17 @@
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"/>
 <style>
 
+/* Crossfade tagline */
+#tagline-text{display:none;} /* hide old single-span */
+.tagline-banner{position:relative;width:100%;min-height:2.2em}
+.tagline-slot{
+  position:absolute;left:50%;transform:translateX(-50%);
+  opacity:0;transition:opacity 2.5s ease-in-out;font-style:italic;
+  white-space:nowrap
+}
+.tagline-slot.show{opacity:1}
+
+  
 /* === ADDITIVE: tagline flipping banner === */
 .tagline-banner {
   background: #000;
@@ -539,7 +550,36 @@ input, textarea, select {
 <!-- ADDITIVE: Smooth-fade tagline banner -->
 <div class="tagline-banner" id="tagline-banner">
   <span class="tagline-text" id="tagline-text"></span>
+  <span class="tagline-slot t1"></span>
+<span class="tagline-slot t2"></span>
+
 </div>
+
+
+  <script>
+(function(){
+  const lines=[
+    "Where Fragrance Meets Identity.",
+    "Fragrance That Speaks Before You Do.",
+    "Leave Your Mark in the Air."
+  ];
+  const s1=document.querySelector('.tagline-slot.t1');
+  const s2=document.querySelector('.tagline-slot.t2');
+  let i=0, curr=s1, next=s2;
+
+  s1.textContent=lines[0]; s1.classList.add('show');
+  s2.textContent=lines[1];
+
+  setInterval(()=>{
+    next.textContent=lines[(i+1)%lines.length];
+    curr.classList.remove('show');
+    next.classList.add('show');
+    i=(i+1)%lines.length;
+    [curr,next]=[next,curr];
+  },6000); // hold time; adjust as you like
+})();
+</script>
+
 <script>
 (function(){
   const lines = [
@@ -914,6 +954,7 @@ updateCartDisplay();
 
 </body>
 </html>
+
 
 
 
