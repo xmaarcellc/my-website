@@ -1052,11 +1052,13 @@ rvForm.addEventListener('submit', (e)=>{
   e.preventDefault();
   const db = getDB();
   db[currentProduct] = db[currentProduct] || [];
-  db[currentProduct].push({
-    name: rvName.value.trim() || 'Anonymous',
-    rating: parseInt(rvRating.value,10),
-    text: rvText.value.trim()
-  });
+ db[currentProduct].push({
+  name: rvName.value.trim() || 'Anonymous',
+  rating: parseInt(rvRating.value,10),
+  text: rvText.value.trim(),
+  date: new Date().toLocaleDateString()
+});
+
   setDB(db);
   rvForm.reset();
   renderList();
@@ -1083,6 +1085,7 @@ rvForm.addEventListener('submit', (e)=>{
 
 </body>
 </html>
+
 
 
 
