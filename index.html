@@ -1022,7 +1022,7 @@ updateCartDisplay();
 
   function renderList(){
     const db = getDB()[currentProduct] || [];
-    rvList.innerHTML = db.length ? '' : '<div style="opacity:.7">No reviews yet. Be the first!</div>';
+    rvList.innerHTML = db.length ? '' : '<div style="opacity:.7" </div>';
     let sum=0;
     db.forEach(r => {
       sum+=r.rating;
@@ -1085,6 +1085,7 @@ rvForm.addEventListener('submit', (e)=>{
 
 </body>
 </html>
+
 
 
 
