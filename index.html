@@ -1026,15 +1026,19 @@ updateCartDisplay();
       sum+=r.rating;
       const item = document.createElement('div');
       item.className='review-item';
-      item.innerHTML = `
-        <div style="display:flex;justify-content:space-between">
-          <strong>${r.name || 'Anonymous'}</strong>
-          <span style="color:#ffc107">${starIcons(r.rating)}</span>
-        </div>
-        <div style="opacity:.85;margin-top:.25rem">${r.text}</div>
-      `;
-      rvList.appendChild(item);
-    });
+     item.innerHTML = `
+  <div style="display:flex;justify-content:space-between">
+    <div>
+      <strong>${r.name || 'Anonymous'}</strong>
+      <div style="font-size:0.8rem; color:#aaa;">
+        ${r.date || ''}
+      </div>
+    </div>
+    <span style="color:#ffc107">${starIcons(r.rating)}</span>
+  </div>
+  <div style="opacity:.85;margin-top:.25rem">${r.text}</div>
+`;
+
     // show average in header stars
     rvStars.textContent = db.length ? `${(sum/db.length).toFixed(1)} ${starIcons(Math.round(sum/db.length))}` : '';
   }
@@ -1085,6 +1089,7 @@ rvForm.addEventListener('submit', (e)=>{
 
 </body>
 </html>
+
 
 
 
