@@ -503,6 +503,15 @@ input, textarea, select {
   background-color: #555;
 }
 
+.review-modal{position:fixed;inset:0;background:rgba(0,0,0,.6);display:none;z-index:1000}
+.review-box{background:#111;color:#fff;max-width:520px;margin:8vh auto;padding:1rem 1.2rem;border-radius:10px}
+.review-list{max-height:45vh;overflow:auto;margin:.5rem 0}
+.review-item{border-bottom:1px solid #333;padding:.6rem 0}
+.review-head{display:flex;gap:.5rem;align-items:center}
+.review-form input, .review-form textarea, .review-form select{width:100%;margin:.3rem 0;padding:.5rem;background:#222;color:#fff;border:1px solid #555;border-radius:6px}
+.review-actions{display:flex;justify-content:space-between;gap:.6rem;margin-top:.6rem}
+.btn{background:#444;border:none;color:#fff;padding:.5rem .8rem;border-radius:6px;cursor:pointer}
+.btn.alt{background:#666}
 
   
 </style>
@@ -720,6 +729,28 @@ animation: lenticular-move 6s infinite linear;
 
 <a href="#">FAQ</a>
 
+<div class="review-modal" id="review-modal">
+  <div class="review-box">
+    <div class="review-head">
+      <strong id="rv-product">Reviews</strong>
+      <span id="rv-stars" style="color:#ffc107;margin-left:auto"></span>
+      <button class="btn alt" id="rv-close">Close</button>
+    </div>
+    <div class="review-list" id="rv-list"></div>
+    <form class="review-form" id="rv-form">
+      <input type="text" id="rv-name" placeholder="Your name" required>
+      <select id="rv-rating" required>
+        <option value="" disabled selected>Rating</option>
+        <option>5</option><option>4</option><option>3</option><option>2</option><option>1</option>
+      </select>
+      <textarea id="rv-text" rows="3" placeholder="Write a review..." required></textarea>
+      <div class="review-actions">
+        <button type="submit" class="btn">Add Review</button>
+        <button type="button" class="btn alt" id="rv-clear">Clear All</button>
+      </div>
+    </form>
+  </div>
+</div>
 
 </div>
 </footer>
@@ -954,9 +985,89 @@ updateCartDisplay();
   });
 </script>
 
+<script>
+(() => {
+  const modal = document.getElementById('review-modal');
+  const rvList = document.getElementById('rv-list');
+  const rvForm = document.getElementById('rv-form');
+  const rvName = document.getElementById('rv-name');
+  const rvRating = document.getElementById('rv-rating');
+  const rvText = document.getElementById('rv-text');
+  const rvClose = document.getElementById('rv-close');
+  const rvClear = document.getElementById('rv-clear');
+  const rvProduct = document.getElementById('rv-product');
+  const rvStars = document.getElementById('rv-stars');
+
+  let currentProduct = null;
+  const LS_KEY = 'userReviews';
+  const getDB = () => JSON.parse(localStorage.getItem(LS_KEY) || '{}');
+  const setDB = (db) => localStorage.setItem(LS_KEY, JSON.stringify(db));
+
+  function starIcons(n){
+    let h=''; for(let i=1;i<=5;i++) h+= i<=n ? '★' : '☆'; return h;
+  }
+
+  function openReviews(product){
+    currentProduct = product;
+    rvProduct.textContent = `${product} — Reviews`;
+    renderList();
+    modal.style.display = 'block';
+  }
+
+  function renderList(){
+    const db = getDB()[currentProduct] || [];
+    rvList.innerHTML = db.length ? '' : '<div style="opacity:.7">No reviews yet. Be the first!</div>';
+    let sum=0;
+    db.forEach(r => {
+      sum+=r.rating;
+      const item = document.createElement('div');
+      item.className='review-item';
+      item.innerHTML = `
+        <div style="display:flex;justify-content:space-between">
+          <strong>${r.name || 'Anonymous'}</strong>
+          <span style="color:#ffc107">${starIcons(r.rating)}</span>
+        </div>
+        <div style="opacity:.85;margin-top:.25rem">${r.text}</div>
+      `;
+      rvList.appendChild(item);
+    });
+    // show average in header stars
+    rvStars.textContent = db.length ? `${(sum/db.length).toFixed(1)} ${starIcons(Math.round(sum/db.length))}` : '';
+  }
+
+  // Hook existing .rating blocks
+  document.querySelectorAll('.rating').forEach(el=>{
+    el.style.cursor='pointer';
+    el.addEventListener('click', () => openReviews(el.getAttribute('data-product')));
+  });
+
+  rvClose.addEventListener('click', ()=> modal.style.display='none');
+  modal.addEventListener('click', (e)=>{ if(e.target===modal) modal.style.display='none'; });
+
+  rvForm.addEventListener('submit', (e)=>{
+    e.preventDefault();
+    const db = getDB();
+    db[currentProduct] = db[currentProduct] || [];
+    db[currentProduct].push({
+      name: rvName.value.trim() || 'Anonymous',
+      rating: parseInt(rvRating.value,10),
+      text: rvText.value.trim()
+    });
+    setDB(db);
+    rvForm.reset();
+    renderList();
+  });
+
+  rvClear.addEventListener('click', ()=>{
+    const db = getDB();
+    if (db[currentProduct]) { delete db[currentProduct]; setDB(db); renderList(); }
+  });
+})();
+</script>
 
 </body>
 </html>
+
 
 
 
