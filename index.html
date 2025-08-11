@@ -18,7 +18,7 @@
 }
 .tagline-slot.show{opacity:1}
 
-  
+
 /* === ADDITIVE: tagline flipping banner === */
 .tagline-banner {
   background: #000;
@@ -41,8 +41,8 @@
 .tagline-text.show {
   opacity: 1;
 }
-  
-  
+
+
 /* --- Ratings --- */
 .rating {
   display: flex;
@@ -66,7 +66,7 @@
   #rv-clear {
   display:none; /* hide the Clear All button */
 }
-  
+
 body {
 background-color: #111; /* dark background */
 color: #eee; /* light text */
@@ -164,7 +164,7 @@ font-weight: bold;
   width: 300px; /* bigger */
   min-height: 200px; /* optional: taller */}
 
-  
+
 
 .cart-popup h4 {
 margin-top: 0;
@@ -517,7 +517,7 @@ input, textarea, select {
 .btn{background:#444;border:none;color:#fff;padding:.5rem .8rem;border-radius:6px;cursor:pointer}
 .btn.alt{background:#666}
 
-  
+
 </style>
 </head>
 <body>
@@ -616,7 +616,7 @@ input, textarea, select {
 
 
 
-  
+
 <header>
 <div class="promo-ribbon" style="
 background: linear-gradient(120deg, #000 25%, #333 50%, #000 75%);
@@ -679,7 +679,7 @@ animation: lenticular-move 6s infinite linear;
 
 <video autoplay loop muted playsinline>
 <source src="20250809_2331_Midnight Ember Perfume Reveal_simple_compose_01k290ggp8f9had7zxtkd57tkf.mp4" type="video/mp4">
- 
+
 </video>
 
 </video>
@@ -719,7 +719,7 @@ animation: lenticular-move 6s infinite linear;
 </div>
 
 
-  
+
 <footer class="footer">
 <div>© 2025 Signature Scents</div>
 <div class="footer-links">
@@ -1026,15 +1026,15 @@ updateCartDisplay();
       sum+=r.rating;
       const item = document.createElement('div');
       item.className='review-item';
-    item.innerHTML = `
-  <div style="display:flex;justify-content:space-between">
-    <strong>${r.name || 'Anonymous'}</strong>
-    <span style="color:#ffc107">${starIcons(r.rating)}</span>
-  </div>
-  <div style="opacity:.85;margin-top:.25rem">${r.text}</div>
-`;
-
-
+      item.innerHTML = `
+        <div style="display:flex;justify-content:space-between">
+          <strong>${r.name || 'Anonymous'}</strong>
+          <span style="color:#ffc107">${starIcons(r.rating)}</span>
+        </div>
+        <div style="opacity:.85;margin-top:.25rem">${r.text}</div>
+      `;
+      rvList.appendChild(item);
+    });
     // show average in header stars
     rvStars.textContent = db.length ? `${(sum/db.length).toFixed(1)} ${starIcons(Math.round(sum/db.length))}` : '';
   }
@@ -1052,13 +1052,11 @@ rvForm.addEventListener('submit', (e)=>{
   e.preventDefault();
   const db = getDB();
   db[currentProduct] = db[currentProduct] || [];
-db[currentProduct].push({
-  name: rvName.value.trim() || 'Anonymous',
-  rating: parseInt(rvRating.value,10),
-  text: rvText.value.trim()
-});
-
-
+  db[currentProduct].push({
+    name: rvName.value.trim() || 'Anonymous',
+    rating: parseInt(rvRating.value,10),
+    text: rvText.value.trim()
+  });
   setDB(db);
   rvForm.reset();
   renderList();
@@ -1085,74 +1083,3 @@ db[currentProduct].push({
 
 </body>
 </html>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
