@@ -62,6 +62,13 @@
   font-size: .95rem;
 }
 
+ .review-form {
+  display: none;
+} 
+
+  #rv-clear {
+  display: none; /* hide the Clear All button */
+}
   
 body {
 background-color: #111; /* dark background */
@@ -737,7 +744,7 @@ animation: lenticular-move 6s infinite linear;
       <button class="btn alt" id="rv-close">Close</button>
     </div>
     <div class="review-list" id="rv-list"></div>
-    <form class="review-form" id="rv-form">
+<form class="review-form" id="rv-form">
       <input type="text" id="rv-name" placeholder="Your name" required>
       <select id="rv-rating" required>
         <option value="" disabled selected>Rating</option>
@@ -1067,6 +1074,7 @@ updateCartDisplay();
 
 </body>
 </html>
+
 
 
 
