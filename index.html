@@ -1,1093 +1,317 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8" />
-<meta name="viewport" content="width=1024, maximum-scale=1.0, user-scalable=no">
-
-<title>Signature Scents</title>
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"/>
-<style>
-
-/* Crossfade tagline */
-#tagline-text{display:none;} /* hide old single-span */
-.tagline-banner{position:relative;width:100%;min-height:2.2em}
-.tagline-slot{
-  position:absolute;left:50%;transform:translateX(-50%);
-  opacity:0;transition:opacity 2.5s ease-in-out;font-style:italic;
-  white-space:nowrap  font-size: 4.6rem;
-}
-.tagline-slot.show{opacity:1}
-
-
-/* === ADDITIVE: tagline flipping banner === */
-.tagline-banner {
-  background: #000;
-  color: #fff;
-  width: 100%;        /* full screen width */
-  padding: 1rem 0;
-  border-radius: 0;   /* remove rounded edges if you want full bar look */
-  text-align: center;
-  font-weight: 700;
-  font-style: italic; /* italic text */
-  letter-spacing: .3px;
-  box-shadow: 0 6px 18px rgba(0,0,0,.35);
-}
-
-.tagline-text {
-  opacity: 0;
-  display: inline-block;
-  transition: opacity 5.5s ease-in-out;
-}
-.tagline-text.show {
-  opacity: 1;
-}
-
-
-/* --- Ratings --- */
-.rating {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  gap: .5rem;
-  margin-top: .4rem;
-}
-.rating .stars i {
-  font-size: 1rem;
-  /* gold stars on your dark theme */
-  color: #ffc107;
-}
-.rating .review-count {
-  color: #ccc;
-  font-weight: 600;
-  font-size: .95rem;
-}
-
-
-  #rv-clear {
-  display:none; /* hide the Clear All button */
-}
-
-body {
-background-color: #111; /* dark background */
-color: #eee; /* light text */
-}
-
-header,
-.footer,
-.card,
-.cart-popup,
-.login-popup {
-background-color: #222; /* darker containers */
-color: #f5f5f5;
-}
-
-input,
-button,
-textarea {
-background-color: #333;
-color: #f5f5f5;
-border: 1px solid #555;
-}
-
-.buy-btn,
-.checkout-btn,
-.login-submit {
-background-color: #444;
-color: white;
-}
-
-.buy-btn:hover,
-.checkout-btn:hover,
-.login-submit:hover {
-background-color: #fff;
-}
-
-.video-preview,
-.product-box,
-.cart-item {
-background-color: #1a1a1a;;
-color:#f0f0f0;
-}
-
-
-body {
-font-family: Arial, sans-serif;
-background: #f2f2f2;
-margin: 0;
-padding: 0;
-}
-
-header {
-background: #222;
-color: white;
-padding: 1rem 2rem;
-text-align: center;
-}
-
-.cart-icon {
-  position: fixed;
-  top: 60%;
-  right: 1rem;
-  z-index: 999;
-  font-size: 2rem;
-  background: #111;
-  padding: 1.5rem;
-  border-radius: 50%;
-  box-shadow: 0 2px 8px rgba(0,0,0,0.15)}
-
-
-
-.cart-count {
-position: absolute;
-top: -10px;
-right: -10px;
-background: red;
-color: white;
-font-size: 1.2rem;
-padding: .3px .6px;
-border-radius: 50%;
-font-weight: bold;
-}
-
-.cart-popup {
-  display: none;
-  position: fixed;
-  top: 60%;
-  right: 5rem;
-  background: #222;
-  color: white;
-  border: 1px solid #555;
-  border-radius: 10px;
-  padding: 1.5rem;
-  box-shadow: 0 4px 8px rgba(0,0,0,0.4);
-  z-index: 998;
-  width: 300px; /* bigger */
-  min-height: 200px; /* optional: taller */}
-
-
-
-.cart-popup h4 {
-margin-top: 0;
-}
-
-.cart-item {
-display: flex;
-justify-content: space-between;
-align-items: center;
-margin-bottom: 0.5rem;
-}
-
-.qty-btns {
-display: flex;
-gap: 0.3rem;
-align-items: center;
-}
-
-.qty-btns button {
-padding: 0.2rem 0.5rem;
-font-size: 0.8rem;
-background: silver;
-color: white;
-border: none;
-border-radius: 3px;
-cursor: pointer;
-}
-
-.qty-btns input {
-width: 32px;
-text-align: center;
-padding: 0.2rem;
-font-size: 0.85rem;
-border: 1px solid #ccc;
-border-radius: 3px;
-}
-
-.checkout-btn {
-margin-top: 0.8rem;
-padding: 0.4rem 1rem;
-background: black;
-color: white;
-border: none;
-border-radius: 5px;
-cursor: pointer;
-float: right;
-}
-
-
-
-.video-banner {
-position: relative;
-overflow: hidden;
-height: 300px;
-}
-
-.video-banner video {
-position: absolute;
-width: 100%;
-height: 100%;
-object-fit: cover;
-opacity: 0.88;
-}
-
-
-
-.container {
-display: flex;
-flex-wrap: wrap;
-justify-content: center;
-gap: 2rem;
-padding: 2rem;
-}
-
-.product-box {
-display: flex;
-flex-direction: column;
-align-items: center;
-width: 300px;
-}
-
-.video-preview {
-width: 100%;
-height: 200px;
-border-radius: 10px;
-overflow: hidden;
-box-shadow: 0 4px 8px rgba(0,0,0,0.1);
-margin-bottom: 0.5rem;
-position: relative;
-}
-
-.video-preview video {
-width: 100%;
-height: 100%;
-object-fit: cover;
-opacity: 0.88;
-}
-
-.bestseller-btn {
-position: absolute;
-top: 5px;
-left: 17px;
-background: red;
-color: white;
-border: none;
-padding: 0.3rem 0.6rem;
-border-radius: 4px;
-font-weight: bold;
-font-size: 0.8rem;
-transform: rotate(10deg);
-transform-origin: top left;
-z-index: 2;
-}
-
-.card {
-background: white;
-border-radius: 10px;
-box-shadow: 0 4px 8px rgba(0,0,0,0.1);
-width: 100%;
-padding: 1rem;
-text-align: center;
-}
-
-.card h2 {
-margin: 0.5rem 0;
-}
-
-.card p {
-color: #fff; /* white text */
-background-color: none;
-padding: 0.5rem;
-border-radius: 5px;
-}
-
-.price {
-font-weight: bold;
-color: #fff;
-margin-top: 1rem;
-}
-
-.buy-btn {
-padding: 0.5rem 1rem;
-font-size: 1rem;
-background: black;
-color: white;
-border: none;
-border-radius: 5px;
-cursor: pointer;
-margin-top: 1rem;
-}
-
-.buy-btn:hover {
-background: #333;
-}
-
-.footer {
-text-align: center;
-padding: 1.5rem 2rem;
-background: #fff;
-border-top: 1px solid #ccc;
-font-size: 0.9rem;
-color: #ffffff
-margin-top: 3rem;
-}
-
-.footer-links {
-display: flex;
-justify-content: center;
-flex-wrap: nowrap; /* prevent wrapping */
-gap: 2rem;
-margin-top: 0.5rem;
-flex-direction: row;
-}
-
-.login-popup {
-display: none;
-position: fixed;
-top: 4rem;
-right: 1rem;
-background: white;
-padding: 1rem;
-border-radius: 10px;
-box-shadow: 0 6px 12px rgba(0,0,0,0.2);
-z-index: 30;
-width: 250px;
-text-align: center;
-}
-
-.login-popup h3 {
-margin-top: 0;
-color: #333;
-}
-
-.login-popup input {
-width: 100%;
-padding: 0.5rem;
-margin: 0.5rem 0;
-font-size: 1rem;
-border: 1px solid #ccc;
-border-radius: 6px;
-}
-
-.login-submit {
-background: black;
-color: white;
-border: none;
-padding: 0.5rem 1rem;
-width: 100%;
-border-radius: 6px;
-margin-top: 0.5rem;
-cursor: pointer;
-}
-
-.login-links {
-margin-top: 0.75rem;
-font-size: 0.85rem;
-}
-
-.login-links a {
-color: #6a4e42;
-text-decoration: none;
-}
-
-.login-links a:hover {
-text-decoration: underline;
-}
-
-.promo-ribbon {
-position: relative;
-background: linear-gradient(120deg, #ff4d4d 25%, #ff9999 50%, #ff4d4d 75%);
-background-size: 200% 200%;
-color: white;
-text-align: center;
-font-weight: bold;
-font-size: 1.05rem;
-padding: 0.75rem 1.25rem;
-border-radius: 50px;
-margin: 1.2rem auto 0;
-max-width: 620px;
-box-shadow: 0 4px 12px rgba(0,0,0,0.1);
-letter-spacing: 0.4px;
-animation: lenticular-move 6s infinite linear;
-transition: transform 0.1s ease;
-}
-
-@keyframes lenticular-move {
-0%   { background-position: 0% 50%; }
-50%  { background-position: 100% 50%; }
-100% { background-position: 0% 50%; }
-}
-
-}
-
-@keyframes shimmer {
-0% { background-position: 0% 50%; }
-100% { background-position: 100% 50%; }
-}
-
-.video-section {
-display: flex;
-flex-direction: column;
-}
-
-.video-block {
-position: relative;
-height: 100vh;
-overflow: hidden;
-margin: 0;          /* ✅ remove default margin */
-padding: 0;         /* ✅ remove default padding */
-}
-
-
-.video-block video {
-position: absolute;
-top: 0;
-left: 0;
-min-width: 100%;
-min-height: 100%;
-object-fit: cover;
-opacity: 0.88;
-z-index: -1;
-}
-
-
-.video-section video {
-position: absolute;
-top: 0;
-left: 0;
-min-width: 100%;
-min-height: 100%;
-object-fit: cover;
-opacity: 0.88;
-z-index: -1;
-transition: opacity 1s ease-in-out;
-}
-
-#video2 {
-opacity: 0;
-pointer-events: none;
-}
-
-.fade-in {
-opacity: 0.88 !important;
-}
-
-
-.about-bg {
-position: absolute;
-top: 0;
-left: 0;
-width: 100%;
-height: 100%;
-object-fit: cover;
-z-index: -1;
-opacity: 0.75;
-}
-
-body {
-  background-color: #121212;
-  color: #f5f5f5;
-}
-
-.card, .container, .footer, .login-popup, .cart-popup {
-  background-color: #1e1e1e;
-  color: #f5f5f5;
-}
-
-input, textarea, select {
-  background-color: #2a2a2a;
-  color: #f5f5f5;
-  border: 1px solid #555;
-}
-
-.buy-btn, .checkout-btn, .login-submit {
-  background-color: #333;
-  color: white;
-}
-
-.buy-btn:hover, .checkout-btn:hover, .login-submit:hover {
-  background-color: #555;
-}
-
-.review-modal{position:fixed;inset:0;background:rgba(0,0,0,.6);display:none;z-index:1000}
-.review-box{background:#111;color:#fff;max-width:520px;margin:8vh auto;padding:1rem 1.2rem;border-radius:10px}
-.review-list{max-height:45vh;overflow:auto;margin:.5rem 0}
-.review-item{border-bottom:1px solid #333;padding:.6rem 0}
-.review-head{display:flex;gap:.5rem;align-items:center}
-.review-form input, .review-form textarea, .review-form select{width:100%;margin:.3rem 0;padding:.5rem;background:#222;color:#fff;border:1px solid #555;border-radius:6px}
-.review-actions{display:flex;justify-content:space-between;gap:.6rem;margin-top:.6rem}
-.btn{background:#444;border:none;color:#fff;padding:.5rem .8rem;border-radius:6px;cursor:pointer}
-.btn.alt{background:#666}
-
-
-</style>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sojo Spa Trip - August 28th Registration</title>
+    <script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"></script>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 20px;
+        }
+        
+        .form-container {
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(10px);
+            border-radius: 20px;
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
+            padding: 40px;
+            width: 100%;
+            max-width: 500px;
+            transform: translateY(0);
+            transition: all 0.3s ease;
+        }
+        
+        .form-container:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 25px 50px rgba(0, 0, 0, 0.15);
+        }
+        
+        .header {
+            text-align: center;
+            margin-bottom: 30px;
+        }
+        
+        .header h1 {
+            color: #333;
+            font-size: 2.2em;
+            font-weight: 700;
+            margin-bottom: 10px;
+            background: linear-gradient(45deg, #667eea, #764ba2);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+        
+        .header p {
+            color: #666;
+            font-size: 1.1em;
+            line-height: 1.6;
+        }
+        
+        .highlight {
+            background: linear-gradient(45deg, #4CAF50, #45a049);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            font-weight: 600;
+        }
+        
+        .form-group {
+            margin-bottom: 25px;
+        }
+        
+        label {
+            display: block;
+            margin-bottom: 8px;
+            font-weight: 600;
+            color: #333;
+            font-size: 0.95em;
+        }
+        
+        select, textarea {
+            width: 100%;
+            padding: 15px;
+            border: 2px solid #e1e5e9;
+            border-radius: 12px;
+            font-size: 16px;
+            transition: all 0.3s ease;
+            background: white;
+            -webkit-appearance: none;
+            -moz-appearance: none;
+            appearance: none;
+        }
+        
+        select:focus, textarea:focus {
+            outline: none;
+            border-color: #667eea;
+            box-shadow: 0 0 0 3px rgba(102, 126, 234, 0.1);
+        }
+        
+        textarea {
+            resize: vertical;
+            min-height: 80px;
+        }
+        
+        .submit-btn {
+            width: 100%;
+            padding: 18px;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            border: none;
+            border-radius: 12px;
+            font-size: 18px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            position: relative;
+            overflow: hidden;
+            -webkit-appearance: none;
+            -moz-appearance: none;
+            appearance: none;
+            touch-action: manipulation;
+        }
+        
+        .submit-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 10px 25px rgba(102, 126, 234, 0.3);
+        }
+        
+        .submit-btn:active {
+            transform: translateY(0);
+        }
+        
+        .submit-btn:disabled {
+            opacity: 0.7;
+            cursor: not-allowed;
+            transform: none;
+        }
+        
+        .success-message, .error-message {
+            padding: 15px;
+            border-radius: 8px;
+            margin: 20px 0;
+            font-weight: 500;
+            text-align: center;
+        }
+        
+        .success-message {
+            background-color: #d4edda;
+            color: #155724;
+            border: 1px solid #c3e6cb;
+        }
+        
+        .error-message {
+            background-color: #f8d7da;
+            color: #721c24;
+            border: 1px solid #f5c6cb;
+        }
+        
+        @media (max-width: 600px) {
+            .form-container {
+                margin: 10px;
+                padding: 30px 20px;
+            }
+            
+            .header h1 {
+                font-size: 1.8em;
+            }
+        }
+    </style>
 </head>
 <body>
-
-
-
-<div class="video-block">
-<video autoplay loop muted playsinline>
-<source src="Bottle.mp4" type="video/mp4">
-</video>
-</div>
-</div>
-
-
-<div class="cart-icon" onclick="toggleCart()">
-<i class="fas fa-shopping-cart"></i>
-<span class="cart-count" id="cart-count">0</span>
-</div>
-
-<div class="cart-popup" id="cart-popup">
-<h4>Your Cart</h4>
-<div id="cart-items"></div>
-<button class="checkout-btn" onclick="goToCheckout()">Checkout</button>
-</div>
-<div class="login-popup" id="login-popup" style="display: none;">
-<label style="display:block;">Email</label>
-<input type="text" style="width: 90%; height: 30px; margin-bottom: 0.5rem;" />
-
-<label style="display:block;">Password</label>
-<input type="password" style="width: 90%; height: 30px; margin-bottom: 1rem;" />
-
-<button style="width: 100%; padding: 0.5rem; background: black; color: white; border: none; border-radius: 5px;">Login</button>
-
-<div style="margin-top: 1rem;">
-<a href="#" style="display:block; margin-bottom: 0.4rem; color: #6a4e42; font-size: 0.9rem;">Register</a>
-<a href="#" style="display:block; color: #6a4e42; font-size: 0.9rem;">Forgot Password?</a>
-</div>
-</div>
-
-...
-</div>
-<!-- ADDITIVE: Smooth-fade tagline banner -->
-<div class="tagline-banner" id="tagline-banner">
-  <span class="tagline-text" id="tagline-text"></span>
-  <span class="tagline-slot t1"></span>
-<span class="tagline-slot t2"></span>
-
-</div>
-
-
-  <script>
-(function(){
-  const lines=[
-    "Where Fragrance Meets Identity.",
-    "Fragrance That Speaks Before You Do.",
-    "Leave Your Mark in the Air."
-  ];
-  const s1=document.querySelector('.tagline-slot.t1');
-  const s2=document.querySelector('.tagline-slot.t2');
-  let i=0, curr=s1, next=s2;
-
-  s1.textContent=lines[0]; s1.classList.add('show');
-  s2.textContent=lines[1];
-
-  setInterval(()=>{
-    next.textContent=lines[(i+1)%lines.length];
-    curr.classList.remove('show');
-    next.classList.add('show');
-    i=(i+1)%lines.length;
-    [curr,next]=[next,curr];
-  },6000); // hold time; adjust as you like
-})();
-</script>
-
-<script>
-(function(){
-  const lines = [
-    "Where Fragrance Meets Identity.",
-    "Fragrance That Speaks Before You Do.",
-    "Leave Your Mark in the Air."
-  ];
-  const el = document.getElementById('tagline-text');
-  let i = 0;
-  function cycle(){
-    el.classList.remove('show');
-    setTimeout(()=>{
-      el.textContent = lines[i];
-      el.classList.add('show');
-      i = (i+1) % lines.length;
-    }, 250);
-  }
-  cycle();
-  setInterval(cycle, 4000);
-})();
-</script>
-
-
-
-
-<header>
-<div class="promo-ribbon" style="
-background: linear-gradient(120deg, #000 25%, #333 50%, #000 75%);
-background-size: 200% 200%;
-color: white;
-text-align: center;
-font-weight: bold;
-font-size: 1.05rem;
-padding: 0.75rem 1.25rem;
-border-radius: 50px;
-margin: 1.2rem auto 0;
-max-width: 620px;
-box-shadow: 0 4px 12px rgba(0,0,0,0.1);
-letter-spacing: 0.4px;
-animation: lenticular-move 6s infinite linear;
-">
-
-<button class="about-btn" onclick="toggleLogin()">Login</button>
-
-<h1>Signature Scents</h1>
-<p>Explore Our Top Colognes</p>
-<div style="display: flex; justify-content: center; gap: 1rem;">
-
-<button class="about-btn" onclick="window.location.href='career.html'">Careers</button>
-<button class="about-btn" onclick="window.location.href='faq.html'">FAQ</button>
-</div>
-
-
-</header>
-<div class="promo-ribbon" style="
-background: linear-gradient(120deg, #000 25%, #333 50%, #000 75%);
-background-size: 200% 200%;
-color: white;
-text-align: center;
-font-weight: bold;
-font-size: 1.05rem;
-padding: 0.75rem 1.25rem;
-border-radius: 50px;
-margin: 1.2rem auto 0;
-max-width: 620px;
-box-shadow: 0 4px 12px rgba(0,0,0,0.1);
-letter-spacing: 0.4px;
-animation: lenticular-move 6s infinite linear;
-">
-<span>Sign up today to stay updated with the promotions and offers !</span>
-</div>
-
-<div class="promo-ribbon">
-<span>🔥 Buy One, Get One 35% OFF!  + FREE Shipping! Ends 11/30 🔥</span>
-</div>
-
-
-
-
-
-
-<div class="container">
-<div class="product-box">
-<div class="video-preview">
-
-<video autoplay loop muted playsinline>
-<source src="20250809_2331_Midnight Ember Perfume Reveal_simple_compose_01k290ggp8f9had7zxtkd57tkf.mp4" type="video/mp4">
-
-</video>
-
-</video>
-</div>
-<div class="card">
-<h2>Midnight Ember</h2>  
-<p>Smoky, bold, and unforgettable. Perfect for evening wear (4oz) 
-  Eau de Parfum .</p>
-<div class="price">$119.99</div>
-<button class="buy-btn" onclick="addToCart('Midnight Ember', 119.99)">Add to Cart</button>
-</div>
-
-<div class="rating" data-product="Midnight Ember">
-  <span class="stars"></span>
-  <span class="review-count">(0)</span>
-</div>
-
-
-
-<div class="product-box">
-<div class="video-preview">
-<button class="bestseller-btn">Recently Added</button>
-<video autoplay loop muted playsinline>
-<source src="Bottle.mp4" type="video/mp4">
-</video>
-</div>
-<div class="card">
-<h2>Urban Spice</h2>
-<p>Spicy and modern. Great for daytime and office wear (4oz) 
-  Eau de Parfum .</p>
-<div class="price">$89.99</div>
-<button class="buy-btn" onclick="addToCart('Urban Spice', 89.99)">Add to Cart</button>
-
-</div>
-
-<div class="rating" data-product="Urban Spice">
-  <span class="stars"></span>
-  <span class="review-count">(0)</span>
-</div>
-
-
-
-<footer class="footer">
-<div>© 2025 Signature Scents</div>
-<div class="footer-links">
-<a href="terms.html">Terms</a>
-<a href="ingredients.html">Ingredients</a>
-<a href="privacy.html">Privacy</a>
-
-<a href="contact.html">Contact</a>
-<a href="returnpolicy.html">Returns</a>
-
-
-<a href="#">FAQ</a>
-
-<div class="review-modal" id="review-modal">
-  <div class="review-box">
-    <div class="review-head">
-      <strong id="rv-product">Reviews</strong>
-      <span id="rv-stars" style="color:#ffc107;margin-left:auto"></span>
-      <button class="btn alt" id="rv-close">Close</button>
-    </div>
-    <div class="review-list" id="rv-list"></div>
-<form class="review-form" id="rv-form">
-      <input type="text" id="rv-name" placeholder="Your name" required>
-      <select id="rv-rating" required>
-        <option value="" disabled selected>Rating</option>
-        <option>5</option><option>4</option><option>3</option><option>2</option><option>1</option>
-      </select>
-      <textarea id="rv-text" rows="3" placeholder="Write a review..." required></textarea>
-      <div class="review-actions">
-        <button type="submit" class="btn">Add Review</button>
-        <button type="button" class="btn alt" id="rv-clear">Clear All</button>
-      </div>
-    </form>
-  </div>
-</div>
-
-</div>
-</footer>
-
-<script>
-
-
-function addToCart(name, price) {
-if (!cart[name]) cart[name] = { price, qty: 0 };
-cart[name].qty++;
-updateCartDisplay();
-cartPopup.style.display = "block";
-}
-
-function updateCartDisplay() {
-let count = 0;
-cartItemsContainer.innerHTML = "";
-for (let item in cart) {
-count += cart[item].qty;
-const el = document.createElement("div");
-el.className = "cart-item";
-el.innerHTML = `
-      <span>${item} - $${cart[item].price}</span>
-      <div class="qty-btns">
-        <button onclick="changeQty('${item}', -1, event)">-</button>
-        <input type="number" min="1" value="${cart[item].qty}" onchange="manualQty('${item}', this.value, event)" />
-        <button onclick="changeQty('${item}', 1, event)">+</button>
-      </div>
-    `;
-cartItemsContainer.appendChild(el);
-}
-document.getElementById("cart-count").textContent = count;
-}
-
-function changeQty(item, delta, event) {
-event.stopPropagation();
-if (cart[item]) {
-cart[item].qty += delta;
-if (cart[item].qty <= 0) delete cart[item];
-updateCartDisplay();
-}
-}
-
-function manualQty(item, val, event) {
-event.stopPropagation();
-const qty = parseInt(val);
-if (!isNaN(qty) && qty > 0) {
-cart[item].qty = qty;
-} else {
-delete cart[item];
-}
-updateCartDisplay();
-}
-
-function toggleCart() {
-cartPopup.style.display = cartPopup.style.display === "block" ? "none" : "block";
-}
-
-document.addEventListener("click", function(e) {
-if (!cartPopup.contains(e.target) && !e.target.closest(".cart-icon")) {
-cartPopup.style.display = "none";
-}
-});
-
-function goToCheckout() {
-localStorage.setItem("cart", JSON.stringify(cart));
-
-window.location.href = "chkout.html";
-}
-
-function scrollToAbout() {
-const section = document.getElementById("about-section");
-section.scrollIntoView({ behavior: "smooth" });
-section.style.transition = "background-color 0.5s ease";
-section.style.backgroundColor = "#ffffcc";
-setTimeout(() => {
-section.style.backgroundColor = "rgba(255, 255, 255, 0.85)";
-}, 500);
-}
-function toggleLogin() {
-const loginBox = document.getElementById("login-popup");
-loginBox.style.display = loginBox.style.display === "block" ? "none" : "block";
-}
-
-document.addEventListener("click", function(e) {
-const loginPopup = document.getElementById("login-popup");
-if (loginPopup && !loginPopup.contains(e.target) && !e.target.closest(".about-btn")) {
-loginPopup.style.display = "none";
-}
-});
-
-
-</script>
-<script>
-let cart = JSON.parse(localStorage.getItem("cart")) || {};
-const cartItemsContainer = document.getElementById("cart-items");
-const cartPopup = document.getElementById("cart-popup");
-
-function addToCart(name, price) {
-if (!cart[name]) cart[name] = { price, qty: 0 };
-cart[name].qty++;
-saveCart();
-updateCartDisplay();
-cartPopup.style.display = "block";
-}
-
-function updateCartDisplay() {
-let count = 0;
-cartItemsContainer.innerHTML = "";
-for (let item in cart) {
-count += cart[item].qty;
-const el = document.createElement("div");
-el.className = "cart-item";
-el.innerHTML = `
-     <span>${item} - $${cart[item].price}</span>
-     <div class="qty-btns">
-       <button onclick="changeQty('${item}', -1, event)">-</button>
-       <input type="number" min="1" value="${cart[item].qty}" onchange="manualQty('${item}', this.value, event)" />
-       <button onclick="changeQty('${item}', 1, event)">+</button>
-     </div>
-   `;
-cartItemsContainer.appendChild(el);
-}
-document.getElementById("cart-count").textContent = count;
-}
-
-function changeQty(item, delta, event) {
-event.stopPropagation();
-if (cart[item]) {
-cart[item].qty += delta;
-if (cart[item].qty <= 0) delete cart[item];
-saveCart();
-updateCartDisplay();
-}
-}
-
-function manualQty(item, val, event) {
-event.stopPropagation();
-const qty = parseInt(val);
-if (!isNaN(qty) && qty > 0) {
-cart[item].qty = qty;
-} else {
-delete cart[item];
-}
-saveCart();
-updateCartDisplay();
-}
-
-
-
-document.addEventListener("click", function(e) {
-if (!cartPopup.contains(e.target) && !e.target.closest(".cart-icon")) {
-cartPopup.style.display = "none";
-}
-});
-
-function goToCheckout() {
-localStorage.setItem("cart", JSON.stringify(cart));
-window.location.href = "chkout.html";
-}
-
-function saveCart() {
-localStorage.setItem("cart", JSON.stringify(cart));
-}
-
-function scrollToAbout() {
-const section = document.getElementById("about-section");
-section.scrollIntoView({ behavior: "smooth" });
-section.style.transition = "background-color 0.5s ease";
-section.style.backgroundColor = "#ffffcc";
-setTimeout(() => {
-section.style.backgroundColor = "rgba(255, 255, 255, 0.85)";
-}, 500);
-}
-
-updateCartDisplay();
-</script>
-
-<div class="login-popup" id="login-popup" style="display: none;">
-<label style="display:block;">Email</label>
-<input type="text" style="width: 95%; margin-bottom: 0.5rem; padding: 0.5rem;" />
-<label style="display:block;">Password</label>
-<input type="password" style="width: 95%; margin-bottom: 1rem; padding: 0.5rem;" />
-<button style="width: 100%; padding: 0.5rem; background: black; color: white; border: none; border-radius: 5px;">Login</button>
-<div style="margin-top: 0.75rem; text-align: center;">
-<a href="register.html" style="font-size: 0.9rem; color: #6a4e42;">Register</a>
-
-<a href="#" style="font-size: 0.9rem; color: #6a4e42;">Forgot Password?</a>
-</div>
-</div>
-
-  <script>
-  // Review data – you can tweak these numbers anytime
-  const productReviews = {
-    "Midnight Ember": { rating: 4.1, count: 4 },
-    "Urban Spice":    { rating: 4.6, count: 7  }
-  };
-
-  // Build star icons for a given rating (rounded to nearest 0.5)
-  function renderStars(r) {
-    // round to nearest 0.5
-    const rounded = Math.round(r * 2) / 2;
-    const full = Math.floor(rounded);
-    const half = (rounded - full) === 0.5 ? 1 : 0;
-    const empty = 5 - full - half;
-
-    let html = "";
-    for (let i = 0; i < full; i++)  html += '<i class="fa-solid fa-star"></i>';
-    if (half) html += '<i class="fa-solid fa-star-half-stroke"></i>';
-    for (let i = 0; i < empty; i++) html += '<i class="fa-regular fa-star"></i>';
-    return html;
-  }
-
-  // Populate all .rating blocks
-  document.querySelectorAll('.rating').forEach(el => {
-    const name = el.getAttribute('data-product');
-    const starsEl = el.querySelector('.stars');
-    const countEl = el.querySelector('.review-count');
-
-    if (productReviews[name]) {
-      const { rating, count } = productReviews[name];
-     starsEl.innerHTML = `${rating.toFixed(1)} ` + renderStars(rating);
-     countEl.textContent = `(${count})`;
-
-      // Optional: tooltip showing the exact rating
-      el.title = `${rating.toFixed(1)} out of 5`;
-    } else {
-      // fallback if product not found
-      starsEl.innerHTML = renderStars(0);
-      countEl.textContent = `(0)`;
-    }
-  });
-</script>
-
-<script>
-(() => {
-  const modal = document.getElementById('review-modal');
-  const rvList = document.getElementById('rv-list');
-  const rvForm = document.getElementById('rv-form');
-  const rvName = document.getElementById('rv-name');
-  const rvRating = document.getElementById('rv-rating');
-  const rvText = document.getElementById('rv-text');
-  const rvClose = document.getElementById('rv-close');
-  const rvClear = document.getElementById('rv-clear');
-  const rvProduct = document.getElementById('rv-product');
-  const rvStars = document.getElementById('rv-stars');
-
-  let currentProduct = null;
-  const LS_KEY = 'userReviews';
-  const getDB = () => JSON.parse(localStorage.getItem(LS_KEY) || '{}');
-  const setDB = (db) => localStorage.setItem(LS_KEY, JSON.stringify(db));
-
-  function starIcons(n){
-    let h=''; for(let i=1;i<=5;i++) h+= i<=n ? '★' : '☆'; return h;
-  }
-
-  function openReviews(product){
-    currentProduct = product;
-    rvProduct.textContent = `${product} — Reviews`;
-    renderList();
-    modal.style.display = 'block';
-  }
-
-  function renderList(){
-    const db = getDB()[currentProduct] || [];
-    rvList.innerHTML = db.length ? '' : '<div style="opacity:.7" </div>';
-    let sum=0;
-    db.forEach(r => {
-      sum+=r.rating;
-      const item = document.createElement('div');
-      item.className='review-item';
-      item.innerHTML = `
-        <div style="display:flex;justify-content:space-between">
-          <strong>${r.name || 'Anonymous'}</strong>
-          <span style="color:#ffc107">${starIcons(r.rating)}</span>
+    <div class="form-container">
+        <div class="header">
+            <h1>🌊 Sojo Spa Trip</h1>
+            <p><strong>August 28th, 2025</strong><br>
+            Join us for a relaxing day at Sojo Spa!<br>
+            <span class="highlight">All trip expenses covered</span> ✨</p>
         </div>
-        <div style="opacity:.85;margin-top:.25rem">${r.text}</div>
-      `;
-      rvList.appendChild(item);
-    });
-    // show average in header stars
-    rvStars.textContent = db.length ? `${(sum/db.length).toFixed(1)} ${starIcons(Math.round(sum/db.length))}` : '';
-  }
-
-  // Hook existing .rating blocks
-  document.querySelectorAll('.rating').forEach(el=>{
-    el.style.cursor='pointer';
-    el.addEventListener('click', () => openReviews(el.getAttribute('data-product')));
-  });
-
-  rvClose.addEventListener('click', ()=> modal.style.display='none');
-  modal.addEventListener('click', (e)=>{ if(e.target===modal) modal.style.display='none'; });
-
-rvForm.addEventListener('submit', (e)=>{
-  e.preventDefault();
-  const db = getDB();
-  db[currentProduct] = db[currentProduct] || [];
-  db[currentProduct].push({
-    name: rvName.value.trim() || 'Anonymous',
-    rating: parseInt(rvRating.value,10),
-    text: rvText.value.trim()
-  });
-  setDB(db);
-  rvForm.reset();
-  renderList();
-
-  // Show thank you message instead of form
-  rvForm.innerHTML = `<div style="padding:1rem; text-align:center; font-size:1.1rem; color:#ffc107;">
-    Thank you for your review!
-  </div>`;
-
-  // Optional: hide thank you after 3s and show form again
-  setTimeout(()=>{
-    location.reload(); // refreshes popup to normal state
-  }, 3000);
-});
-
-
-
-  rvClear.addEventListener('click', ()=>{
-    const db = getDB();
-    if (db[currentProduct]) { delete db[currentProduct]; setDB(db); renderList(); }
-  });
-})();
-</script>
-
+        
+        <form id="spa-trip-form">
+            <div class="form-group">
+                <label for="attendance">Will you be joining us? *</label>
+                <select id="attendance" name="attendance" required>
+                    <option value="">-- Please select --</option>
+                    <option value="Yes">YES - Count me in! 🎉</option>
+                    <option value="No">NO - Can't make it 😔</option>
+                </select>
+            </div>
+            
+            <div class="form-group" id="time-group" style="display: none;">
+                <label for="time">Preferred Departure Time *</label>
+                <select id="time" name="time">
+                    <option value="">-- Select a time --</option>
+                    <option value="1:00 PM">1:00 PM - Afternoon Departure</option>
+                    <option value="6:00 PM">6:00 PM - Evening Departure</option>
+                </select>
+            </div>
+            
+            <div class="form-group">
+                <label for="comments">Additional Comments/Questions</label>
+                <textarea id="comments" name="comments" placeholder="Any special requests or questions about the trip..."></textarea>
+            </div>
+            
+            <button type="submit" class="submit-btn" id="submit-btn">
+                Register for Spa Trip
+            </button>
+            
+            <div id="message-container"></div>
+        </form>
+    </div>
+    
+    <script>
+        // Initialize EmailJS
+        (function(){
+            emailjs.init("JZyxBW7fgfjXdzc8a");
+        })();
+        
+        const form = document.getElementById('spa-trip-form');
+        const submitBtn = document.getElementById('submit-btn');
+        const messageContainer = document.getElementById('message-container');
+        const attendanceSelect = document.getElementById('attendance');
+        const timeGroup = document.getElementById('time-group');
+        const timeSelect = document.getElementById('time');
+        
+        // Show/hide time selection based on attendance
+        attendanceSelect.addEventListener('change', function() {
+            if (this.value === 'Yes') {
+                timeGroup.style.display = 'block';
+                timeSelect.required = true;
+            } else {
+                timeGroup.style.display = 'none';
+                timeSelect.required = false;
+                timeSelect.value = '';
+            }
+        });
+        
+        form.addEventListener('submit', async function(e) {
+            e.preventDefault();
+            
+            // Get form values
+            const attendance = attendanceSelect.value;
+            const time = timeSelect.value;
+            const comments = document.getElementById('comments').value;
+            
+            // Validation
+            if (!attendance) {
+                messageContainer.innerHTML = `
+                    <div class="error-message">
+                        ⚠️ Please select whether you'll be joining us!
+                    </div>
+                `;
+                return;
+            }
+            
+            if (attendance === 'Yes' && !time) {
+                messageContainer.innerHTML = `
+                    <div class="error-message">
+                        ⚠️ Please select a preferred departure time!
+                    </div>
+                `;
+                return;
+            }
+            
+            // Disable submit button
+            submitBtn.disabled = true;
+            submitBtn.textContent = 'Submitting...';
+            messageContainer.innerHTML = '';
+            
+            // Prepare email parameters
+            const emailParams = {
+                to_email: 'your-email@example.com',
+                attendance: attendance,
+                preferred_time: time || 'Not specified',
+                comments: comments || 'None',
+                trip_date: 'August 28th, 2025',
+                subject: 'Sojo Spa Trip Response - ' + attendance
+            };
+            
+            try {
+                // Send email using EmailJS
+                const response = await emailjs.send(
+                    'service_hn9dr1x',
+                    'template_3yjnl3k',
+                    emailParams
+                );
+                
+                // Show success message
+                messageContainer.innerHTML = `
+                    <div class="success-message">
+                        🎉 Registration successful! Thank you for your response.
+                    </div>
+                `;
+                
+                // Reset form
+                form.reset();
+                timeGroup.style.display = 'none';
+                timeSelect.required = false;
+                
+            } catch (error) {
+                console.error('EmailJS Error:', error);
+                
+                // Show error message
+                messageContainer.innerHTML = `
+                    <div class="error-message">
+                        ❌ Registration failed. Please try again.
+                    </div>
+                `;
+            } finally {
+                // Re-enable submit button
+                submitBtn.disabled = false;
+                submitBtn.textContent = 'Register for Spa Trip';
+            }
+        });
+    </script>
 </body>
 </html>
-
-
-
-
-
-
