@@ -108,6 +108,34 @@
             height: 2px;
             background: #ffffff;
             border-radius: 1px;
+            transition: all 0.3s ease;
+        }
+
+        /* Mobile menu styles when active */
+        .nav-links.mobile-active {
+            display: flex;
+            position: fixed;
+            top: 70px;
+            right: 1rem;
+            background: rgba(10, 10, 10, 0.95);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: 12px;
+            flex-direction: column;
+            padding: 1rem;
+            backdrop-filter: blur(10px);
+            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.5);
+        }
+
+        .mobile-menu.active span:nth-child(1) {
+            transform: rotate(45deg) translate(5px, 5px);
+        }
+
+        .mobile-menu.active span:nth-child(2) {
+            opacity: 0;
+        }
+
+        .mobile-menu.active span:nth-child(3) {
+            transform: rotate(-45deg) translate(7px, -6px);
         }
 
         /* Hero Section with Video Background */
@@ -892,7 +920,7 @@
         
         <div class="hero-content">
             <h1>Elicona Visuals</h1>
-            <p>Modern skill, classic touch, each cut made with care.</p>
+            <p>Modern skill, classic touch—each cut made with care.</p>
             <a href="https://getsquire.com/booking/book/bvrberiv-fair-lawn/barber/alex-elicona-1/services" class="cta-button" target="_blank">Book Appointment</a>
         </div>
     </section>
@@ -909,7 +937,7 @@
                     <h2 class="section-title">My Mission</h2>
                 </div>
                 <div class="fade-in">
-                    <p>For me a haircut isn't just about cutting hair, it's about making you feel sharp and confident. Mixing today's techniques with old-school barbering, 
+                    <p>For me a haircut isn't just about cutting hair, it's about making you feel sharp and confident. I take pride in clean fades, precise lines, and styles that fit you. Mixing today's techniques with old-school barbering, 
                         I make sure every cut has its own character. It's more than a service, it's a chair, a conversation, and a fresh look that feels right.</p>
                                                                                                                                                                                                                                                                                                                                                                                                
                 </div>
@@ -1121,6 +1149,31 @@
                 observer.observe(element);
             });
 
+            // Mobile menu functionality
+            const mobileMenu = document.querySelector('.mobile-menu');
+            const navLinks = document.querySelector('.nav-links');
+
+            mobileMenu.addEventListener('click', () => {
+                mobileMenu.classList.toggle('active');
+                navLinks.classList.toggle('mobile-active');
+            });
+
+            // Close mobile menu when clicking on a link
+            navLinks.addEventListener('click', (e) => {
+                if (e.target.tagName === 'A') {
+                    mobileMenu.classList.remove('active');
+                    navLinks.classList.remove('mobile-active');
+                }
+            });
+
+            // Close mobile menu when clicking outside
+            document.addEventListener('click', (e) => {
+                if (!mobileMenu.contains(e.target) && !navLinks.contains(e.target)) {
+                    mobileMenu.classList.remove('active');
+                    navLinks.classList.remove('mobile-active');
+                }
+            });
+
             // Ensure video plays on load and loops continuously
             const video = document.querySelector('.hero-video');
             if (video) {
@@ -1178,5 +1231,3 @@
     </script>
 </body>
 </html>
-
-
