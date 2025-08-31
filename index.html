@@ -847,7 +847,10 @@
 
         /* Visit Us Section */
         #visit {
-            background: #111111;
+            background-image: url('Bvber.jpg');
+            background-size: cover;
+            background-position: center;
+            background-attachment: fixed;
             padding: 80px 0;
             position: relative;
         }
@@ -859,9 +862,12 @@
             left: 0;
             width: 100%;
             height: 100%;
-            background: 
-                radial-gradient(circle at 25% 25%, rgba(255,255,255,0.02) 0%, transparent 50%),
-                radial-gradient(circle at 75% 75%, rgba(255,255,255,0.02) 0%, transparent 50%);
+            background: linear-gradient(
+                135deg, 
+                rgba(10, 10, 10, 0.8) 0%, 
+                rgba(26, 26, 26, 0.7) 50%,
+                rgba(10, 10, 10, 0.8) 100%
+            );
             z-index: 1;
             pointer-events: none;
         }
@@ -1019,12 +1025,6 @@
         }
 
         /* Fade in animations */
-        .fade-in {
-            opacity: 0;
-            transform: translateY(20px);
-            transition: opacity 0.6s ease, transform 0.6s ease;
-        }
-
         .fade-in.visible {
             opacity: 1;
             transform: translateY(0);
@@ -1117,6 +1117,7 @@
             /* Visit Us section mobile */
             #visit {
                 padding: 60px 0;
+                background-attachment: scroll;
             }
 
             .visit-container {
@@ -1738,4 +1739,10 @@
         });
     </script>
 </body>
-</html>
+</html>in {
+            opacity: 0;
+            transform: translateY(20px);
+            transition: opacity 0.6s ease, transform 0.6s ease;
+        }
+
+        .fade-
