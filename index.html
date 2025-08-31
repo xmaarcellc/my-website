@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Elicona Visuals</title>
+    <title>Elicona Visuals - Modern Grooming Experience</title>
     <style>
         * {
             margin: 0;
@@ -847,10 +847,7 @@
 
         /* Visit Us Section */
         #visit {
-            background-image: url('Bvber.jpg');
-            background-size: cover;
-            background-position: center;
-            background-attachment: fixed;
+            background: #111111;
             padding: 80px 0;
             position: relative;
         }
@@ -862,12 +859,9 @@
             left: 0;
             width: 100%;
             height: 100%;
-            background: linear-gradient(
-                135deg, 
-                rgba(10, 10, 10, 0.8) 0%, 
-                rgba(26, 26, 26, 0.7) 50%,
-                rgba(10, 10, 10, 0.8) 100%
-            );
+            background: 
+                radial-gradient(circle at 25% 25%, rgba(255,255,255,0.02) 0%, transparent 50%),
+                radial-gradient(circle at 75% 75%, rgba(255,255,255,0.02) 0%, transparent 50%);
             z-index: 1;
             pointer-events: none;
         }
@@ -1025,6 +1019,12 @@
         }
 
         /* Fade in animations */
+        .fade-in {
+            opacity: 0;
+            transform: translateY(20px);
+            transition: opacity 0.6s ease, transform 0.6s ease;
+        }
+
         .fade-in.visible {
             opacity: 1;
             transform: translateY(0);
@@ -1117,7 +1117,6 @@
             /* Visit Us section mobile */
             #visit {
                 padding: 60px 0;
-                background-attachment: scroll;
             }
 
             .visit-container {
@@ -1276,7 +1275,7 @@
         
         <div class="hero-content">
             <h1>Elicona Visuals</h1>
-            <p>Modern skill, with a classic touch of care.</p>
+            <p>Modern skill, classic touch—each cut made with care.</p>
             <a href="https://getsquire.com/booking/book/bvrberiv-fair-lawn/barber/alex-elicona-1/services" class="cta-button" target="_blank">Book Appointment</a>
         </div>
     </section>
@@ -1386,14 +1385,16 @@
                 </div>
                 <div class="work-info">
                     <h3>Hair Creatives</h3>
-                    
+                    <p>Professional hair styling for photo shoots, fashion editorials, and commercial productions.</p>
+                    <p style="font-style: italic; color: #d1d5db; margin-bottom: 1.5rem; font-size: 0.9rem;">"Every creative project is a chance to bring someone's vision to life. I love collaborating with photographers and directors to create looks that tell a story and capture the perfect moment." - Alex</p>
                     <button class="work-btn" onclick="openEditorialPortfolio()">View Portfolio</button>
                 </div>
             </div>
             <div class="work-item fade-in">
                 <div class="work-info">
                     <h3>Visuals</h3>
-                    
+                    <p>Hair styling for film productions, music videos, and content creation projects.</p>
+                    <p style="font-style: italic; color: #d1d5db; margin-bottom: 1.5rem; font-size: 0.9rem;">"Working on visuals pushes my creativity to new levels. Whether it's a music video or film, I get to experiment with bold styles that become part of the artistic expression." - Alex</p>
                     <button class="work-btn" onclick="openVisualsPortfolio()">View Portfolio</button>
                 </div>
             </div>
@@ -1471,9 +1472,6 @@
                 <h3 class="portfolio-title">Editorial & Commercial Portfolio</h3>
                 <button class="close-btn" onclick="closePortfolio('editorial')">&times;</button>
             </div>
-            <div class="portfolio-statement">
-                <p style="font-style: italic; color: #d1d5db; margin-bottom: 2rem; font-size: 1rem; text-align: center; border-bottom: 1px solid rgba(255, 255, 255, 0.1); padding-bottom: 1rem;">"Every creative project is a chance to bring someone's vision to life. I love collaborating with photographers and directors to create looks that tell a story and capture the perfect moment." - Alex</p>
-            </div>
             <div class="portfolio-grid">
                 <div class="portfolio-item" onclick="openImageViewer('cuts.1.jpg', 'Editorial Cut 1')">
                     <img src="cuts.1.jpg" alt="Editorial Cut 1" loading="lazy">
@@ -1491,9 +1489,6 @@
             <div class="portfolio-header">
                 <h3 class="portfolio-title">Visual Portfolio</h3>
                 <button class="close-btn" onclick="closePortfolio('visuals')">&times;</button>
-            </div>
-            <div class="portfolio-statement">
-                <p style="font-style: italic; color: #d1d5db; margin-bottom: 2rem; font-size: 1rem; text-align: center; border-bottom: 1px solid rgba(255, 255, 255, 0.1); padding-bottom: 1rem;">"Working on visuals pushes my creativity to new levels. Whether it's a music video or film, I get to experiment with bold styles that become part of the artistic expression." - Alex</p>
             </div>
             <div class="portfolio-grid">
                 <div class="portfolio-item" onclick="openImageViewer('portfolio.2.jpg', 'Portfolio Item 2')">
@@ -1739,10 +1734,4 @@
         });
     </script>
 </body>
-</html>in {
-            opacity: 0;
-            transform: translateY(20px);
-            transition: opacity 0.6s ease, transform 0.6s ease;
-        }
-
-        .fade-
+</html>
