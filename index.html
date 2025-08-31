@@ -426,6 +426,120 @@
             color: #9ca3af;
         }
 
+        /* Services Section */
+        #services {
+            background: #111111;
+            padding: 80px 0;
+            position: relative;
+        }
+
+        #services::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: 
+                radial-gradient(circle at 20% 30%, rgba(255,255,255,0.02) 0%, transparent 50%),
+                radial-gradient(circle at 80% 70%, rgba(255,255,255,0.02) 0%, transparent 50%);
+            z-index: 1;
+            pointer-events: none;
+        }
+
+        .services-container {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 0 2rem;
+            position: relative;
+            z-index: 2;
+        }
+
+        .services-menu {
+            margin-top: 3rem;
+        }
+
+        .service-item {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start;
+            padding: 1.5rem 0;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+            transition: all 0.3s ease;
+        }
+
+        .service-item:hover {
+            background: rgba(255, 255, 255, 0.02);
+            padding-left: 1rem;
+            padding-right: 1rem;
+            border-radius: 8px;
+        }
+
+        .service-item:last-child {
+            border-bottom: none;
+        }
+
+        .service-info {
+            flex: 1;
+        }
+
+        .service-name {
+            font-size: 1.2rem;
+            font-weight: 600;
+            color: #ffffff;
+            margin-bottom: 0.5rem;
+        }
+
+        .service-description {
+            color: #9ca3af;
+            font-size: 0.9rem;
+            line-height: 1.4;
+        }
+
+        .service-pricing {
+            display: flex;
+            flex-direction: column;
+            align-items: flex-end;
+            text-align: right;
+            margin-left: 2rem;
+        }
+
+        .service-price {
+            font-size: 1.4rem;
+            font-weight: 700;
+            color: #ffffff;
+        }
+
+        .service-duration {
+            color: #9ca3af;
+            font-size: 0.8rem;
+            margin-top: 0.25rem;
+        }
+
+        .gift-card-item {
+            background: transparent;
+            border: none;
+            border-radius: 0;
+            padding: 1.5rem 0;
+            margin-bottom: 0;
+        }
+
+        .gift-card-item:hover {
+            background: rgba(255, 255, 255, 0.02);
+            border: none;
+            padding-left: 1rem;
+            padding-right: 1rem;
+            border-radius: 8px;
+        }
+
+        .gift-card-item .service-name {
+            color: #ffffff;
+        }
+
+        .gift-card-item .service-description {
+            color: #9ca3af;
+        }
+
         /* Social Section */
         #social.section {
             padding: 80px 0;
@@ -685,6 +799,179 @@
             transform: scale(1.02);
         }
 
+        /* Full-screen image viewer */
+        .image-viewer {
+            display: none;
+            position: fixed;
+            z-index: 3000;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.95);
+            backdrop-filter: blur(10px);
+            cursor: pointer;
+        }
+
+        .image-viewer.show {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .image-viewer img {
+            max-width: 90vw;
+            max-height: 90vh;
+            object-fit: contain;
+            border-radius: 8px;
+            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.5);
+        }
+
+        .image-viewer-close {
+            position: absolute;
+            top: 2rem;
+            right: 2rem;
+            background: rgba(255, 255, 255, 0.1);
+            border: none;
+            color: #ffffff;
+            font-size: 2rem;
+            cursor: pointer;
+            padding: 0.5rem 0.75rem;
+            border-radius: 50%;
+            transition: all 0.3s ease;
+        }
+
+        .image-viewer-close:hover {
+            background: rgba(255, 255, 255, 0.2);
+        }
+
+        /* Visit Us Section */
+        #visit {
+            background: #111111;
+            padding: 80px 0;
+            position: relative;
+        }
+
+        #visit::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: 
+                radial-gradient(circle at 25% 25%, rgba(255,255,255,0.02) 0%, transparent 50%),
+                radial-gradient(circle at 75% 75%, rgba(255,255,255,0.02) 0%, transparent 50%);
+            z-index: 1;
+            pointer-events: none;
+        }
+
+        .visit-container {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 0 2rem;
+            position: relative;
+            z-index: 2;
+        }
+
+        .visit-content {
+            margin-top: 3rem;
+        }
+
+        .location-info {
+            display: flex;
+            flex-direction: column;
+            gap: 2rem;
+            margin-bottom: 3rem;
+        }
+
+        .info-item {
+            display: flex;
+            align-items: flex-start;
+            gap: 1.5rem;
+            padding: 1.5rem;
+            background: rgba(255, 255, 255, 0.03);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: 12px;
+            transition: all 0.3s ease;
+        }
+
+        .info-item:hover {
+            background: rgba(255, 255, 255, 0.05);
+            border-color: rgba(255, 255, 255, 0.2);
+            transform: translateY(-2px);
+        }
+
+        .info-icon {
+            width: 24px;
+            height: 24px;
+            color: #ffffff;
+            flex-shrink: 0;
+            margin-top: 0.25rem;
+        }
+
+        .info-text {
+            flex: 1;
+        }
+
+        .info-text h3 {
+            font-size: 1.1rem;
+            font-weight: 600;
+            color: #ffffff;
+            margin-bottom: 0.5rem;
+        }
+
+        .info-text p {
+            color: #9ca3af;
+            font-size: 0.95rem;
+            margin: 0;
+        }
+
+        .address-link, .phone-link {
+            color: #d1d5db;
+            text-decoration: none;
+            font-size: 0.95rem;
+            transition: color 0.3s ease;
+            display: block;
+        }
+
+        .address-link:hover, .phone-link:hover {
+            color: #ffffff;
+            text-decoration: underline;
+        }
+
+        .visit-cta {
+            text-align: center;
+        }
+
+        .visit-button {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.75rem;
+            background: #ffffff;
+            color: #0a0a0a;
+            padding: 16px 32px;
+            text-decoration: none;
+            border-radius: 50px;
+            font-weight: 600;
+            font-size: 1rem;
+            border: 2px solid #ffffff;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 15px rgba(255, 255, 255, 0.2);
+        }
+
+        .visit-button:hover {
+            background: transparent;
+            color: #ffffff;
+            transform: translateY(-2px);
+            box-shadow: 0 6px 20px rgba(255, 255, 255, 0.3);
+        }
+
+        .button-icon {
+            width: 20px;
+            height: 20px;
+        }
+
         /* Footer */
         .footer {
             background: #0a0a0a;
@@ -817,6 +1104,72 @@
                 padding: 60px 0;
             }
 
+            /* Services section mobile */
+            #services {
+                padding: 60px 0;
+            }
+
+            .services-container {
+                padding: 0 1rem;
+                max-width: 100%;
+            }
+
+            /* Visit Us section mobile */
+            #visit {
+                padding: 60px 0;
+            }
+
+            .visit-container {
+                padding: 0 1rem;
+                max-width: 100%;
+            }
+
+            .location-info {
+                gap: 1.5rem;
+            }
+
+            .info-item {
+                padding: 1.25rem;
+                gap: 1rem;
+            }
+
+            .info-text h3 {
+                font-size: 1rem;
+            }
+
+            .info-text p {
+                font-size: 0.9rem;
+            }
+
+            .visit-button {
+                padding: 14px 28px;
+                font-size: 0.9rem;
+                gap: 0.5rem;
+            }
+
+            .button-icon {
+                width: 18px;
+                height: 18px;
+            }
+
+            .service-item {
+                flex-direction: column;
+                align-items: flex-start;
+                padding: 1rem 0;
+            }
+
+            .service-pricing {
+                margin-left: 0;
+                margin-top: 0.5rem;
+                align-items: flex-start;
+                flex-direction: row;
+                gap: 1rem;
+            }
+
+            .service-name {
+                font-size: 1.1rem;
+            }
+
             .social-grid {
                 flex-direction: column;
                 align-items: center;
@@ -897,8 +1250,10 @@
             <ul class="nav-links">
                 <li><a href="#home">Home</a></li>
                 <li><a href="#mission">Mission</a></li>
+                <li><a href="#services">Services</a></li>
                 <li><a href="#work">Work</a></li>
                 <li><a href="#social">Social</a></li>
+                <li><a href="#visit">Visit</a></li>
             </ul>
             <div class="mobile-menu">
                 <span></span>
@@ -940,6 +1295,77 @@
                     <p>For me a haircut isn't just about cutting hair, it's about making you feel sharp and confident. I take pride in clean fades, precise lines, and styles that fit you. Mixing today's techniques with old-school barbering, 
                         I make sure every cut has its own character. It's more than a service, it's a chair, a conversation, and a fresh look that feels right.</p>
                                                                                                                                                                                                                                                                                                                                                                                                
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Services Section -->
+    <section id="services" class="fade-in">
+        <div class="services-container">
+            <div class="section-header fade-in">
+                <h2 class="section-title">Services</h2>
+                <p class="section-subtitle">Professional grooming services tailored to your style</p>
+            </div>
+            <div class="services-menu">
+                <div class="service-item fade-in">
+                    <div class="service-info">
+                        <h3 class="service-name">Haircut w/ Scissors (No Beard)</h3>
+                        <p class="service-description">Precision scissor cut with detailed styling and finishing</p>
+                    </div>
+                    <div class="service-pricing">
+                        <span class="service-price">$55</span>
+                        <span class="service-duration">1 hr</span>
+                    </div>
+                </div>
+                <div class="service-item fade-in">
+                    <div class="service-info">
+                        <h3 class="service-name">Haircut Just the Sides</h3>
+                        <p class="service-description">Clean fade and trim focusing on side and back areas</p>
+                    </div>
+                    <div class="service-pricing">
+                        <span class="service-price">$45</span>
+                        <span class="service-duration">1 hr</span>
+                    </div>
+                </div>
+                <div class="service-item fade-in">
+                    <div class="service-info">
+                        <h3 class="service-name">Wash, Haircut, Beard, and Style</h3>
+                        <p class="service-description">Complete grooming experience with wash, cut, beard trim, and styling</p>
+                    </div>
+                    <div class="service-pricing">
+                        <span class="service-price">$65</span>
+                        <span class="service-duration">1 hr</span>
+                    </div>
+                </div>
+                <div class="service-item fade-in">
+                    <div class="service-info">
+                        <h3 class="service-name">Hair Coloring, Alterations, and Frees</h3>
+                        <p class="service-description">Advanced color services, corrections, and specialized treatments</p>
+                    </div>
+                    <div class="service-pricing">
+                        <span class="service-price">$100</span>
+                        <span class="service-duration">3 hrs</span>
+                    </div>
+                </div>
+                <div class="service-item fade-in">
+                    <div class="service-info">
+                        <h3 class="service-name">Sides w/ Beard</h3>
+                        <p class="service-description">Side fade with professional beard trimming and shaping</p>
+                    </div>
+                    <div class="service-pricing">
+                        <span class="service-price">$55</span>
+                        <span class="service-duration">1 hr</span>
+                    </div>
+                </div>
+                <div class="service-item gift-card-item fade-in">
+                    <div class="service-info">
+                        <h3 class="service-name">Gift Card</h3>
+                        <p class="service-description">Perfect for any occasion - treat someone special to a premium grooming experience</p>
+                    </div>
+                    <div class="service-pricing">
+                        <span class="service-price">From $50</span>
+                    </div>
                 </div>
             </div>
         </div>
@@ -995,6 +1421,48 @@
         </div>
     </section>
 
+    <!-- Visit Us Section -->
+    <section id="visit" class="section fade-in">
+        <div class="visit-container">
+            <div class="section-header fade-in">
+                <h2 class="section-title">Visit Us</h2>
+                <p class="section-subtitle">Find us in the heart of Fair Lawn, New Jersey</p>
+            </div>
+            <div class="visit-content">
+                <div class="location-info fade-in">
+                    <div class="info-item">
+                        <svg class="info-icon" viewBox="0 0 24 24" fill="currentColor">
+                            <path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"/>
+                        </svg>
+                        <div class="info-text">
+                            <h3>Address</h3>
+                            <a href="https://maps.google.com/?q=24-03+Broadway,+Fair+Lawn,+NJ+07410" target="_blank" class="address-link">
+                                24-03 Broadway<br>Fair Lawn, NJ 07410
+                            </a>
+                        </div>
+                    </div>
+                    <div class="info-item">
+                        <svg class="info-icon" viewBox="0 0 24 24" fill="currentColor">
+                            <path d="M6.62 10.79c1.44 2.83 3.76 5.14 6.59 6.59l2.2-2.2c.27-.27.67-.36 1.02-.24 1.12.37 2.33.57 3.57.57.55 0 1 .45 1 1V20c0 .55-.45 1-1 1-9.39 0-17-7.61-17-17 0-.55.45-1 1-1h3.5c.55 0 1 .45 1 1 0 1.25.2 2.45.57 3.57.11.35.03.74-.25 1.02l-2.2 2.2z"/>
+                        </svg>
+                        <div class="info-text">
+                            <h3>Phone</h3>
+                            <a href="tel:+12012549052" class="phone-link">(201) 254-9052</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="visit-cta fade-in">
+                    <a href="https://getsquire.com/booking/book/bvrberiv-fair-lawn/barber/alex-elicona-1/services" class="visit-button" target="_blank">
+                        <svg class="button-icon" viewBox="0 0 24 24" fill="currentColor">
+                            <path d="M19 3h-1V1h-2v2H8V1H6v2H5c-1.11 0-1.99.9-1.99 2L3 19c0 1.1.89 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2zm0 16H5V8h14v11zM7 10h5v5H7z"/>
+                        </svg>
+                        Book Your Appointment
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
     <!-- Editorial Portfolio Modal -->
     <div id="editorialModal" class="portfolio-modal">
         <div class="portfolio-content">
@@ -1003,10 +1471,10 @@
                 <button class="close-btn" onclick="closePortfolio('editorial')">&times;</button>
             </div>
             <div class="portfolio-grid">
-                <div class="portfolio-item">
+                <div class="portfolio-item" onclick="openImageViewer('cuts.1.jpg', 'Editorial Cut 1')">
                     <img src="cuts.1.jpg" alt="Editorial Cut 1" loading="lazy">
                 </div>
-                <div class="portfolio-item">
+                <div class="portfolio-item" onclick="openImageViewer('cuts.2.jpg', 'Editorial Cut 2')">
                     <img src="cuts.2.jpg" alt="Editorial Cut 2" loading="lazy">
                 </div>
             </div>
@@ -1021,29 +1489,35 @@
                 <button class="close-btn" onclick="closePortfolio('visuals')">&times;</button>
             </div>
             <div class="portfolio-grid">
-                <div class="portfolio-item">
+                <div class="portfolio-item" onclick="openImageViewer('portfolio.2.jpg', 'Portfolio Item 2')">
                     <img src="portfolio.2.jpg" alt="Portfolio Item 2" loading="lazy">
                 </div>
-                <div class="portfolio-item">
+                <div class="portfolio-item" onclick="openImageViewer('portfolio.3.jpg', 'Portfolio Item 3')">
                     <img src="portfolio.3.jpg" alt="Portfolio Item 3" loading="lazy">
                 </div>
-                <div class="portfolio-item">
+                <div class="portfolio-item" onclick="openImageViewer('portfolio.4.jpg', 'Portfolio Item 4')">
                     <img src="portfolio.4.jpg" alt="Portfolio Item 4" loading="lazy">
                 </div>
-                <div class="portfolio-item">
+                <div class="portfolio-item" onclick="openImageViewer('portfolio.5.jpg', 'Portfolio Item 5')">
                     <img src="portfolio.5.jpg" alt="Portfolio Item 5" loading="lazy">
                 </div>
-                <div class="portfolio-item">
+                <div class="portfolio-item" onclick="openImageViewer('portfolio.7.jpg', 'Portfolio Item 7')">
                     <img src="portfolio.7.jpg" alt="Portfolio Item 7" loading="lazy">
                 </div>
-                <div class="portfolio-item">
+                <div class="portfolio-item" onclick="openImageViewer('portfolio.8.jpg', 'Portfolio Item 8')">
                     <img src="portfolio.8.jpg" alt="Portfolio Item 8" loading="lazy">
                 </div>
-                <div class="portfolio-item">
+                <div class="portfolio-item" onclick="openImageViewer('portfolio.9.jpg', 'Portfolio Item 9')">
                     <img src="portfolio.9.jpg" alt="Portfolio Item 9" loading="lazy">
                 </div>
             </div>
         </div>
+    </div>
+
+    <!-- Full-screen Image Viewer -->
+    <div id="imageViewer" class="image-viewer">
+        <button class="image-viewer-close" onclick="closeImageViewer()">&times;</button>
+        <img id="viewerImage" src="" alt="Full size image">
     </div>
 
     <!-- Footer -->
@@ -1100,6 +1574,23 @@
             console.log(`Closing ${type} portfolio modal...`);
             const modal = document.getElementById(type === 'editorial' ? 'editorialModal' : 'visualsModal');
             modal.classList.remove('show');
+            document.body.style.overflow = 'auto';
+        }
+
+        // Image Viewer Functions
+        function openImageViewer(imageSrc, altText) {
+            const viewer = document.getElementById('imageViewer');
+            const viewerImage = document.getElementById('viewerImage');
+            
+            viewerImage.src = imageSrc;
+            viewerImage.alt = altText;
+            viewer.classList.add('show');
+            document.body.style.overflow = 'hidden';
+        }
+
+        function closeImageViewer() {
+            const viewer = document.getElementById('imageViewer');
+            viewer.classList.remove('show');
             document.body.style.overflow = 'auto';
         }
 
@@ -1202,6 +1693,7 @@
             // Add event listeners for both portfolio modals
             const editorialModal = document.getElementById('editorialModal');
             const visualsModal = document.getElementById('visualsModal');
+            const imageViewer = document.getElementById('imageViewer');
             
             // Close modals when clicking outside of them
             editorialModal.addEventListener('click', function(e) {
@@ -1216,6 +1708,13 @@
                 }
             });
 
+            // Close image viewer when clicking outside the image
+            imageViewer.addEventListener('click', function(e) {
+                if (e.target === imageViewer) {
+                    closeImageViewer();
+                }
+            });
+
             // Close modals with Escape key
             document.addEventListener('keydown', function(e) {
                 if (e.key === 'Escape') {
@@ -1224,6 +1723,9 @@
                     }
                     if (visualsModal.classList.contains('show')) {
                         closePortfolio('visuals');
+                    }
+                    if (imageViewer.classList.contains('show')) {
+                        closeImageViewer();
                     }
                 }
             });
