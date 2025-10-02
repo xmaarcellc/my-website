@@ -75,6 +75,17 @@
             font-style: italic;
         }
 
+        .logo-container {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .logo-img {
+            height: 1.5rem;
+            width: auto;
+        }
+
         .nav-links {
             display: flex;
             list-style: none;
@@ -929,6 +940,16 @@
             margin-bottom: 0.5rem;
             font-family: 'Times New Roman', serif;
             font-style: italic;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 0.5rem;
+        }
+
+        .footer-logo-img {
+            height: 1.2rem;
+            width: auto;
+            pointer-events: none;
         }
 
         .footer-links {
@@ -1179,7 +1200,10 @@
     <!-- Navigation -->
     <nav>
         <div class="nav-container">
-            <a href="#" class="logo">ELICONA VISUALS</a>
+            <div class="logo-container">
+                <img src="Logo.jpg" alt="Elicona Visuals Logo" class="logo-img">
+                <a href="#" class="logo">ELICONA VISUALS</a>
+            </div>
             <ul class="nav-links">
                 <li><a href="#home">Home</a></li>
                 <li><a href="#mission">Mission</a></li>
@@ -1445,7 +1469,10 @@
     <!-- Footer -->
     <footer class="footer">
         <div class="footer-content">
-            <div class="footer-brand">ELICONA VISUALS</div>
+            <div class="footer-brand">
+                <img src="Logo.jpg" alt="Elicona Visuals Logo" class="footer-logo-img">
+                ELICONA VISUALS
+            </div>
             <div class="footer-copyright">
                 &copy; 2025 Elicona Visuals. All rights reserved.
             </div>
