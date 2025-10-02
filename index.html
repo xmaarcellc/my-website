@@ -1254,6 +1254,12 @@
                     <button class="work-btn" onclick="openVisualsPortfolio()">View Portfolio</button>
                 </div>
             </div>
+            <div class="work-item fade-in">
+                <div class="work-info">
+                    <h3>Merch</h3>
+                    <button class="work-btn" onclick="openMerchPortfolio()">View Portfolio</button>
+                </div>
+            </div>
         </div>
     </section>
 
@@ -1403,6 +1409,36 @@
         </div>
     </div>
 
+    <!-- Merch Portfolio Modal -->
+    <div id="merchModal" class="portfolio-modal">
+        <div class="portfolio-content">
+            <div class="portfolio-header">
+                <h3 class="portfolio-title">Merch Catalog</h3>
+                <button class="close-btn" onclick="closePortfolio('merch')">&times;</button>
+            </div>
+            <div class="portfolio-statement">
+                <p style="font-style: italic; color: #d1d5db; margin-bottom: 2rem; font-size: 1rem; text-align: center; border-bottom: 1px solid rgba(255, 255, 255, 0.1); padding-bottom: 1rem;">"Our merchandise represents the Elicona Visuals brand - quality pieces that reflect our aesthetic and commitment to style." - Alex</p>
+            </div>
+            <div class="portfolio-grid">
+                <div class="portfolio-item" onclick="openImageViewer('IMG_7822.jpg', 'Merch Item 1')">
+                    <img src="IMG_7822.jpg" alt="Merch Item 1" loading="lazy">
+                </div>
+                <div class="portfolio-item" onclick="openImageViewer('IMG_7823.jpg', 'Merch Item 2')">
+                    <img src="IMG_7823.jpg" alt="Merch Item 2" loading="lazy">
+                </div>
+                <div class="portfolio-item" onclick="openImageViewer('IMG_7830.jpg', 'Merch Item 3')">
+                    <img src="IMG_7830.jpg" alt="Merch Item 3" loading="lazy">
+                </div>
+                <div class="portfolio-item" onclick="openImageViewer('IMG_7831.jpg', 'Merch Item 4')">
+                    <img src="IMG_7831.jpg" alt="Merch Item 4" loading="lazy">
+                </div>
+                <div class="portfolio-item" onclick="openImageViewer('IMG_7832.jpg', 'Merch Item 5')">
+                    <img src="IMG_7832.jpg" alt="Merch Item 5" loading="lazy">
+                </div>
+            </div>
+        </div>
+    </div>
+
     <!-- Full-screen Image Viewer -->
     <div id="imageViewer" class="image-viewer">
         <button class="image-viewer-close" onclick="closeImageViewer()">&times;</button>
@@ -1460,9 +1496,27 @@
             }, 100);
         }
 
+        function openMerchPortfolio() {
+            console.log('Opening merch portfolio modal...');
+            const modal = document.getElementById('merchModal');
+            modal.classList.add('show');
+            document.body.style.overflow = 'hidden';
+            
+            setTimeout(() => {
+                initPortfolioObserver('merchModal');
+            }, 100);
+        }
+
         function closePortfolio(type) {
             console.log(`Closing ${type} portfolio modal...`);
-            const modal = document.getElementById(type === 'editorial' ? 'editorialModal' : 'visualsModal');
+            let modal;
+            if (type === 'editorial') {
+                modal = document.getElementById('editorialModal');
+            } else if (type === 'visuals') {
+                modal = document.getElementById('visualsModal');
+            } else if (type === 'merch') {
+                modal = document.getElementById('merchModal');
+            }
             modal.classList.remove('show');
             document.body.style.overflow = 'auto';
         }
@@ -1575,6 +1629,7 @@
 
             const editorialModal = document.getElementById('editorialModal');
             const visualsModal = document.getElementById('visualsModal');
+            const merchModal = document.getElementById('merchModal');
             const imageViewer = document.getElementById('imageViewer');
             
             editorialModal.addEventListener('click', function(e) {
@@ -1586,6 +1641,12 @@
             visualsModal.addEventListener('click', function(e) {
                 if (e.target === visualsModal) {
                     closePortfolio('visuals');
+                }
+            });
+
+            merchModal.addEventListener('click', function(e) {
+                if (e.target === merchModal) {
+                    closePortfolio('merch');
                 }
             });
 
@@ -1602,6 +1663,9 @@
                     }
                     if (visualsModal.classList.contains('show')) {
                         closePortfolio('visuals');
+                    }
+                    if (merchModal.classList.contains('show')) {
+                        closePortfolio('merch');
                     }
                     if (imageViewer.classList.contains('show')) {
                         closeImageViewer();
