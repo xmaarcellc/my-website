@@ -439,6 +439,10 @@
             background: #0f0f0f;
             padding: 80px 0;
             position: relative;
+            background-image: url('cuts.9.jpg');
+            background-size: cover;
+            background-position: center;
+            background-attachment: fixed;
         }
 
         #behind-the-scenes::before {
@@ -448,9 +452,12 @@
             left: 0;
             width: 100%;
             height: 100%;
-            background: 
-                radial-gradient(circle at 30% 40%, rgba(255,255,255,0.02) 0%, transparent 50%),
-                radial-gradient(circle at 70% 60%, rgba(255,255,255,0.02) 0%, transparent 50%);
+            background: linear-gradient(
+                135deg, 
+                rgba(10, 10, 10, 0.8) 0%, 
+                rgba(26, 26, 26, 0.7) 50%,
+                rgba(10, 10, 10, 0.8) 100%
+            );
             z-index: 1;
             pointer-events: none;
         }
@@ -1105,6 +1112,7 @@
             /* Behind the Scenes section mobile */
             #behind-the-scenes {
                 padding: 60px 0;
+                background-attachment: scroll;
             }
 
             .video-container {
@@ -1530,6 +1538,10 @@
 
     <!-- Footer -->
     <footer class="footer">
+        <video class="footer-video" autoplay muted loop playsinline>
+            <source src="Elicona.viz.mp4" type="video/mp4">
+        </video>
+        <div class="footer-overlay"></div>
         <div class="footer-content">
             <div class="footer-brand">
                 <img src="Logo.JPG" alt="Elicona Visuals Logo" class="footer-logo-img">
