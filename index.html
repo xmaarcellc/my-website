@@ -426,6 +426,58 @@
             color: #9ca3af;
         }
 
+        /* Behind the Scenes Section */
+        #behind-the-scenes {
+            background: #0f0f0f;
+            padding: 80px 0;
+            position: relative;
+        }
+
+        #behind-the-scenes::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: 
+                radial-gradient(circle at 30% 40%, rgba(255,255,255,0.02) 0%, transparent 50%),
+                radial-gradient(circle at 70% 60%, rgba(255,255,255,0.02) 0%, transparent 50%);
+            z-index: 1;
+            pointer-events: none;
+        }
+
+        #behind-the-scenes .section-header,
+        #behind-the-scenes .video-container {
+            position: relative;
+            z-index: 2;
+        }
+
+        .video-container {
+            max-width: 900px;
+            margin: 0 auto;
+            padding: 0 1rem;
+        }
+
+        .video-wrapper {
+            position: relative;
+            padding-bottom: 56.25%; /* 16:9 aspect ratio */
+            height: 0;
+            overflow: hidden;
+            border-radius: 16px;
+            box-shadow: 0 10px 40px rgba(0, 0, 0, 0.5);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        .video-wrapper iframe {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            border-radius: 16px;
+        }
+
         /* Social Section */
         #social.section {
             padding: 80px 0;
@@ -1000,6 +1052,15 @@
                 font-size: 1rem;
             }
 
+            /* Behind the Scenes section mobile */
+            #behind-the-scenes {
+                padding: 60px 0;
+            }
+
+            .video-container {
+                padding: 0 1rem;
+            }
+
             /* Social section mobile */
             #social.section {
                 background-attachment: scroll;
@@ -1125,6 +1186,7 @@
                 <li><a href="#home">Home</a></li>
                 <li><a href="#mission">Mission</a></li>
                 <li><a href="#work">Work</a></li>
+                <li><a href="#behind-the-scenes">BTS</a></li>
                 <li><a href="#social">Social</a></li>
                 <li><a href="#visit">Visit</a></li>
             </ul>
@@ -1140,7 +1202,6 @@
     <section id="home" class="hero">
         <video class="hero-video" autoplay muted loop playsinline>
             <source src="Elicona.viz.mp4" type="video/mp4">
-            <!-- Fallback for browsers that don't support video -->
             Your browser does not support the video tag.
         </video>
         
@@ -1168,7 +1229,6 @@
                     <p>As a licensed cosmetologist, I ensure every style accommodates not only your lifestyle, but also based off your needs with head shape. 
                         Every cut detailed and curated to enhance longevity and mobility. An environment which provides a traditional shop experience mixed with a modern approach. 
                     We aspire to inspire, which makes our objective to stay innovative yet creative in our craft</p>
-                                                                                                                                                                                                                                                                                                                                                                                               
                 </div>
             </div>
         </div>
@@ -1178,7 +1238,6 @@
     <section id="work" class="section fade-in">
         <div class="section-header fade-in">
             <h2 class="section-title">Work</h2>
-            
         </div>
         <div class="work-grid">
             <div class="work-item fade-in">
@@ -1188,16 +1247,33 @@
                 </div>
                 <div class="work-info">
                     <h3>Hair Creatives</h3>
-                   
                     <button class="work-btn" onclick="openEditorialPortfolio()">View Portfolio</button>
                 </div>
             </div>
             <div class="work-item fade-in">
                 <div class="work-info">
                     <h3>Visuals</h3>
-                   
                     <button class="work-btn" onclick="openVisualsPortfolio()">View Portfolio</button>
                 </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Behind the Scenes Section -->
+    <section id="behind-the-scenes" class="section fade-in">
+        <div class="section-header fade-in">
+            <h2 class="section-title">Behind the Scenes</h2>
+            <p class="section-subtitle">See the craft and passion that goes into every cut</p>
+        </div>
+        <div class="video-container fade-in">
+            <div class="video-wrapper">
+                <iframe 
+                    src="https://www.youtube.com/embed/NcEmcLfww3o" 
+                    title="Behind the Scenes at Elicona Visuals" 
+                    frameborder="0" 
+                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" 
+                    allowfullscreen>
+                </iframe>
             </div>
         </div>
     </section>
@@ -1364,7 +1440,6 @@
             modal.classList.add('show');
             document.body.style.overflow = 'hidden';
             
-            // Initialize portfolio scroll observer
             setTimeout(() => {
                 initPortfolioObserver('editorialModal');
             }, 100);
@@ -1376,7 +1451,6 @@
             modal.classList.add('show');
             document.body.style.overflow = 'hidden';
             
-            // Initialize portfolio scroll observer
             setTimeout(() => {
                 initPortfolioObserver('visualsModal');
             }, 100);
@@ -1461,7 +1535,6 @@
                 navLinks.classList.toggle('mobile-active');
             });
 
-            // Close mobile menu when clicking on a link
             navLinks.addEventListener('click', (e) => {
                 if (e.target.tagName === 'A') {
                     mobileMenu.classList.remove('active');
@@ -1469,7 +1542,6 @@
                 }
             });
 
-            // Close mobile menu when clicking outside
             document.addEventListener('click', (e) => {
                 if (!mobileMenu.contains(e.target) && !navLinks.contains(e.target)) {
                     mobileMenu.classList.remove('active');
@@ -1477,7 +1549,6 @@
                 }
             });
 
-            // Ensure video plays on load and loops continuously
             const video = document.querySelector('.hero-video');
             if (video) {
                 video.play().catch(e => {
@@ -1485,7 +1556,6 @@
                 });
             }
 
-            // Hero content scroll trigger
             const heroContent = document.querySelector('.hero-content');
             let hasScrolled = false;
 
@@ -1496,18 +1566,13 @@
                 }
             }
 
-            // Listen for scroll events
             window.addEventListener('scroll', checkScroll);
-            
-            // Also check on initial load in case user refreshes mid-scroll
             checkScroll();
 
-            // Add event listeners for both portfolio modals
             const editorialModal = document.getElementById('editorialModal');
             const visualsModal = document.getElementById('visualsModal');
             const imageViewer = document.getElementById('imageViewer');
             
-            // Close modals when clicking outside of them
             editorialModal.addEventListener('click', function(e) {
                 if (e.target === editorialModal) {
                     closePortfolio('editorial');
@@ -1520,14 +1585,12 @@
                 }
             });
 
-            // Close image viewer when clicking outside the image
             imageViewer.addEventListener('click', function(e) {
                 if (e.target === imageViewer) {
                     closeImageViewer();
                 }
             });
 
-            // Close modals with Escape key
             document.addEventListener('keydown', function(e) {
                 if (e.key === 'Escape') {
                     if (editorialModal.classList.contains('show')) {
@@ -1545,4 +1608,3 @@
     </script>
 </body>
 </html>
-
