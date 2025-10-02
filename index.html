@@ -797,6 +797,10 @@
             background: #111111;
             padding: 80px 0;
             position: relative;
+            background-image: url('IMG_7832.jpg');
+            background-size: cover;
+            background-position: center;
+            background-attachment: fixed;
         }
 
         #visit::before {
@@ -806,9 +810,12 @@
             left: 0;
             width: 100%;
             height: 100%;
-            background: 
-                radial-gradient(circle at 25% 25%, rgba(255,255,255,0.02) 0%, transparent 50%),
-                radial-gradient(circle at 75% 75%, rgba(255,255,255,0.02) 0%, transparent 50%);
+            background: linear-gradient(
+                135deg, 
+                rgba(10, 10, 10, 0.8) 0%, 
+                rgba(26, 26, 26, 0.7) 50%,
+                rgba(10, 10, 10, 0.8) 100%
+            );
             z-index: 1;
             pointer-events: none;
         }
@@ -1089,6 +1096,7 @@
             /* Visit Us section mobile */
             #visit {
                 padding: 60px 0;
+                background-attachment: scroll;
             }
 
             .visit-container {
