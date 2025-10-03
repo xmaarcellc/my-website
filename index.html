@@ -252,8 +252,8 @@
 
         .cta-button {
             display: inline-block;
-            background: #ffffff;
-            color: #0a0a0a;
+            background: transparent;
+            color: #ffffff;
             padding: 16px 32px;
             text-decoration: none;
             border-radius: 50px;
@@ -265,8 +265,8 @@
         }
 
         .cta-button:hover {
-            background: transparent;
-            color: #ffffff;
+            background: #ffffff;
+            color: #0a0a0a;
             transform: translateY(-2px);
             box-shadow: 0 6px 20px rgba(255, 255, 255, 0.3);
         }
@@ -577,7 +577,7 @@
         }
 
         .work-item {
-            background: rgba(255, 255, 255, 0.08);
+            background: transparent;
             border: 1px solid rgba(255, 255, 255, 0.15);
             border-radius: 16px;
             overflow: hidden;
@@ -590,7 +590,7 @@
         .work-item:hover {
             border-color: rgba(255, 255, 255, 0.3);
             transform: translateY(-5px);
-            background: rgba(255, 255, 255, 0.12);
+            background: rgba(255, 255, 255, 0.05);
         }
 
         .work-image {
@@ -694,7 +694,7 @@
         .portfolio-grid {
             display: grid;
             grid-template-columns: repeat(2, 1fr);
-            gap: 2.5rem;
+            gap: 1.5rem;
             max-height: 60vh;
             overflow-y: auto;
             padding-right: 10px;
@@ -922,8 +922,8 @@
             display: inline-flex;
             align-items: center;
             gap: 0.75rem;
-            background: #ffffff;
-            color: #0a0a0a;
+            background: transparent;
+            color: #ffffff;
             padding: 16px 32px;
             text-decoration: none;
             border-radius: 50px;
@@ -935,8 +935,8 @@
         }
 
         .visit-button:hover {
-            background: transparent;
-            color: #ffffff;
+            background: #ffffff;
+            color: #0a0a0a;
             transform: translateY(-2px);
             box-shadow: 0 6px 20px rgba(255, 255, 255, 0.3);
         }
@@ -948,7 +948,10 @@
 
         /* Footer */
         .footer {
-            background: #0a0a0a;
+            background-image: url('IMG_7832.jpg');
+            background-size: cover;
+            background-position: center;
+            background-attachment: fixed;
             border-top: 1px solid rgba(255, 255, 255, 0.1);
             padding: 2rem 0;
             text-align: center;
@@ -956,23 +959,19 @@
             overflow: hidden;
         }
 
-        .footer-video {
+        .footer::before {
+            content: '';
             position: absolute;
             top: 0;
             left: 0;
             width: 100%;
             height: 100%;
-            object-fit: cover;
-            z-index: 0;
-        }
-
-        .footer-overlay {
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background: rgba(10, 10, 10, 0.85);
+            background: linear-gradient(
+                135deg, 
+                rgba(10, 10, 10, 0.8) 0%, 
+                rgba(26, 26, 26, 0.7) 50%,
+                rgba(10, 10, 10, 0.8) 100%
+            );
             z-index: 1;
         }
 
@@ -1065,7 +1064,7 @@
 
             .portfolio-grid {
                 grid-template-columns: repeat(2, 1fr);
-                gap: 4rem;
+                gap: 1.5rem;
                 padding: 0 1rem;
             }
 
@@ -1147,6 +1146,11 @@
             /* Visit Us section mobile */
             #visit {
                 padding: 60px 0;
+                background-attachment: scroll;
+            }
+
+            /* Footer mobile */
+            .footer {
                 background-attachment: scroll;
             }
 
@@ -1558,10 +1562,6 @@
 
     <!-- Footer -->
     <footer class="footer">
-        <video class="footer-video" autoplay muted loop playsinline>
-            <source src="Elicona.viz.mp4" type="video/mp4">
-        </video>
-        <div class="footer-overlay"></div>
         <div class="footer-content">
             <div class="footer-brand">
                 <img src="LogoFine.png" alt="Elicona Visuals Logo" class="footer-logo-img">
@@ -1796,5 +1796,3 @@
     </script>
 </body>
 </html>
-
-
