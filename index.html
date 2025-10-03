@@ -792,6 +792,12 @@
             box-shadow: 0 20px 60px rgba(0, 0, 0, 0.5);
             user-select: none;
             -webkit-user-drag: none;
+            opacity: 1;
+            transition: opacity 0.3s ease-in-out;
+        }
+
+        .image-viewer img.fade-out {
+            opacity: 0;
         }
 
         .image-caption {
@@ -1782,10 +1788,19 @@
             const images = portfolioData[currentPortfolio];
             const currentImage = images[currentImageIndex];
             
-            viewerImage.src = currentImage.src;
-            viewerImage.alt = currentImage.alt;
-            imageCaption.textContent = currentImage.caption;
-            imageCounter.textContent = `${currentImageIndex + 1} / ${images.length}`;
+            // Fade out
+            viewerImage.classList.add('fade-out');
+            
+            // Wait for fade out, then change image and fade in
+            setTimeout(() => {
+                viewerImage.src = currentImage.src;
+                viewerImage.alt = currentImage.alt;
+                imageCaption.textContent = currentImage.caption;
+                imageCounter.textContent = `${currentImageIndex + 1} / ${images.length}`;
+                
+                // Fade in
+                viewerImage.classList.remove('fade-out');
+            }, 300);
         }
 
         function navigateImage(direction) {
