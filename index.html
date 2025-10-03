@@ -765,10 +765,19 @@
             height: 100%;
             background: rgba(0, 0, 0, 0.95);
             backdrop-filter: blur(10px);
-            cursor: pointer;
         }
 
         .image-viewer.show {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-direction: column;
+        }
+
+        .image-viewer-container {
+            position: relative;
+            width: 100%;
+            height: 100%;
             display: flex;
             align-items: center;
             justify-content: center;
@@ -781,6 +790,8 @@
             object-fit: contain;
             border-radius: 8px;
             box-shadow: 0 20px 60px rgba(0, 0, 0, 0.5);
+            user-select: none;
+            -webkit-user-drag: none;
         }
 
         .image-caption {
@@ -806,10 +817,72 @@
             padding: 0.5rem 0.75rem;
             border-radius: 50%;
             transition: all 0.3s ease;
+            z-index: 10;
         }
 
         .image-viewer-close:hover {
             background: rgba(255, 255, 255, 0.2);
+        }
+
+        .image-nav-btn {
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            background: rgba(255, 255, 255, 0.1);
+            border: none;
+            color: #ffffff;
+            font-size: 2rem;
+            cursor: pointer;
+            padding: 1rem 1.25rem;
+            border-radius: 50%;
+            transition: all 0.3s ease;
+            z-index: 10;
+            user-select: none;
+        }
+
+        .image-nav-btn:hover {
+            background: rgba(255, 255, 255, 0.2);
+        }
+
+        .image-nav-btn.prev {
+            left: 2rem;
+        }
+
+        .image-nav-btn.next {
+            right: 2rem;
+        }
+
+        .image-counter {
+            position: absolute;
+            bottom: 2rem;
+            left: 50%;
+            transform: translateX(-50%);
+            color: #ffffff;
+            font-size: 0.9rem;
+            background: rgba(0, 0, 0, 0.5);
+            padding: 0.5rem 1rem;
+            border-radius: 20px;
+            z-index: 10;
+        }
+
+        @media (max-width: 768px) {
+            .image-nav-btn {
+                padding: 0.75rem 1rem;
+                font-size: 1.5rem;
+            }
+
+            .image-nav-btn.prev {
+                left: 1rem;
+            }
+
+            .image-nav-btn.next {
+                right: 1rem;
+            }
+
+            .image-viewer-close {
+                top: 1rem;
+                right: 1rem;
+            }
         }
 
         /* Visit Us Section */
@@ -1555,9 +1628,14 @@
 
     <!-- Full-screen Image Viewer -->
     <div id="imageViewer" class="image-viewer">
-        <button class="image-viewer-close" onclick="closeImageViewer()">&times;</button>
-        <img id="viewerImage" src="" alt="Full size image">
-        <div id="imageCaption" class="image-caption"></div>
+        <div class="image-viewer-container">
+            <button class="image-viewer-close" onclick="closeImageViewer()">&times;</button>
+            <button class="image-nav-btn prev" onclick="navigateImage(-1)">&#8249;</button>
+            <button class="image-nav-btn next" onclick="navigateImage(1)">&#8250;</button>
+            <img id="viewerImage" src="" alt="Full size image">
+            <div id="imageCaption" class="image-caption"></div>
+            <div id="imageCounter" class="image-counter"></div>
+        </div>
     </div>
 
     <!-- Footer -->
@@ -1577,6 +1655,42 @@
     </footer>
 
     <script>
+        // Portfolio images data
+        const portfolioData = {
+            editorial: [
+                { src: 'cuts.7.jpg', alt: 'Hair Creative 7', caption: 'Clean fade perfection' },
+                { src: 'cuts.8.jpg', alt: 'Hair Creative 8', caption: 'Precision lineup' },
+                { src: 'cuts.9.jpg', alt: 'Hair Creative 9', caption: 'Classic style reimagined' },
+                { src: 'cuts.10.jpg', alt: 'Hair Creative 10', caption: 'Sharp edge details' },
+                { src: 'cuts.11.jpg', alt: 'Hair Creative 11', caption: 'Textured perfection' },
+                { src: 'cuts.12.jpg', alt: 'Hair Creative 12', caption: 'Modern taper mastery' },
+                { src: 'cuts.13.jpg', alt: 'Hair Creative 13', caption: 'Signature blend' },
+                { src: 'cuts.14.jpg', alt: 'Hair Creative 14', caption: 'Refined craftsmanship' },
+                { src: 'cuts.15.jpg', alt: 'Hair Creative 15', caption: 'Flawless finish' }
+            ],
+            visuals: [
+                { src: 'Vis.2.jpg', alt: 'Visual 2', caption: 'On set creativity' },
+                { src: 'viz.3.jpg', alt: 'Visual 3', caption: 'Behind the camera' },
+                { src: 'viz.4.jpg', alt: 'Visual 4', caption: 'Production day' },
+                { src: 'viz.5.jpg', alt: 'Visual 5', caption: 'Studio session' },
+                { src: 'viz.6.jpg', alt: 'Visual 6', caption: 'Creative vision' },
+                { src: 'viz.8.jpg', alt: 'Visual 8', caption: 'Film work' },
+                { src: 'viz.10.jpg', alt: 'Visual 10', caption: 'Editorial shoot' },
+                { src: 'viz.11.jpg', alt: 'Visual 11', caption: 'Capturing the moment' },
+                { src: 'viz.12.jpg', alt: 'Visual 12', caption: 'Visual storytelling' }
+            ],
+            merch: [
+                { src: 'IMG_7822.jpg', alt: 'Merch Item 1', caption: 'Brand essentials' },
+                { src: 'IMG_7823.jpg', alt: 'Merch Item 2', caption: 'Street style' },
+                { src: 'IMG_7830.jpg', alt: 'Merch Item 3', caption: 'Signature collection' },
+                { src: 'IMG_7831.jpg', alt: 'Merch Item 4', caption: 'Limited edition' },
+                { src: 'IMG_7832.jpg', alt: 'Merch Item 5', caption: 'Premium quality' }
+            ]
+        };
+
+        let currentPortfolio = null;
+        let currentImageIndex = 0;
+
         // Smooth scrolling
         document.querySelectorAll('a[href^="#"]').forEach(anchor => {
             anchor.addEventListener('click', function (e) {
@@ -1641,21 +1755,61 @@
 
         // Image Viewer Functions
         function openImageViewer(imageSrc, altText, caption = '') {
+            // Find which portfolio this image belongs to
+            for (let portfolio in portfolioData) {
+                const index = portfolioData[portfolio].findIndex(img => img.src === imageSrc);
+                if (index !== -1) {
+                    currentPortfolio = portfolio;
+                    currentImageIndex = index;
+                    break;
+                }
+            }
+
+            displayCurrentImage();
+            const viewer = document.getElementById('imageViewer');
+            viewer.classList.add('show');
+            document.body.style.overflow = 'hidden';
+        }
+
+        function displayCurrentImage() {
+            if (!currentPortfolio) return;
+            
             const viewer = document.getElementById('imageViewer');
             const viewerImage = document.getElementById('viewerImage');
             const imageCaption = document.getElementById('imageCaption');
+            const imageCounter = document.getElementById('imageCounter');
             
-            viewerImage.src = imageSrc;
-            viewerImage.alt = altText;
-            imageCaption.textContent = caption;
-            viewer.classList.add('show');
-            document.body.style.overflow = 'hidden';
+            const images = portfolioData[currentPortfolio];
+            const currentImage = images[currentImageIndex];
+            
+            viewerImage.src = currentImage.src;
+            viewerImage.alt = currentImage.alt;
+            imageCaption.textContent = currentImage.caption;
+            imageCounter.textContent = `${currentImageIndex + 1} / ${images.length}`;
+        }
+
+        function navigateImage(direction) {
+            if (!currentPortfolio) return;
+            
+            const images = portfolioData[currentPortfolio];
+            currentImageIndex += direction;
+            
+            // Loop around
+            if (currentImageIndex < 0) {
+                currentImageIndex = images.length - 1;
+            } else if (currentImageIndex >= images.length) {
+                currentImageIndex = 0;
+            }
+            
+            displayCurrentImage();
         }
 
         function closeImageViewer() {
             const viewer = document.getElementById('imageViewer');
             viewer.classList.remove('show');
             document.body.style.overflow = 'auto';
+            currentPortfolio = null;
+            currentImageIndex = 0;
         }
 
         // Portfolio scroll fade observer
@@ -1770,25 +1924,55 @@
                 }
             });
 
-            imageViewer.addEventListener('click', function(e) {
-                if (e.target === imageViewer) {
-                    closeImageViewer();
-                }
-            });
+            // Touch swipe functionality for image viewer
+            let touchStartX = 0;
+            let touchEndX = 0;
 
+            imageViewer.addEventListener('touchstart', function(e) {
+                touchStartX = e.changedTouches[0].screenX;
+            }, false);
+
+            imageViewer.addEventListener('touchend', function(e) {
+                touchEndX = e.changedTouches[0].screenX;
+                handleSwipe();
+            }, false);
+
+            function handleSwipe() {
+                const swipeThreshold = 50;
+                const diff = touchStartX - touchEndX;
+                
+                if (Math.abs(diff) > swipeThreshold) {
+                    if (diff > 0) {
+                        // Swiped left - next image
+                        navigateImage(1);
+                    } else {
+                        // Swiped right - previous image
+                        navigateImage(-1);
+                    }
+                }
+            }
+
+            // Keyboard navigation
             document.addEventListener('keydown', function(e) {
-                if (e.key === 'Escape') {
-                    if (editorialModal.classList.contains('show')) {
-                        closePortfolio('editorial');
-                    }
-                    if (visualsModal.classList.contains('show')) {
-                        closePortfolio('visuals');
-                    }
-                    if (merchModal.classList.contains('show')) {
-                        closePortfolio('merch');
-                    }
-                    if (imageViewer.classList.contains('show')) {
+                if (imageViewer.classList.contains('show')) {
+                    if (e.key === 'ArrowLeft') {
+                        navigateImage(-1);
+                    } else if (e.key === 'ArrowRight') {
+                        navigateImage(1);
+                    } else if (e.key === 'Escape') {
                         closeImageViewer();
+                    }
+                } else {
+                    if (e.key === 'Escape') {
+                        if (editorialModal.classList.contains('show')) {
+                            closePortfolio('editorial');
+                        }
+                        if (visualsModal.classList.contains('show')) {
+                            closePortfolio('visuals');
+                        }
+                        if (merchModal.classList.contains('show')) {
+                            closePortfolio('merch');
+                        }
                     }
                 }
             });
