@@ -771,14 +771,26 @@
             display: flex;
             align-items: center;
             justify-content: center;
+            flex-direction: column;
         }
 
         .image-viewer img {
             max-width: 90vw;
-            max-height: 90vh;
+            max-height: 80vh;
             object-fit: contain;
             border-radius: 8px;
             box-shadow: 0 20px 60px rgba(0, 0, 0, 0.5);
+        }
+
+        .image-caption {
+            color: #ffffff;
+            font-size: 1.2rem;
+            font-weight: 300;
+            margin-top: 2rem;
+            text-align: center;
+            padding: 0 2rem;
+            font-family: 'Times New Roman', serif;
+            font-style: italic;
         }
 
         .image-viewer-close {
@@ -1433,31 +1445,31 @@
                 <p style="font-style: italic; color: #d1d5db; margin-bottom: 2rem; font-size: 1rem; text-align: center; border-bottom: 1px solid rgba(255, 255, 255, 0.1); padding-bottom: 1rem;">"Every creative project is a chance to bring someone's vision to life. I love collaborating with photographers and directors to create looks that tell a story and capture the perfect moment." - Alex</p>
             </div>
             <div class="portfolio-grid">
-                <div class="portfolio-item" onclick="openImageViewer('cuts.7.jpg', 'Hair Creative 7')">
+                <div class="portfolio-item" onclick="openImageViewer('cuts.7.jpg', 'Hair Creative 7', 'Clean fade perfection')">
                     <img src="cuts.7.jpg" alt="Hair Creative 7" loading="lazy">
                 </div>
-                <div class="portfolio-item" onclick="openImageViewer('cuts.8.jpg', 'Hair Creative 8')">
+                <div class="portfolio-item" onclick="openImageViewer('cuts.8.jpg', 'Hair Creative 8', 'Precision lineup')">
                     <img src="cuts.8.jpg" alt="Hair Creative 8" loading="lazy">
                 </div>
-                <div class="portfolio-item" onclick="openImageViewer('cuts.9.jpg', 'Hair Creative 9')">
+                <div class="portfolio-item" onclick="openImageViewer('cuts.9.jpg', 'Hair Creative 9', 'Classic style reimagined')">
                     <img src="cuts.9.jpg" alt="Hair Creative 9" loading="lazy">
                 </div>
-                <div class="portfolio-item" onclick="openImageViewer('cuts.10.jpg', 'Hair Creative 10')">
+                <div class="portfolio-item" onclick="openImageViewer('cuts.10.jpg', 'Hair Creative 10', 'Sharp edge details')">
                     <img src="cuts.10.jpg" alt="Hair Creative 10" loading="lazy">
                 </div>
-                <div class="portfolio-item" onclick="openImageViewer('cuts.11.jpg', 'Hair Creative 11')">
+                <div class="portfolio-item" onclick="openImageViewer('cuts.11.jpg', 'Hair Creative 11', 'Textured perfection')">
                     <img src="cuts.11.jpg" alt="Hair Creative 11" loading="lazy">
                 </div>
-                <div class="portfolio-item" onclick="openImageViewer('cuts.12.jpg', 'Hair Creative 12')">
+                <div class="portfolio-item" onclick="openImageViewer('cuts.12.jpg', 'Hair Creative 12', 'Modern taper mastery')">
                     <img src="cuts.12.jpg" alt="Hair Creative 12" loading="lazy">
                 </div>
-                <div class="portfolio-item" onclick="openImageViewer('cuts.13.jpg', 'Hair Creative 13')">
+                <div class="portfolio-item" onclick="openImageViewer('cuts.13.jpg', 'Hair Creative 13', 'Signature blend')">
                     <img src="cuts.13.jpg" alt="Hair Creative 13" loading="lazy">
                 </div>
-                <div class="portfolio-item" onclick="openImageViewer('cuts.14.jpg', 'Hair Creative 14')">
+                <div class="portfolio-item" onclick="openImageViewer('cuts.14.jpg', 'Hair Creative 14', 'Refined craftsmanship')">
                     <img src="cuts.14.jpg" alt="Hair Creative 14" loading="lazy">
                 </div>
-                <div class="portfolio-item" onclick="openImageViewer('cuts.15.jpg', 'Hair Creative 15')">
+                <div class="portfolio-item" onclick="openImageViewer('cuts.15.jpg', 'Hair Creative 15', 'Flawless finish')">
                     <img src="cuts.15.jpg" alt="Hair Creative 15" loading="lazy">
                 </div>
             </div>
@@ -1475,31 +1487,31 @@
                 <p style="font-style: italic; color: #d1d5db; margin-bottom: 2rem; font-size: 1rem; text-align: center; border-bottom: 1px solid rgba(255, 255, 255, 0.1); padding-bottom: 1rem;">"Working on visuals pushes my creativity to new levels. Whether it's a music video or film, I get to experiment with bold styles that become part of the artistic expression." - Alex</p>
             </div>
             <div class="portfolio-grid">
-                <div class="portfolio-item" onclick="openImageViewer('Vis.2.jpg', 'Visual 2')">
+                <div class="portfolio-item" onclick="openImageViewer('Vis.2.jpg', 'Visual 2', 'On set creativity')">
                     <img src="Vis.2.jpg" alt="Visual 2" loading="lazy">
                 </div>
-                <div class="portfolio-item" onclick="openImageViewer('viz.3.jpg', 'Visual 3')">
+                <div class="portfolio-item" onclick="openImageViewer('viz.3.jpg', 'Visual 3', 'Behind the camera')">
                     <img src="viz.3.jpg" alt="Visual 3" loading="lazy">
                 </div>
-                <div class="portfolio-item" onclick="openImageViewer('viz.4.jpg', 'Visual 4')">
+                <div class="portfolio-item" onclick="openImageViewer('viz.4.jpg', 'Visual 4', 'Production day')">
                     <img src="viz.4.jpg" alt="Visual 4" loading="lazy">
                 </div>
-                <div class="portfolio-item" onclick="openImageViewer('viz.5.jpg', 'Visual 5')">
+                <div class="portfolio-item" onclick="openImageViewer('viz.5.jpg', 'Visual 5', 'Studio session')">
                     <img src="viz.5.jpg" alt="Visual 5" loading="lazy">
                 </div>
-                <div class="portfolio-item" onclick="openImageViewer('viz.6.jpg', 'Visual 6')">
+                <div class="portfolio-item" onclick="openImageViewer('viz.6.jpg', 'Visual 6', 'Creative vision')">
                     <img src="viz.6.jpg" alt="Visual 6" loading="lazy">
                 </div>
-                <div class="portfolio-item" onclick="openImageViewer('viz.8.jpg', 'Visual 8')">
+                <div class="portfolio-item" onclick="openImageViewer('viz.8.jpg', 'Visual 8', 'Film work')">
                     <img src="viz.8.jpg" alt="Visual 8" loading="lazy">
                 </div>
-                <div class="portfolio-item" onclick="openImageViewer('viz.10.jpg', 'Visual 10')">
+                <div class="portfolio-item" onclick="openImageViewer('viz.10.jpg', 'Visual 10', 'Editorial shoot')">
                     <img src="viz.10.jpg" alt="Visual 10" loading="lazy">
                 </div>
-                <div class="portfolio-item" onclick="openImageViewer('viz.11.jpg', 'Visual 11')">
+                <div class="portfolio-item" onclick="openImageViewer('viz.11.jpg', 'Visual 11', 'Capturing the moment')">
                     <img src="viz.11.jpg" alt="Visual 11" loading="lazy">
                 </div>
-                <div class="portfolio-item" onclick="openImageViewer('viz.12.jpg', 'Visual 12')">
+                <div class="portfolio-item" onclick="openImageViewer('viz.12.jpg', 'Visual 12', 'Visual storytelling')">
                     <img src="viz.12.jpg" alt="Visual 12" loading="lazy">
                 </div>
             </div>
@@ -1517,19 +1529,19 @@
                 <p style="font-style: italic; color: #d1d5db; margin-bottom: 2rem; font-size: 1rem; text-align: center; border-bottom: 1px solid rgba(255, 255, 255, 0.1); padding-bottom: 1rem;">"Our merchandise represents the Elicona Visuals brand - quality pieces that reflect our aesthetic and commitment to style." - Alex</p>
             </div>
             <div class="portfolio-grid">
-                <div class="portfolio-item" onclick="openImageViewer('IMG_7822.jpg', 'Merch Item 1')">
+                <div class="portfolio-item" onclick="openImageViewer('IMG_7822.jpg', 'Merch Item 1', 'Brand essentials')">
                     <img src="IMG_7822.jpg" alt="Merch Item 1" loading="lazy">
                 </div>
-                <div class="portfolio-item" onclick="openImageViewer('IMG_7823.jpg', 'Merch Item 2')">
+                <div class="portfolio-item" onclick="openImageViewer('IMG_7823.jpg', 'Merch Item 2', 'Street style')">
                     <img src="IMG_7823.jpg" alt="Merch Item 2" loading="lazy">
                 </div>
-                <div class="portfolio-item" onclick="openImageViewer('IMG_7830.jpg', 'Merch Item 3')">
+                <div class="portfolio-item" onclick="openImageViewer('IMG_7830.jpg', 'Merch Item 3', 'Signature collection')">
                     <img src="IMG_7830.jpg" alt="Merch Item 3" loading="lazy">
                 </div>
-                <div class="portfolio-item" onclick="openImageViewer('IMG_7831.jpg', 'Merch Item 4')">
+                <div class="portfolio-item" onclick="openImageViewer('IMG_7831.jpg', 'Merch Item 4', 'Limited edition')">
                     <img src="IMG_7831.jpg" alt="Merch Item 4" loading="lazy">
                 </div>
-                <div class="portfolio-item" onclick="openImageViewer('IMG_7832.jpg', 'Merch Item 5')">
+                <div class="portfolio-item" onclick="openImageViewer('IMG_7832.jpg', 'Merch Item 5', 'Premium quality')">
                     <img src="IMG_7832.jpg" alt="Merch Item 5" loading="lazy">
                 </div>
             </div>
@@ -1540,6 +1552,7 @@
     <div id="imageViewer" class="image-viewer">
         <button class="image-viewer-close" onclick="closeImageViewer()">&times;</button>
         <img id="viewerImage" src="" alt="Full size image">
+        <div id="imageCaption" class="image-caption"></div>
     </div>
 
     <!-- Footer -->
@@ -1626,12 +1639,14 @@
         }
 
         // Image Viewer Functions
-        function openImageViewer(imageSrc, altText) {
+        function openImageViewer(imageSrc, altText, caption = '') {
             const viewer = document.getElementById('imageViewer');
             const viewerImage = document.getElementById('viewerImage');
+            const imageCaption = document.getElementById('imageCaption');
             
             viewerImage.src = imageSrc;
             viewerImage.alt = altText;
+            imageCaption.textContent = caption;
             viewer.classList.add('show');
             document.body.style.overflow = 'hidden';
         }
