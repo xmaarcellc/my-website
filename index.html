@@ -846,32 +846,45 @@
             background: rgba(255, 255, 255, 0.2);
         }
 
-        .image-nav-btn {
+        .swipe-indicator {
             position: absolute;
             top: 50%;
-            transform: translateY(-50%);
-            background: rgba(255, 255, 255, 0.1);
-            border: none;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            background: rgba(0, 0, 0, 0.7);
+            padding: 1rem 2rem;
+            border-radius: 50px;
             color: #ffffff;
-            font-size: 2rem;
-            cursor: pointer;
-            padding: 1rem 1.25rem;
-            border-radius: 50%;
-            transition: all 0.3s ease;
+            font-size: 0.9rem;
             z-index: 10;
-            user-select: none;
+            opacity: 0;
+            transition: opacity 0.5s ease;
+            pointer-events: none;
         }
 
-        .image-nav-btn:hover {
-            background: rgba(255, 255, 255, 0.2);
+        .swipe-indicator.show {
+            opacity: 1;
         }
 
-        .image-nav-btn.prev {
-            left: 2rem;
+        .swipe-arrow {
+            font-size: 1.5rem;
+            animation: swipeHint 1.5s ease-in-out infinite;
         }
 
-        .image-nav-btn.next {
-            right: 2rem;
+        .swipe-arrow.left {
+            animation-direction: reverse;
+        }
+
+        @keyframes swipeHint {
+            0%, 100% {
+                transform: translateX(0);
+            }
+            50% {
+                transform: translateX(10px);
+            }
         }
 
         .image-counter {
@@ -888,7 +901,7 @@
         }
 
         #visit {
-            background: #111111;
+            background: #0a0a0a;
             padding: 80px 0;
             position: relative;
             background-image: url('IMG_7832.jpg');
@@ -1012,7 +1025,7 @@
             background: #ffffff;
             color: #0a0a0a;
             transform: translateY(-2px);
-            box-shadow: 0 6px 20px rgba(255, 255, 2550.3);
+            box-shadow: 0 6px 20px rgba(255, 255, 255, 0.3);
         }
 
         .button-icon {
@@ -1021,31 +1034,11 @@
         }
 
         .footer {
-            background-image: url('IMG_7832.jpg');
-            background-size: cover;
-            background-position: center;
-            background-attachment: fixed;
-            border-top: none;
+            background: #0a0a0a;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
             padding: 2rem 0;
             text-align: center;
             position: relative;
-            overflow: hidden;
-        }
-
-        .footer::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background: linear-gradient(
-                135deg, 
-                rgba(10, 10, 10, 0.8) 0%, 
-                rgba(26, 26, 26, 0.7) 50%,
-                rgba(10, 10, 10, 0.8) 100%
-            );
-            z-index: 1;
         }
 
         .footer-content {
@@ -1230,10 +1223,6 @@
                 background-attachment: scroll;
             }
 
-            .footer {
-                background-attachment: scroll;
-            }
-
             .visit-container {
                 padding: 0 1rem;
                 max-width: 100%;
@@ -1287,17 +1276,13 @@
                 font-size: 0.95rem;
             }
 
-            .image-nav-btn {
-                padding: 0.75rem 1rem;
-                font-size: 1.5rem;
+            .swipe-indicator {
+                padding: 0.75rem 1.5rem;
+                font-size: 0.85rem;
             }
 
-            .image-nav-btn.prev {
-                left: 1rem;
-            }
-
-            .image-nav-btn.next {
-                right: 1rem;
+            .swipe-arrow {
+                font-size: 1.2rem;
             }
 
             .image-viewer-close {
@@ -1650,8 +1635,11 @@
     <div id="imageViewer" class="image-viewer">
         <div class="image-viewer-container">
             <button class="image-viewer-close" onclick="closeImageViewer()">&times;</button>
-            <button class="image-nav-btn prev" onclick="navigateImage(-1)">&#8249;</button>
-            <button class="image-nav-btn next" onclick="navigateImage(1)">&#8250;</button>
+            <div class="swipe-indicator">
+                <span class="swipe-arrow left">←</span>
+                <span>Swipe to navigate</span>
+                <span class="swipe-arrow right">→</span>
+            </div>
             <div class="image-viewer-main">
                 <div id="imageCaption" class="image-caption"></div>
                 <img id="viewerImage" src="" alt="Full size image">
@@ -1777,6 +1765,12 @@
             const viewer = document.getElementById('imageViewer');
             viewer.classList.add('show');
             document.body.style.overflow = 'hidden';
+            
+            const swipeIndicator = document.querySelector('.swipe-indicator');
+            swipeIndicator.classList.add('show');
+            setTimeout(() => {
+                swipeIndicator.classList.remove('show');
+            }, 1500);
         }
 
         function displayCurrentImage() {
