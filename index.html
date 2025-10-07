@@ -1833,7 +1833,7 @@
                 observer.observe(element);
             });
 
-            function initCarousel(carouselId) {
+            function initCarousel(carouselId, interval) {
                 const carousel = document.getElementById(carouselId);
                 if (!carousel) return;
                 const images = carousel.querySelectorAll('img');
@@ -1842,12 +1842,12 @@
                     images[currentIndex].classList.remove('active');
                     currentIndex = (currentIndex + 1) % images.length;
                     images[currentIndex].classList.add('active');
-                }, 2500);
+                }, interval);
             }
 
-            initCarousel('editorialCarousel');
-            initCarousel('visualsCarousel');
-            initCarousel('merchCarousel');
+            initCarousel('editorialCarousel', 1600);
+            initCarousel('visualsCarousel', 2000);
+            initCarousel('merchCarousel', 2500);
 
             const mobileMenu = document.querySelector('.mobile-menu');
             const navLinks = document.querySelector('.nav-links');
