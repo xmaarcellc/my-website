@@ -82,18 +82,22 @@
         .logo-img {
             height: 1.5rem;
             width: auto;
-            animation: spin360 5.5s linear infinite;
+            animation: sophisticatedSpin 5.5s ease-in-out infinite;
+            transform-style: preserve-3d;
         }
 
-        @keyframes spin360 {
+        @keyframes sophisticatedSpin {
             0% {
-                transform: rotate(0deg);
+                transform: rotateY(0deg) scale(1);
+            }
+            5% {
+                transform: rotateY(180deg) scale(1.1);
             }
             10% {
-                transform: rotate(360deg);
+                transform: rotateY(360deg) scale(1);
             }
             100% {
-                transform: rotate(360deg);
+                transform: rotateY(360deg) scale(1);
             }
         }
 
@@ -1077,7 +1081,8 @@
             height: 1.2rem;
             width: auto;
             pointer-events: none;
-            animation: spin360 5.5s linear infinite;
+            animation: sophisticatedSpin 5.5s ease-in-out infinite;
+            transform-style: preserve-3d;
         }
 
         .footer-links {
