@@ -82,6 +82,19 @@
         .logo-img {
             height: 1.5rem;
             width: auto;
+            animation: spin360 5.5s linear infinite;
+        }
+
+        @keyframes spin360 {
+            0% {
+                transform: rotate(0deg);
+            }
+            10% {
+                transform: rotate(360deg);
+            }
+            100% {
+                transform: rotate(360deg);
+            }
         }
 
         .nav-links {
@@ -1064,6 +1077,7 @@
             height: 1.2rem;
             width: auto;
             pointer-events: none;
+            animation: spin360 5.5s linear infinite;
         }
 
         .footer-links {
