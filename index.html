@@ -96,17 +96,19 @@
                 position: fixed;
                 top: 50%;
                 left: 50%;
-                transform: translate(-50%, -50%) scale(5.5) rotateY(0deg);
+                transform: translate(-50%, -50%) scale(8) rotateY(0deg);
                 z-index: 10000;
                 opacity: 1;
             }
             60% {
-                transform: translate(-50%, -50%) scale(5.5) rotateY(360deg);
+                transform: translate(-50%, -50%) scale(8) rotateY(360deg);
             }
             100% {
-                position: static;
-                transform: scale(1) rotateY(720deg);
-                z-index: auto;
+                position: fixed;
+                top: 1.75rem;
+                left: calc(50% - 8rem);
+                transform: translate(0, 0) scale(1) rotateY(720deg);
+                z-index: 10000;
                 opacity: 1;
             }
         }
