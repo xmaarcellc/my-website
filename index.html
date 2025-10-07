@@ -25,11 +25,6 @@
             font-weight: 400;
             -webkit-font-smoothing: antialiased;
             position: relative;
-            overflow-x: hidden;
-        }
-
-        body.loading {
-            overflow: hidden;
         }
 
         body::before {
@@ -87,30 +82,8 @@
         .logo-img {
             height: 1.5rem;
             width: auto;
-            animation: logoEntrance 1.8s ease-out forwards, sophisticatedSpin 5.5s ease-in-out infinite 1.8s;
+            animation: sophisticatedSpin 5.5s ease-in-out infinite;
             transform-style: preserve-3d;
-        }
-
-        @keyframes logoEntrance {
-            0% {
-                position: fixed;
-                top: 50%;
-                left: 50%;
-                transform: translate(-50%, -50%) scale(8) rotateY(0deg);
-                z-index: 10000;
-                opacity: 1;
-            }
-            60% {
-                transform: translate(-50%, -50%) scale(8) rotateY(360deg);
-            }
-            100% {
-                position: fixed;
-                top: 1.75rem;
-                left: calc(50% - 8rem);
-                transform: translate(0, 0) scale(1) rotateY(720deg);
-                z-index: 10000;
-                opacity: 1;
-            }
         }
 
         @keyframes sophisticatedSpin {
@@ -1874,14 +1847,6 @@
         }, observerOptions);
 
         document.addEventListener('DOMContentLoaded', () => {
-            // Add loading class to body
-            document.body.classList.add('loading');
-            
-            // Remove loading class after logo animation completes
-            setTimeout(() => {
-                document.body.classList.remove('loading');
-            }, 1800);
-
             const fadeElements = document.querySelectorAll('.fade-in');
             fadeElements.forEach((element) => {
                 observer.observe(element);
