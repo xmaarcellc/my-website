@@ -104,11 +104,9 @@
                 transform: translate(-50%, -50%) scale(5.5) rotateY(360deg);
             }
             100% {
-                position: fixed;
-                top: 1.75rem;
-                left: calc(50% - 8rem);
-                transform: translate(0, 0) scale(1) rotateY(720deg);
-                z-index: 10000;
+                position: static;
+                transform: scale(1) rotateY(720deg);
+                z-index: auto;
                 opacity: 1;
             }
         }
