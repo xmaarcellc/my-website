@@ -1135,20 +1135,6 @@
             font-size: 0.8rem;
         }
 
-        .footer-subscribe {
-            margin: 1.5rem 0;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            gap: 0.5rem;
-        }
-
-        .footer-subscribe p {
-            color: #9ca3af;
-            font-size: 0.9rem;
-            margin: 0;
-        }
-
         .footer-powered {
             color: #6b7280;
             font-size: 0.75rem;
@@ -1336,11 +1322,6 @@
                 top: 1rem;
                 right: 1rem;
             }
-
-            .footer-links {
-                flex-direction: column;
-                gap: 1rem;
-            }
         }
 
         @media (max-width: 480px) {
@@ -1368,6 +1349,11 @@
             .social-icon {
                 width: 40px;
                 height: 40px;
+            }
+
+            .footer-links {
+                flex-direction: column;
+                gap: 1rem;
             }
 
             .footer-links a {
@@ -1572,7 +1558,7 @@
                 <button class="close-btn" onclick="closePortfolio('editorial')">&times;</button>
             </div>
             <div class="portfolio-statement">
-                <p style="font-style: italic; color: #d1d5db; margin-bottom: 2rem; font-size: 1rem; text-align: center; border-bottom: 1px solid rgba(255, 255, 255, 0.1); padding-bottom: 1rem;">"Being able to collaborate with artists in different avenues constantly molds a new vision towards our mission." - Alex</p>
+                <p style="font-style: italic; color: #d1d5db; margin-bottom: 2rem; font-size: 1rem; text-align: center; border-bottom: 1px solid rgba(255, 255, 255, 0.1); padding-bottom: 1rem;">"Every creative project is a chance to bring someone's vision to life. I love collaborating with photographers and directors to create looks that tell a story and capture the perfect moment." - Alex</p>
             </div>
             <div class="portfolio-grid">
                 <div class="portfolio-item" onclick="openImageViewer('cuts.7.jpg', 'Hair Creative 7', 'Clean fade perfection')">
@@ -1613,7 +1599,7 @@
                 <button class="close-btn" onclick="closePortfolio('visuals')">&times;</button>
             </div>
             <div class="portfolio-statement">
-                <p style="font-style: italic; color: #d1d5db; margin-bottom: 2rem; font-size: 1rem; text-align: center; border-bottom: 1px solid rgba(255, 255, 255, 0.1); padding-bottom: 1rem;">"Every canvas perfectly imperfect with a desire to lead with creative control." - Alex</p>
+                <p style="font-style: italic; color: #d1d5db; margin-bottom: 2rem; font-size: 1rem; text-align: center; border-bottom: 1px solid rgba(255, 255, 255, 0.1); padding-bottom: 1rem;">"Working on visuals pushes my creativity to new levels. Whether it's a music video or film, I get to experiment with bold styles that become part of the artistic expression." - Alex</p>
             </div>
             <div class="portfolio-grid">
                 <div class="portfolio-item" onclick="openImageViewer('Vis.2.jpg', 'Visual 2', 'On set creativity')">
@@ -1698,24 +1684,8 @@
                 <img src="LogoFine.png" alt="Elicona Visuals Logo" class="footer-logo-img">
                 ELICONA VISUALS
             </div>
-            <div class="footer-links">
-                <a href="#home">Home</a>
-                <a href="#mission">Mission</a>
-                <a href="#work">Work</a>
-                <a href="#social">Social</a>
-                <a href="#visit">Visit</a>
-            </div>
             <div class="footer-copyright">
                 &copy; 2025 Elicona Visuals. All rights reserved.
-            </div>
-            <div class="footer-subscribe">
-                <p>Get your professional website</p>
-                <script async src="https://js.stripe.com/v3/buy-button.js"></script>
-                <stripe-buy-button
-                  buy-button-id="buy_btn_1SGQifEYipKZSkJbtDiCqZ4S"
-                  publishable-key="pk_live_51SGPAOEYipKZSkJb3qw82kiWd89UPhDkKmQK93Xx4fqoauC0NdTfXGfZAVQr7zUON3lFab50SF08CYAKHOIw6ii6002wqqrONG"
-                >
-                </stripe-buy-button>
             </div>
             <div class="footer-powered">
                 Powered by <a href="#">Marcell Software Services</a>
@@ -1904,8 +1874,10 @@
         }, observerOptions);
 
         document.addEventListener('DOMContentLoaded', () => {
+            // Add loading class to body
             document.body.classList.add('loading');
             
+            // Remove loading class after logo animation completes
             setTimeout(() => {
                 document.body.classList.remove('loading');
             }, 1800);
@@ -2044,6 +2016,7 @@
                 }
             });
         });
+
     </script>
 </body>
 </html>
