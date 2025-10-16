@@ -1042,15 +1042,18 @@
 
         /* Reviews Section Styles */
         #reviews {
-            background: #0a0a0a;
-            padding: 80px 0;
-            position: relative;
-            background-image: url('cuts.9.jpg');
-            background-size: cover;
-            background-position: center;
-            background-attachment: scroll;
-        }
-
+    background: #0a0a0a;
+    padding: 80px 0;
+    position: relative;
+    background-image: url('cuts.9.jpg');
+    background-size: cover;
+    background-position: center center;
+    background-attachment: scroll;
+    background-repeat: no-repeat;
+    width: 100vw;  /* Full viewport width */
+    margin-left: calc(-50vw + 50%);  /* Center and extend */
+}
+    
         #reviews::before {
             content: '';
             position: absolute;
