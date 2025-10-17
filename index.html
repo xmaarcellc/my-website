@@ -76,7 +76,7 @@
         ]
     }
     </script>
-<style>
+    <style>
         * {
             margin: 0;
             padding: 0;
@@ -100,6 +100,11 @@
         }
 
         body.loading {
+            overflow: hidden;
+        }
+
+        /* Prevent scrolling when mobile menu is open */
+        body.menu-open {
             overflow: hidden;
         }
 
@@ -242,6 +247,7 @@
             gap: 4px;
             position: absolute;
             right: 1rem;
+            z-index: 2001;
         }
 
         .mobile-menu span {
@@ -252,17 +258,34 @@
             transition: all 0.3s ease;
         }
 
+        /* UPDATED MOBILE MENU - CENTERED WITH OVERLAY */
         .nav-links.mobile-active {
             display: flex;
             position: fixed;
-            top: 70px;
-            right: 1rem;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
             background: rgba(10, 10, 10, 0.98);
             border: 1px solid rgba(255, 255, 255, 0.1);
             border-radius: 12px;
             flex-direction: column;
-            padding: 1rem;
+            padding: 2rem;
             box-shadow: 0 8px 32px rgba(0, 0, 0, 0.5);
+            z-index: 2000;
+            min-width: 200px;
+            gap: 1.5rem;
+        }
+
+        /* Dark overlay behind mobile menu */
+        .nav-links.mobile-active::before {
+            content: '';
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100vw;
+            height: 100vh;
+            background: rgba(0, 0, 0, 0.8);
+            z-index: -1;
         }
 
         .mobile-menu.active span:nth-child(1) {
@@ -276,7 +299,8 @@
         .mobile-menu.active span:nth-child(3) {
             transform: rotate(-45deg) translate(7px, -6px);
         }
-/* Hero Section */
+
+        /* Hero Section */
         .hero {
             height: 100vh;
             display: flex;
@@ -422,7 +446,6 @@
             background-position: center;
             background-attachment: scroll;
         }
-
         #work::before {
             content: '';
             position: absolute;
@@ -774,7 +797,8 @@
             height: 48px;
             margin-bottom: 1rem;
         }
-/* Portfolio Modal Styles */
+
+        /* Portfolio Modal Styles */
         .portfolio-modal {
             display: none;
             position: fixed;
@@ -1040,16 +1064,26 @@
             z-index: 10;
         }
 
-        /* Reviews Section Styles */
-      #reviews {
-    background: #0a0a0a;
-    padding: 80px 0;
-    position: relative;
-    background-size: 100% 100%;      
-    background-position: center;
-    background-attachment: fixed;
-}
-    
+        /* Reviews Section Styles - FULL WIDTH FIX */
+        #reviews {
+            background: #0a0a0a;
+            padding: 80px 0;
+            position: relative;
+            background-image: url('cuts.9.jpg');
+            background-size: cover;
+            background-position: center;
+            background-attachment: scroll;
+            width: 100%;
+            max-width: none;
+            margin: 0;
+        }
+
+        #reviews.section {
+            padding: 80px 0;
+            max-width: none;
+            margin: 0;
+        }
+
         #reviews::before {
             content: '';
             position: absolute;
@@ -1066,7 +1100,6 @@
             z-index: 1;
             pointer-events: none;
         }
-
         .reviews-container {
             max-width: 900px;
             margin: 0 auto;
@@ -1355,7 +1388,8 @@
             width: 20px;
             height: 20px;
         }
-/* Footer Styles */
+
+        /* Footer Styles */
         .footer {
             background: #0a0a0a;
             border-top: 1px solid rgba(255, 255, 255, 0.1);
@@ -1454,6 +1488,12 @@
 
             .mobile-menu {
                 display: flex;
+            }
+
+            /* Mobile menu adjustments */
+            .nav-links.mobile-active {
+                min-width: 180px;
+                padding: 1.5rem;
             }
 
             .portfolio-grid {
@@ -1715,6 +1755,10 @@
                 font-size: 1rem;
                 padding: 0.75rem 1rem;
             }
+
+            .nav-links.mobile-active {
+                min-width: 160px;
+            }
         }
 
         /* Very Small Phones */
@@ -1752,7 +1796,7 @@
                 <img src="LogoFine.png" alt="Elicona Visuals Logo" class="logo-img" width="24" height="24">
                 <a href="#home" class="logo">ELICONA VISUALS</a>
             </div>
- <ul class="nav-links">
+            <ul class="nav-links">
                 <li><a href="#home">Home</a></li>
                 <li><a href="#mission">Mission</a></li>
                 <li><a href="#work">Work</a></li>
@@ -1761,7 +1805,6 @@
                 <li><a href="#reviews">Reviews</a></li>
                 <li><a href="#visit">Visit</a></li>
             </ul>
-            
             <div class="mobile-menu" aria-label="Toggle mobile menu">
                 <span></span>
                 <span></span>
@@ -1921,7 +1964,8 @@
                 </a>
             </div>
         </section>
-<!-- Reviews Section -->
+
+        <!-- Reviews Section - FULL WIDTH BACKGROUND -->
         <section id="reviews" class="section fade-in">
             <div class="reviews-container">
                 <div class="section-header fade-in">
@@ -2014,7 +2058,6 @@
         </section>
 
     </main>
-
     <!-- PORTFOLIO MODALS -->
     
     <!-- Editorial/Artistic Design Modal -->
@@ -2153,7 +2196,8 @@
             <div id="imageCounter" class="image-counter" aria-live="polite"></div>
         </div>
     </div>
-<!-- Footer -->
+
+    <!-- Footer -->
     <footer class="footer">
         <div class="footer-content">
             <div class="footer-brand">
@@ -2422,7 +2466,8 @@
                 portfolioObserver.observe(item);
             });
         }
-// Intersection Observer for Fade-in Animations
+
+        // Intersection Observer for Fade-in Animations
         const observerOptions = {
             threshold: 0.1,
             rootMargin: '0px 0px -100px 0px'
@@ -2496,13 +2541,14 @@
                 setInterval(cycleReviews, 8000);
             }
 
-            // Mobile menu functionality
+            // UPDATED Mobile menu functionality - WITH FIX
             const mobileMenu = document.querySelector('.mobile-menu');
             const navLinks = document.querySelector('.nav-links');
 
             mobileMenu.addEventListener('click', () => {
                 mobileMenu.classList.toggle('active');
                 navLinks.classList.toggle('mobile-active');
+                document.body.classList.toggle('menu-open'); // ADDED - Prevents scrolling
             });
 
             // Close mobile menu when clicking on a link
@@ -2510,6 +2556,7 @@
                 if (e.target.tagName === 'A') {
                     mobileMenu.classList.remove('active');
                     navLinks.classList.remove('mobile-active');
+                    document.body.classList.remove('menu-open'); // ADDED
                 }
             });
 
@@ -2518,6 +2565,7 @@
                 if (!mobileMenu.contains(e.target) && !navLinks.contains(e.target)) {
                     mobileMenu.classList.remove('active');
                     navLinks.classList.remove('mobile-active');
+                    document.body.classList.remove('menu-open'); // ADDED
                 }
             });
 
@@ -2629,54 +2677,6 @@
                 }
             });
 
-            // Prevent body scroll when modals are open
-            function preventBodyScroll(shouldPrevent) {
-                if (shouldPrevent) {
-                    document.body.style.overflow = 'hidden';
-                } else {
-                    document.body.style.overflow = 'auto';
-                }
-            }
-
-            // Optional: Add loading spinner for images
-            const allImages = document.querySelectorAll('img[loading="lazy"]');
-            allImages.forEach(img => {
-                img.addEventListener('load', function() {
-                    this.style.opacity = '1';
-                });
-                img.addEventListener('error', function() {
-                    console.error('Failed to load image:', this.src);
-                });
-            });
-
-            // Performance optimization: Pause carousels when not visible
-            const carouselObserver = new IntersectionObserver((entries) => {
-                entries.forEach(entry => {
-                    if (!entry.isIntersecting) {
-                        // Optionally pause animations when not visible
-                        // This could save battery on mobile devices
-                    }
-                });
-            }, { threshold: 0.1 });
-
-            // Observe work section for performance
-            const workSection = document.getElementById('work');
-            if (workSection) {
-                carouselObserver.observe(workSection);
-            }
-
-            // Add smooth reveal for portfolio items
-            const portfolioItemReveal = new IntersectionObserver((entries) => {
-                entries.forEach((entry, index) => {
-                    if (entry.isIntersecting) {
-                        setTimeout(() => {
-                            entry.target.style.opacity = '1';
-                            entry.target.style.transform = 'translateY(0)';
-                        }, index * 100);
-                    }
-                });
-            }, { threshold: 0.1 });
-
             // Console welcome message
             console.log('%cELICONA VISUALS', 'font-size: 20px; font-weight: bold; color: #ffffff; background: #0a0a0a; padding: 10px;');
             console.log('%cWebsite by Marcell Software Services', 'font-size: 12px; color: #9ca3af;');
@@ -2684,55 +2684,7 @@
 
         }); // End of DOMContentLoaded
 
-        // Service Worker Registration (Optional - for PWA functionality)
-        if ('serviceWorker' in navigator) {
-            window.addEventListener('load', () => {
-                // Uncomment below to register service worker
-                // navigator.serviceWorker.register('/sw.js')
-                //     .then(registration => console.log('SW registered'))
-                //     .catch(err => console.log('SW registration failed'));
-            });
-        }
-
-        // Handle page visibility changes (pause/resume animations)
-        document.addEventListener('visibilitychange', () => {
-            if (document.hidden) {
-                // Pause animations when page is hidden
-                console.log('Page hidden - animations paused');
-            } else {
-                // Resume animations when page is visible
-                console.log('Page visible - animations resumed');
-            }
-        });
-
-        // Prevent right-click on images (optional - for portfolio protection)
-        // Uncomment if you want to prevent image downloads
-        /*
-        document.addEventListener('contextmenu', (e) => {
-            if (e.target.tagName === 'IMG') {
-                e.preventDefault();
-                return false;
-            }
-        });
-        */
-
-        // Log viewport information for debugging
-        console.log('Viewport width:', window.innerWidth);
-        console.log('Viewport height:', window.innerHeight);
-        console.log('Device pixel ratio:', window.devicePixelRatio);
-
     </script>
-
-    <!-- Google Analytics (Optional - Add your tracking ID) -->
-    <!--
-    <script async src="https://www.googletagmanager.com/gtag/js?id=GA_MEASUREMENT_ID"></script>
-    <script>
-        window.dataLayer = window.dataLayer || [];
-        function gtag(){dataLayer.push(arguments);}
-        gtag('js', new Date());
-        gtag('config', 'GA_MEASUREMENT_ID');
-    </script>
-    -->
 
 </body>
 </html>
