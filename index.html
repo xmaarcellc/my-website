@@ -260,33 +260,35 @@
 
         /* UPDATED MOBILE MENU - CENTERED WITH OVERLAY */
         .nav-links.mobile-active {
-            display: flex;
-            position: fixed;
-            top: 50%;
-            left: 50%;
-            transform: translate(-50%, -50%);
-            background: rgba(10, 10, 10, 0.98);
-            border: 1px solid rgba(255, 255, 255, 0.1);
-            border-radius: 12px;
-            flex-direction: column;
-            padding: 2rem;
-            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.5);
-            z-index: 2000;
-            min-width: 200px;
-            gap: 1.5rem;
-        }
+    display: flex;
+    position: fixed;
+    top: 70px;
+    left: 0;
+    right: 0;
+    width: 100%;
+    background: rgba(10, 10, 10, 0.98);
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+    flex-direction: column;
+    padding: 1.5rem;
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.5);
+    z-index: 1500;
+    gap: 1.5rem;
+    align-items: center;
+}
 
         /* Dark overlay behind mobile menu */
-        .nav-links.mobile-active::before {
-            content: '';
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100vw;
-            height: 100vh;
-            background: rgba(0, 0, 0, 0.8);
-            z-index: -1;
-        }
+       /* Dark overlay behind mobile menu */
+.nav-links.mobile-active::before {
+    content: '';
+    position: fixed;
+    top: 70px;
+    left: 0;
+    width: 100vw;
+    height: calc(100vh - 70px);
+    background: rgba(0, 0, 0, 0.9);
+    z-index: -1;
+    pointer-events: auto;
+}
 
         .mobile-menu.active span:nth-child(1) {
             transform: rotate(45deg) translate(5px, 5px);
