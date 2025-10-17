@@ -3,79 +3,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>ELICONA VISUALS - Licensed Cosmetologist | Fair Lawn, NJ</title>
-    <meta name="description" content="Premium barbershop in Fair Lawn, NJ. Licensed cosmetologist specializing in modern cuts with a classic touch. Expert styling by Alex Elicona. Book your appointment today.">
-    
-    <!-- Favicon -->
+    <title>ELICONA VISUALS</title>
     <link rel="icon" type="image/jpeg" href="logoblacktrans.jpg">
-    <link rel="apple-touch-icon" href="LogoFine.png">
-    
-    <!-- Open Graph / Social Media Meta Tags -->
-    <meta property="og:type" content="website">
-    <meta property="og:title" content="ELICONA VISUALS - Premium Barbershop in Fair Lawn, NJ">
-    <meta property="og:description" content="Modern cuts with classic touch. Licensed cosmetologist specializing in precision cuts and artistic styling.">
-    <meta property="og:image" content="LogoFine.png">
-    <meta property="og:url" content="https://www.eliconavisuals.com">
-    
-    <!-- Twitter Card Meta Tags -->
-    <meta name="twitter:card" content="summary_large_image">
-    <meta name="twitter:title" content="ELICONA VISUALS - Premium Barbershop">
-    <meta name="twitter:description" content="Modern cuts with classic touch in Fair Lawn, NJ">
-    <meta name="twitter:image" content="LogoFine.png">
-    
-    <!-- Preload Critical Resources -->
-    <link rel="preload" as="image" href="LogoFine.png">
-    <link rel="preload" as="video" href="Elicona.viz.mp4">
-    
-    <!-- Schema.org Structured Data for Local Business -->
-    <script type="application/ld+json">
-    {
-        "@context": "https://schema.org",
-        "@type": "HairSalon",
-        "name": "ELICONA VISUALS",
-        "image": "LogoFine.png",
-        "description": "Premium barbershop specializing in modern cuts with classic touch",
-        "@id": "https://www.eliconavisuals.com",
-        "url": "https://www.eliconavisuals.com",
-        "telephone": "+1-201-658-6076",
-        "priceRange": "$40-$70",
-        "address": {
-            "@type": "PostalAddress",
-            "streetAddress": "24-03 Broadway",
-            "addressLocality": "Fair Lawn",
-            "addressRegion": "NJ",
-            "postalCode": "07410",
-            "addressCountry": "US"
-        },
-        "geo": {
-            "@type": "GeoCoordinates",
-            "latitude": 40.9230436,
-            "longitude": -74.1112348
-        },
-        "openingHoursSpecification": {
-            "@type": "OpeningHoursSpecification",
-            "dayOfWeek": [
-                "Tuesday",
-                "Wednesday",
-                "Thursday",
-                "Friday",
-                "Saturday"
-            ],
-            "opens": "10:00",
-            "closes": "19:00"
-        },
-        "aggregateRating": {
-            "@type": "AggregateRating",
-            "ratingValue": "5",
-            "reviewCount": "142"
-        },
-        "sameAs": [
-            "https://www.instagram.com/alexelicona/",
-            "https://www.tiktok.com/@eliconavisuals",
-            "https://youtube.com/@alexelicona"
-        ]
-    }
-    </script>
     <style>
         * {
             margin: 0;
@@ -101,25 +30,6 @@
 
         body.loading {
             overflow: hidden;
-        }
-
-   
-       
-
-        /* Skip to main content link for accessibility */
-        .skip-link {
-            position: absolute;
-            top: -40px;
-            left: 0;
-            background: #ffffff;
-            color: #0a0a0a;
-            padding: 8px;
-            text-decoration: none;
-            z-index: 100;
-        }
-
-        .skip-link:focus {
-            top: 0;
         }
 
         body::before {
@@ -231,7 +141,6 @@
             text-decoration: none;
             font-weight: 500;
             font-size: 0.9rem;
-            transition: color 0.3s ease;
         }
 
         .nav-links a:hover {
@@ -245,7 +154,6 @@
             gap: 4px;
             position: absolute;
             right: 1rem;
-            z-index: 2001;
         }
 
         .mobile-menu span {
@@ -256,37 +164,18 @@
             transition: all 0.3s ease;
         }
 
-        /* UPDATED MOBILE MENU - CENTERED WITH OVERLAY */
         .nav-links.mobile-active {
-    display: flex;
-    position: fixed;
-    top: 70px;
-    left: 0;
-    right: 0;
-    width: 100%;
-    background: rgba(10, 10, 10, 0.98);
-    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
-    flex-direction: column;
-    padding: 1.5rem;
-    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.5);
-    z-index: 1500;
-    gap: 1.5rem;
-    align-items: center;
-}
-
-        /* Dark overlay behind mobile menu */
-       /* Dark overlay behind mobile menu */
-.nav-links.mobile-active::before {
-    content: '';
-    position: fixed;
-    top: 70px;
-    left: 0;
-    width: 100vw;
-    height: calc(100vh - 70px);
-    background: rgba(0, 0, 0, 0.9);
-    z-index: -1;
-    pointer-events: auto;
-}
+            display: flex;
+            position: fixed;
+            top: 70px;
+            right: 1rem;
+            background: rgba(10, 10, 10, 0.98);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: 12px;
+            flex-direction: column;
+            padding: 1rem;
+            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.5);
+        }
 
         .mobile-menu.active span:nth-child(1) {
             transform: rotate(45deg) translate(5px, 5px);
@@ -300,7 +189,6 @@
             transform: rotate(-45deg) translate(7px, -6px);
         }
 
-        /* Hero Section */
         .hero {
             height: 100vh;
             display: flex;
@@ -422,7 +310,6 @@
             box-shadow: 0 6px 20px rgba(255, 255, 255, 0.3);
         }
 
-        /* Section Styles */
         .section {
             padding: 80px 1rem;
             text-align: center;
@@ -446,6 +333,7 @@
             background-position: center;
             background-attachment: scroll;
         }
+
         #work::before {
             content: '';
             position: absolute;
@@ -497,7 +385,6 @@
             margin: 0 auto;
         }
 
-        /* Mission Section */
         #mission {
             position: relative;
             background-image: url('D37D9DC0-A17D-4A64-8E7F-48F474B86BE6.jpeg');
@@ -583,7 +470,136 @@
             color: #9ca3af;
         }
 
-        /* Work Grid */
+        #behind-the-scenes {
+            padding: 80px 0;
+            position: relative;
+            background-image: url('cuts.9.jpg');
+            background-size: cover;
+            background-position: center center;
+            background-attachment: scroll;
+            background-repeat: no-repeat;
+        }
+
+        #behind-the-scenes::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(
+                135deg, 
+                rgba(10, 10, 10, 0.8) 0%, 
+                rgba(26, 26, 26, 0.7) 50%,
+                rgba(10, 10, 10, 0.8) 100%
+            );
+            z-index: 1;
+            pointer-events: none;
+        }
+
+        #behind-the-scenes .section-header,
+        #behind-the-scenes .video-container {
+            position: relative;
+            z-index: 2;
+        }
+
+        .video-container {
+            max-width: 900px;
+            margin: 0 auto;
+            padding: 0 1rem;
+        }
+
+        .video-wrapper {
+            position: relative;
+            padding-bottom: 56.25%;
+            height: 0;
+            overflow: hidden;
+            border-radius: 16px;
+            box-shadow: 0 10px 40px rgba(0, 0, 0, 0.5);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        .video-wrapper iframe {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            border-radius: 16px;
+        }
+
+        #social.section {
+            padding: 80px 0;
+            max-width: none;
+            margin: 0;
+            position: relative;
+            background-image: url('IMG_62404.jpg');
+            background-size: cover;
+            background-position: center;
+            background-attachment: scroll;
+        }
+
+        #social::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(
+                135deg, 
+                rgba(10, 10, 10, 0.8) 0%, 
+                rgba(26, 26, 26, 0.7) 50%,
+                rgba(10, 10, 10, 0.8) 100%
+            );
+            z-index: 1;
+        }
+
+        #social .section-header,
+        #social .social-grid {
+            position: relative;
+            z-index: 2;
+        }
+
+        #social .social-grid {
+            padding: 0 1rem;
+        }
+
+        .social-grid {
+            display: flex;
+            justify-content: center;
+            gap: 2rem;
+            flex-wrap: wrap;
+            margin-top: 2rem;
+        }
+
+        .social-item {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            text-decoration: none;
+            color: #d1d5db;
+            padding: 2rem;
+            border-radius: 16px;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            background: rgba(255, 255, 255, 0.03);
+            min-width: 150px;
+            text-align: center;
+            transition: all 0.3s ease;
+        }
+
+        .social-item:hover {
+            color: #ffffff;
+            border-color: rgba(255, 255, 255, 0.2);
+            transform: translateY(-5px);
+        }
+
+        .social-icon {
+            width: 48px;
+            height: 48px;
+            margin-bottom: 1rem;
+        }
+
         .work-grid {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
@@ -666,139 +682,6 @@
             background: rgba(255, 255, 255, 0.05);
         }
 
-        /* Behind the Scenes Section */
-        #behind-the-scenes {
-            padding: 80px 0;
-            position: relative;
-            background-image: url('cuts.9.jpg');
-            background-size: cover;
-            background-position: center center;
-            background-attachment: scroll;
-            background-repeat: no-repeat;
-        }
-
-        #behind-the-scenes::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background: linear-gradient(
-                135deg, 
-                rgba(10, 10, 10, 0.8) 0%, 
-                rgba(26, 26, 26, 0.7) 50%,
-                rgba(10, 10, 10, 0.8) 100%
-            );
-            z-index: 1;
-            pointer-events: none;
-        }
-
-        #behind-the-scenes .section-header,
-        #behind-the-scenes .video-container {
-            position: relative;
-            z-index: 2;
-        }
-
-        .video-container {
-            max-width: 900px;
-            margin: 0 auto;
-            padding: 0 1rem;
-        }
-
-        .video-wrapper {
-            position: relative;
-            padding-bottom: 56.25%;
-            height: 0;
-            overflow: hidden;
-            border-radius: 16px;
-            box-shadow: 0 10px 40px rgba(0, 0, 0, 0.5);
-            border: 1px solid rgba(255, 255, 255, 0.1);
-        }
-
-        .video-wrapper iframe {
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            border-radius: 16px;
-        }
-
-        /* Social Section */
-        #social.section {
-            padding: 80px 0;
-            max-width: none;
-            margin: 0;
-            position: relative;
-            background-image: url('IMG_62404.jpg');
-            background-size: cover;
-            background-position: center;
-            background-attachment: scroll;
-        }
-
-        #social::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background: linear-gradient(
-                135deg, 
-                rgba(10, 10, 10, 0.8) 0%, 
-                rgba(26, 26, 26, 0.7) 50%,
-                rgba(10, 10, 10, 0.8) 100%
-            );
-            z-index: 1;
-        }
-
-        #social .section-header,
-        #social .social-grid {
-            position: relative;
-            z-index: 2;
-        }
-
-        #social .social-grid {
-            padding: 0 1rem;
-        }
-
-        .social-grid {
-            display: flex;
-            justify-content: center;
-            gap: 2rem;
-            flex-wrap: wrap;
-            margin-top: 2rem;
-        }
-
-        .social-item {
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            text-decoration: none;
-            color: #d1d5db;
-            padding: 2rem;
-            border-radius: 16px;
-            border: 1px solid rgba(255, 255, 255, 0.1);
-            background: rgba(255, 255, 255, 0.03);
-            min-width: 150px;
-            text-align: center;
-            transition: all 0.3s ease;
-        }
-
-        .social-item:hover {
-            color: #ffffff;
-            border-color: rgba(255, 255, 255, 0.2);
-            transform: translateY(-5px);
-        }
-
-        .social-icon {
-            width: 48px;
-            height: 48px;
-            margin-bottom: 1rem;
-        }
-
-        /* Portfolio Modal Styles */
         .portfolio-modal {
             display: none;
             position: fixed;
@@ -856,10 +739,6 @@
         .close-btn:hover {
             color: #ffffff;
             background: rgba(255, 255, 255, 0.1);
-        }
-
-        .portfolio-statement {
-            margin-bottom: 2rem;
         }
 
         .portfolio-grid {
@@ -926,7 +805,6 @@
             transform: scale(1.02);
         }
 
-        /* Image Viewer */
         .image-viewer {
             display: none;
             position: fixed;
@@ -1064,198 +942,6 @@
             z-index: 10;
         }
 
-        /* Reviews Section Styles - FULL WIDTH FIX */
-        #reviews {
-            background: #0a0a0a;
-            padding: 80px 0;
-            position: relative;
-            background-image: url('cuts.9.jpg');
-            background-size: cover;
-            background-position: center;
-            background-attachment: scroll;
-            width: 100%;
-            max-width: none;
-            margin: 0;
-        }
-
-        #reviews.section {
-            padding: 80px 0;
-            max-width: none;
-            margin: 0;
-        }
-
-        #reviews::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background: linear-gradient(
-                135deg, 
-                rgba(10, 10, 10, 0.85) 0%, 
-                rgba(26, 26, 26, 0.75) 50%,
-                rgba(10, 10, 10, 0.85) 100%
-            );
-            z-index: 1;
-            pointer-events: none;
-        }
-        .reviews-container {
-            max-width: 900px;
-            margin: 0 auto;
-            padding: 0 2rem;
-            position: relative;
-            z-index: 2;
-        }
-
-        .review-counter {
-            text-align: center;
-            margin: 3rem 0;
-            padding: 2rem;
-            background: rgba(255, 255, 255, 0.03);
-            border: 1px solid rgba(255, 255, 255, 0.1);
-            border-radius: 16px;
-            display: flex;
-            flex-direction: column;
-            gap: 0.5rem;
-        }
-
-        .counter-number {
-            font-size: 4rem;
-            font-weight: 700;
-            color: #ffffff;
-            font-family: 'Times New Roman', serif;
-            font-style: italic;
-            line-height: 1;
-        }
-
-        .counter-label {
-            font-size: 1.1rem;
-            color: #d1d5db;
-            text-transform: uppercase;
-            letter-spacing: 2px;
-            font-weight: 500;
-        }
-
-        .review-display {
-            margin: 3rem 0;
-            min-height: 350px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-        }
-
-        .review-box {
-            width: 100%;
-            background: rgba(255, 255, 255, 0.05);
-            border: 2px solid rgba(255, 255, 255, 0.15);
-            border-radius: 20px;
-            padding: 3rem 2.5rem;
-            box-shadow: 0 10px 40px rgba(0, 0, 0, 0.3);
-            transition: all 0.3s ease;
-            position: relative;
-            overflow: hidden;
-        }
-
-        .review-box::before {
-            content: '"';
-            position: absolute;
-            top: 1rem;
-            left: 2rem;
-            font-size: 8rem;
-            color: rgba(255, 255, 255, 0.05);
-            font-family: 'Times New Roman', serif;
-            font-style: italic;
-            line-height: 1;
-        }
-
-        .review-content {
-            position: relative;
-            z-index: 2;
-            opacity: 0;
-            animation: fadeInReview 1s ease-in-out forwards;
-        }
-
-        @keyframes fadeInReview {
-            from {
-                opacity: 0;
-                transform: translateY(20px);
-            }
-            to {
-                opacity: 1;
-                transform: translateY(0);
-            }
-        }
-
-        .review-stars {
-            font-size: 1.5rem;
-            color: #fbbf24;
-            margin-bottom: 1.5rem;
-            text-align: center;
-            letter-spacing: 0.25rem;
-        }
-
-        .review-text {
-            font-size: 1.2rem;
-            color: #e5e7eb;
-            line-height: 1.8;
-            margin-bottom: 2rem;
-            text-align: center;
-            font-style: italic;
-            min-height: 150px;
-        }
-
-        .review-author {
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            gap: 0.5rem;
-            padding-top: 1.5rem;
-            border-top: 1px solid rgba(255, 255, 255, 0.1);
-        }
-
-        .author-name {
-            font-size: 1.1rem;
-            font-weight: 600;
-            color: #ffffff;
-        }
-
-        .review-source {
-            font-size: 0.9rem;
-            color: #9ca3af;
-            text-transform: uppercase;
-            letter-spacing: 1px;
-        }
-
-        .review-cta {
-            text-align: center;
-            margin-top: 3rem;
-        }
-
-        .review-button {
-            display: inline-flex;
-            align-items: center;
-            gap: 0.75rem;
-            background: transparent;
-            color: #ffffff;
-            padding: 16px 40px;
-            text-decoration: none;
-            border-radius: 50px;
-            font-weight: 600;
-            font-size: 1rem;
-            border: 2px solid #ffffff;
-            transition: all 0.3s ease;
-            box-shadow: 0 4px 15px rgba(255, 255, 255, 0.2);
-        }
-
-        .review-button:hover {
-            background: #ffffff;
-            color: #0a0a0a;
-            transform: translateY(-2px);
-            box-shadow: 0 6px 20px rgba(255, 255, 255, 0.3);
-        }
-
-        /* Visit Section */
         #visit {
             background: #0a0a0a;
             padding: 80px 0;
@@ -1389,7 +1075,6 @@
             height: 20px;
         }
 
-        /* Footer Styles */
         .footer {
             background: #0a0a0a;
             border-top: 1px solid rgba(255, 255, 255, 0.1);
@@ -1466,7 +1151,6 @@
             color: #ffffff;
         }
 
-        /* Fade-in Animation */
         .fade-in {
             opacity: 0;
             transform: translateY(20px);
@@ -1480,7 +1164,6 @@
             will-change: auto;
         }
 
-        /* Responsive Design - Tablets and Mobile */
         @media (max-width: 768px) {
             .nav-links {
                 display: none;
@@ -1488,12 +1171,6 @@
 
             .mobile-menu {
                 display: flex;
-            }
-
-            /* Mobile menu adjustments */
-            .nav-links.mobile-active {
-                min-width: 180px;
-                padding: 1.5rem;
             }
 
             .portfolio-grid {
@@ -1583,40 +1260,6 @@
                 padding: 60px 0;
             }
 
-            #reviews {
-                padding: 60px 0;
-            }
-
-            .reviews-container {
-                padding: 0 1rem;
-            }
-
-            .counter-number {
-                font-size: 3rem;
-            }
-
-            .counter-label {
-                font-size: 0.9rem;
-            }
-
-            .review-box {
-                padding: 2rem 1.5rem;
-            }
-
-            .review-text {
-                font-size: 1rem;
-                min-height: 120px;
-            }
-
-            .review-display {
-                min-height: 300px;
-            }
-
-            .review-button {
-                padding: 14px 32px;
-                font-size: 0.9rem;
-            }
-
             #visit {
                 padding: 60px 0;
             }
@@ -1679,17 +1322,8 @@
                 top: 1rem;
                 right: 1rem;
             }
-
-            .portfolio-content {
-                padding: 1.5rem;
-            }
-
-            .portfolio-title {
-                font-size: 1.5rem;
-            }
         }
 
-        /* Mobile Phones */
         @media (max-width: 480px) {
             .hero h1 {
                 font-size: 2rem;
@@ -1729,72 +1363,15 @@
             .footer-copyright {
                 font-size: 0.75rem;
             }
-
-            .portfolio-grid {
-                grid-template-columns: 1fr;
-            }
-
-            .logo {
-                font-size: 1.2rem;
-            }
-
-            .logo-img {
-                height: 1.2rem;
-            }
-
-            .review-box::before {
-                font-size: 5rem;
-                left: 1rem;
-            }
-
-            .image-viewer-container {
-                padding: 0 1rem;
-            }
-
-            .image-caption {
-                font-size: 1rem;
-                padding: 0.75rem 1rem;
-            }
-
-            .nav-links.mobile-active {
-                min-width: 160px;
-            }
-        }
-
-        /* Very Small Phones */
-        @media (max-width: 360px) {
-            .hero h1 {
-                font-size: 1.8rem;
-            }
-
-            .section-title {
-                font-size: 1.6rem;
-            }
-
-            .counter-number {
-                font-size: 2.5rem;
-            }
-
-            .work-item {
-                height: 400px;
-            }
-
-            .work-image-carousel {
-                height: 250px;
-            }
         }
     </style>
 </head>
 <body>
-    <!-- Skip to main content for accessibility -->
-    <a href="#main-content" class="skip-link">Skip to main content</a>
-
-    <!-- Navigation -->
     <nav>
         <div class="nav-container">
             <div class="logo-container">
-                <img src="LogoFine.png" alt="Elicona Visuals Logo" class="logo-img" width="24" height="24">
-                <a href="#home" class="logo">ELICONA VISUALS</a>
+                <img src="LogoFine.png" alt="Elicona Visuals Logo" class="logo-img">
+                <a href="#" class="logo">ELICONA VISUALS</a>
             </div>
             <ul class="nav-links">
                 <li><a href="#home">Home</a></li>
@@ -1802,10 +1379,9 @@
                 <li><a href="#work">Work</a></li>
                 <li><a href="#behind-the-scenes">BTS</a></li>
                 <li><a href="#social">Social</a></li>
-                <li><a href="#reviews">Reviews</a></li>
                 <li><a href="#visit">Visit</a></li>
             </ul>
-            <div class="mobile-menu" aria-label="Toggle mobile menu">
+            <div class="mobile-menu">
                 <span></span>
                 <span></span>
                 <span></span>
@@ -1813,416 +1389,311 @@
         </div>
     </nav>
 
-    <!-- Main Content -->
-    <main id="main-content">
+    <section id="home" class="hero">
+        <video class="hero-video" autoplay muted loop playsinline preload="metadata">
+            <source src="Elicona.viz.mp4" type="video/mp4">
+            Your browser does not support the video tag.
+        </video>
         
-        <!-- Hero Section -->
-        <section id="home" class="hero">
-            <video class="hero-video" autoplay muted loop playsinline preload="metadata" aria-hidden="true">
-                <source src="Elicona.viz.mp4" type="video/mp4">
-                Your browser does not support the video tag.
-            </video>
-            
-            <div class="hero-overlay" aria-hidden="true"></div>
-            
-            <div class="hero-content">
-                <h1>ELICONA VISUALS</h1>
-                <p>Modern skill, classic touch, each cut made with care.</p>
-                <a href="https://getsquire.com/booking/book/bvrberiv-fair-lawn/barber/alex-elicona-1/services" 
-                   class="cta-button" 
-                   target="_blank" 
-                   rel="noopener noreferrer"
-                   aria-label="Book your appointment at Elicona Visuals">
-                    Book Appointment
-                </a>
-            </div>
-        </section>
+        <div class="hero-overlay"></div>
+        
+        <div class="hero-content">
+            <h1>ELICONA VISUALS</h1>
+            <p>Modern skill, classic touch, each cut made with care.</p>
+            <a href="https://getsquire.com/booking/book/bvrberiv-fair-lawn/barber/alex-elicona-1/services" class="cta-button" target="_blank">Book Appointment</a>
+        </div>
+    </section>
 
-        <!-- Mission Section -->
-        <section id="mission" class="section fade-in">
-            <div class="mission-container">
-                <div class="mission-images" aria-hidden="true">
-                    <div class="mission-image left" role="img" aria-label="Elicona Visuals barbershop interior"></div>
-                    <div class="mission-image right" role="img" aria-label="Professional haircut service"></div>
-                </div>
-                <div class="mission-content">
-                    <div class="section-header fade-in">
-                        <h2 class="section-title">MY MISSION</h2>
-                    </div>
-                    <div class="fade-in">
-                        <p>As a licensed cosmetologist, I ensure every style accommodates not only your lifestyle, but also based off your needs with head shape. 
-                            Every cut detailed and curated to enhance longevity and mobility. An environment which provides a traditional shop experience mixed with a modern approach. 
-                        We aspire to inspire, which makes our objective to stay innovative yet creative in our craft</p>
-                    </div>
-                </div>
+    <section id="mission" class="section fade-in">
+        <div class="mission-container">
+            <div class="mission-images">
+                <div class="mission-image left"></div>
+                <div class="mission-image right"></div>
             </div>
-        </section>
-
-        <!-- Work Section -->
-        <section id="work" class="section fade-in">
-            <div class="section-header fade-in">
-                <h2 class="section-title">WORK</h2>
-            </div>
-            <div class="work-grid">
-                <!-- Artistic Design Portfolio -->
-                <div class="work-item fade-in">
-                    <div class="work-image-carousel" id="editorialCarousel" aria-label="Artistic design portfolio carousel">
-                        <img src="cuts.7.jpg" alt="Premium fade haircut with clean lines showcasing artistic design" class="active" loading="lazy" width="400" height="350">
-                        <img src="cuts.8.jpg" alt="Precision taper cut with textured styling" loading="lazy" width="400" height="350">
-                        <img src="cuts.9.jpg" alt="Classic gentleman's cut with modern edge work" loading="lazy" width="400" height="350">
-                    </div>
-                    <div class="work-info">
-                        <h3>ARTISTIC DESIGN</h3>
-                        <button class="work-btn" onclick="openEditorialPortfolio()" aria-label="View artistic design portfolio">View Portfolio</button>
-                    </div>
-                </div>
-
-                <!-- Visuals Portfolio -->
-                <div class="work-item fade-in">
-                    <div class="work-image-carousel" id="visualsCarousel" aria-label="Visual content portfolio carousel">
-                        <img src="Vis.2.jpg" alt="Behind the scenes photo shoot at Elicona Visuals" class="active" loading="lazy" width="400" height="350">
-                        <img src="viz.3.jpg" alt="Creative visual production work" loading="lazy" width="400" height="350">
-                        <img src="viz.4.jpg" alt="Professional photography session" loading="lazy" width="400" height="350">
-                    </div>
-                    <div class="work-info">
-                        <h3>VISUALS</h3>
-                        <button class="work-btn" onclick="openVisualsPortfolio()" aria-label="View visuals portfolio">View Portfolio</button>
-                    </div>
-                </div>
-
-                <!-- Merch Portfolio -->
-                <div class="work-item fade-in">
-                    <div class="work-image-carousel" id="merchCarousel" aria-label="Merchandise collection carousel">
-                        <img src="IMG_7822.jpg" alt="Elicona Visuals branded merchandise collection" class="active" loading="lazy" width="400" height="350">
-                        <img src="IMG_7823.jpg" alt="Premium streetwear apparel" loading="lazy" width="400" height="350">
-                        <img src="IMG_7830.jpg" alt="Limited edition brand essentials" loading="lazy" width="400" height="350">
-                    </div>
-                    <div class="work-info">
-                        <h3>MERCH</h3>
-                        <button class="work-btn" onclick="openMerchPortfolio()" aria-label="View merchandise catalog">View Portfolio</button>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <!-- Behind the Scenes Section -->
-        <section id="behind-the-scenes" class="section fade-in">
-            <div class="section-header fade-in">
-                <h2 class="section-title">Behind the Scenes</h2>
-                <p class="section-subtitle">See the craft and passion that goes into every cut</p>
-            </div>
-            <div class="video-container fade-in">
-                <div class="video-wrapper">
-                    <iframe 
-                        src="https://www.youtube.com/embed/NcEmcLfww3o?modestbranding=1&rel=0&showinfo=0&controls=1&fs=1&color=white" 
-                        title="Behind the Scenes at Elicona Visuals - Barbershop Experience" 
-                        frameborder="0" 
-                        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" 
-                        allowfullscreen
-                        loading="lazy">
-                    </iframe>
-                </div>
-            </div>
-        </section>
-
-        <!-- Social Section -->
-        <section id="social" class="section fade-in">
-            <div class="section-header fade-in">
-                <h2 class="section-title">Follow Our Journey</h2>
-                <p class="section-subtitle">Stay connected with our latest work and behind-the-scenes content</p>
-            </div>
-            <div class="social-grid">
-                <a href="https://www.instagram.com/alexelicona/" 
-                   target="_blank" 
-                   rel="noopener noreferrer" 
-                   class="social-item fade-in"
-                   aria-label="Follow Elicona Visuals on Instagram">
-                    <svg class="social-icon" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
-                        <path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/>
-                    </svg>
-                    <span>Instagram</span>
-                </a>
-                <a href="https://www.tiktok.com/@eliconavisuals?_t=ZT-8yzMFxVPlW9&_r=1" 
-                   target="_blank" 
-                   rel="noopener noreferrer" 
-                   class="social-item fade-in"
-                   aria-label="Follow Elicona Visuals on TikTok">
-                    <svg class="social-icon" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
-                        <path d="M19.59 6.69a4.83 4.83 0 0 1-3.77-4.25V2h-3.45v13.67a2.89 2.89 0 0 1-5.2 1.74 2.89 2.89 0 0 1 2.31-4.64 2.93 2.93 0 0 1 .88.13V9.4a6.84 6.84 0 0 0-1-.05A6.33 6.33 0 0 0 5 20.1a6.34 6.34 0 0 0 10.86-4.43v-7a8.16 8.16 0 0 0 4.77 1.52v-3.4a4.85 4.85 0 0 1-1-.1z"/>
-                    </svg>
-                    <span>TikTok</span>
-                </a>
-                <a href="https://youtube.com/@alexelicona?si=rEA2AcJo6GYVw7X5" 
-                   target="_blank" 
-                   rel="noopener noreferrer" 
-                   class="social-item fade-in"
-                   aria-label="Subscribe to Elicona Visuals on YouTube">
-                    <svg class="social-icon" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
-                        <path d="M23.498 6.186a3.016 3.016 0 0 0-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 0 0 .502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 0 0 2.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 0 0 2.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z"/>
-                    </svg>
-                    <span>YouTube</span>
-                </a>
-            </div>
-        </section>
-
-        <!-- Reviews Section - FULL WIDTH BACKGROUND -->
-        <section id="reviews" class="section fade-in">
-            <div class="reviews-container">
+            <div class="mission-content">
                 <div class="section-header fade-in">
-                    <h2 class="section-title">What Our Clients Say</h2>
-                    <p class="section-subtitle">Real experiences from our valued clients</p>
+                    <h2 class="section-title">MY MISSION</h2>
                 </div>
-                
-                <div class="review-counter fade-in">
-                    <span class="counter-number">142+</span>
-                    <span class="counter-label">Five-Star Reviews</span>
+                <div class="fade-in">
+                    <p>As a licensed cosmetologist, I ensure every style accommodates not only your lifestyle, but also based off your needs with head shape. 
+                        Every cut detailed and curated to enhance longevity and mobility. An environment which provides a traditional shop experience mixed with a modern approach. 
+                    We aspire to inspire, which makes our objective to stay innovative yet creative in our craft</p>
                 </div>
+            </div>
+        </div>
+    </section>
 
-                <div class="review-display fade-in">
-                    <div class="review-box">
-                        <div class="review-content">
-                            <div class="review-stars" aria-label="5 star rating">★★★★★</div>
-                            <p class="review-text" id="reviewText"></p>
-                            <div class="review-author">
-                                <span class="author-name" id="reviewAuthor"></span>
-                                <span class="review-source">Google Reviews</span>
-                            </div>
+    <section id="work" class="section fade-in">
+        <div class="section-header fade-in">
+            <h2 class="section-title">WORK</h2>
+        </div>
+        <div class="work-grid">
+            <div class="work-item fade-in">
+                <div class="work-image-carousel" id="editorialCarousel">
+                    <img src="cuts.7.jpg" alt="Hair Creative 7" class="active" loading="lazy">
+                    <img src="cuts.8.jpg" alt="Hair Creative 8" loading="lazy">
+                    <img src="cuts.9.jpg" alt="Hair Creative 9" loading="lazy">
+                </div>
+                <div class="work-info">
+                    <h3>ARTISTIC DESIGN</h3>
+                    <button class="work-btn" onclick="openEditorialPortfolio()">View Portfolio</button>
+                </div>
+            </div>
+            <div class="work-item fade-in">
+                <div class="work-image-carousel" id="visualsCarousel">
+                    <img src="Vis.2.jpg" alt="Visual 2" class="active" loading="lazy">
+                    <img src="viz.3.jpg" alt="Visual 3" loading="lazy">
+                    <img src="viz.4.jpg" alt="Visual 4" loading="lazy">
+                </div>
+                <div class="work-info">
+                    <h3>VISUALS</h3>
+                    <button class="work-btn" onclick="openVisualsPortfolio()">View Portfolio</button>
+                </div>
+            </div>
+            <div class="work-item fade-in">
+                <div class="work-image-carousel" id="merchCarousel">
+                    <img src="IMG_7822.jpg" alt="Merch Item 1" class="active" loading="lazy">
+                    <img src="IMG_7823.jpg" alt="Merch Item 2" loading="lazy">
+                    <img src="IMG_7830.jpg" alt="Merch Item 3" loading="lazy">
+                </div>
+                <div class="work-info">
+                    <h3>MERCH</h3>
+                    <button class="work-btn" onclick="openMerchPortfolio()">View Portfolio</button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="behind-the-scenes" class="section fade-in">
+        <div class="section-header fade-in">
+            <h2 class="section-title">Behind the Scenes</h2>
+            <p class="section-subtitle">See the craft and passion that goes into every cut</p>
+        </div>
+        <div class="video-container fade-in">
+            <div class="video-wrapper">
+                <iframe 
+                    src="https://www.youtube.com/embed/NcEmcLfww3o?modestbranding=1&rel=0&showinfo=0&controls=1&fs=1&color=white" 
+                    title="Behind the Scenes at Elicona Visuals" 
+                    frameborder="0" 
+                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" 
+                    allowfullscreen
+                    loading="lazy">
+                </iframe>
+            </div>
+        </div>
+    </section>
+
+    <section id="social" class="section fade-in">
+        <div class="section-header fade-in">
+            <h2 class="section-title">Follow Our Journey</h2>
+            <p class="section-subtitle">Stay connected with our latest work and behind-the-scenes content</p>
+        </div>
+        <div class="social-grid">
+            <a href="https://www.instagram.com/alexelicona/" target="_blank" class="social-item fade-in">
+                <svg class="social-icon" viewBox="0 0 24 24" fill="currentColor">
+                    <path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/>
+                </svg>
+                <span>Instagram</span>
+            </a>
+            <a href="https://www.tiktok.com/@eliconavisuals?_t=ZT-8yzMFxVPlW9&_r=1" target="_blank" class="social-item fade-in">
+                <svg class="social-icon" viewBox="0 0 24 24" fill="currentColor">
+                    <path d="M19.59 6.69a4.83 4.83 0 0 1-3.77-4.25V2h-3.45v13.67a2.89 2.89 0 0 1-5.2 1.74 2.89 2.89 0 0 1 2.31-4.64 2.93 2.93 0 0 1 .88.13V9.4a6.84 6.84 0 0 0-1-.05A6.33 6.33 0 0 0 5 20.1a6.34 6.34 0 0 0 10.86-4.43v-7a8.16 8.16 0 0 0 4.77 1.52v-3.4a4.85 4.85 0 0 1-1-.1z"/>
+                </svg>
+                <span>TikTok</span>
+            </a>
+            <a href="https://youtube.com/@alexelicona?si=rEA2AcJo6GYVw7X5" target="_blank" class="social-item fade-in">
+                <svg class="social-icon" viewBox="0 0 24 24" fill="currentColor">
+                    <path d="M23.498 6.186a3.016 3.016 0 0 0-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 0 0 .502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 0 0 2.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 0 0 2.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z"/>
+                </svg>
+                <span>YouTube</span>
+            </a>
+        </div>
+    </section>
+
+    <section id="visit" class="section fade-in">
+        <div class="visit-container">
+            <div class="section-header fade-in">
+                <h2 class="section-title">Visit Us</h2>
+                <p class="section-subtitle">Find us in the heart of Fair Lawn, New Jersey</p>
+            </div>
+            <div class="visit-content">
+                <div class="location-info fade-in">
+                    <div class="info-item">
+                        <svg class="info-icon" viewBox="0 0 24 24" fill="currentColor">
+                            <path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"/>
+                        </svg>
+                        <div class="info-text">
+                            <h3>Address</h3>
+                            <a href="https://maps.google.com/?q=24-03+Broadway,+Fair+Lawn,+NJ+07410" target="_blank" class="address-link">
+                                24-03 Broadway<br>Fair Lawn, NJ 07410
+                            </a>
+                        </div>
+                    </div>
+                    <div class="info-item">
+                        <svg class="info-icon" viewBox="0 0 24 24" fill="currentColor">
+                            <path d="M6.62 10.79c1.44 2.83 3.76 5.14 6.59 6.59l2.2-2.2c.27-.27.67-.36 1.02-.24 1.12.37 2.33.57 3.57.57.55 0 1 .45 1 1V20c0 .55-.45 1-1 1-9.39 0-17-7.61-17-17 0-.55.45-1 1-1h3.5c.55 0 1 .45 1 1 0 1.25.2 2.45.57 3.57.11.35.03.74-.25 1.02l-2.2 2.2z"/>
+                        </svg>
+                        <div class="info-text">
+                            <h3>Phone</h3>
+                            <a href="tel:+12016586076" class="phone-link">+1-201-658-6076</a>
                         </div>
                     </div>
                 </div>
-
-                <div class="review-cta fade-in">
-                    <a href="https://www.google.com/maps/place/BVRBERIV/@40.9229423,-74.113936,17z/data=!4m8!3m7!1s0x89c2fbb8852899d1:0xba524f1b44e07b81!8m2!3d40.9230436!4d-74.1112348!9m1!1b1!16s%2Fg%2F11sdyx74_g?entry=ttu" 
-                       class="review-button" 
-                       target="_blank" 
-                       rel="noopener noreferrer"
-                       aria-label="Leave a review for Elicona Visuals on Google">
-                        Leave a Review
+                <div class="visit-cta fade-in">
+                    <a href="https://getsquire.com/booking/book/bvrberiv-fair-lawn/barber/alex-elicona-1/services" class="visit-button" target="_blank">
+                        <svg class="button-icon" viewBox="0 0 24 24" fill="currentColor">
+                            <path d="M19 3h-1V1h-2v2H8V1H6v2H5c-1.11 0-1.99.9-1.99 2L3 19c0 1.1.89 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2zm0 16H5V8h14v11zM7 10h5v5H7z"/>
+                        </svg>
+                        Book Your Appointment
                     </a>
                 </div>
             </div>
-        </section>
+        </div>
+    </section>
 
-        <!-- Visit Section -->
-        <section id="visit" class="section fade-in">
-            <div class="visit-container">
-                <div class="section-header fade-in">
-                    <h2 class="section-title">Visit Us</h2>
-                    <p class="section-subtitle">Find us in the heart of Fair Lawn, New Jersey</p>
-                </div>
-                <div class="visit-content">
-                    <div class="location-info fade-in">
-                        <div class="info-item">
-                            <svg class="info-icon" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
-                                <path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"/>
-                            </svg>
-                            <div class="info-text">
-                                <h3>Address</h3>
-                                <a href="https://maps.google.com/?q=24-03+Broadway,+Fair+Lawn,+NJ+07410" 
-                                   target="_blank" 
-                                   rel="noopener noreferrer" 
-                                   class="address-link"
-                                   aria-label="Get directions to Elicona Visuals">
-                                    24-03 Broadway<br>Fair Lawn, NJ 07410
-                                </a>
-                            </div>
-                        </div>
-                        <div class="info-item">
-                            <svg class="info-icon" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
-                                <path d="M6.62 10.79c1.44 2.83 3.76 5.14 6.59 6.59l2.2-2.2c.27-.27.67-.36 1.02-.24 1.12.37 2.33.57 3.57.57.55 0 1 .45 1 1V20c0 .55-.45 1-1 1-9.39 0-17-7.61-17-17 0-.55.45-1 1-1h3.5c.55 0 1 .45 1 1 0 1.25.2 2.45.57 3.57.11.35.03.74-.25 1.02l-2.2 2.2z"/>
-                            </svg>
-                            <div class="info-text">
-                                <h3>Phone</h3>
-                                <a href="tel:+12016586076" 
-                                   class="phone-link"
-                                   aria-label="Call Elicona Visuals">
-                                    +1-201-658-6076
-                                </a>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="visit-cta fade-in">
-                        <a href="https://getsquire.com/booking/book/bvrberiv-fair-lawn/barber/alex-elicona-1/services" 
-                           class="visit-button" 
-                           target="_blank" 
-                           rel="noopener noreferrer"
-                           aria-label="Book your appointment at Elicona Visuals">
-                            <svg class="button-icon" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
-                                <path d="M19 3h-1V1h-2v2H8V1H6v2H5c-1.11 0-1.99.9-1.99 2L3 19c0 1.1.89 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2zm0 16H5V8h14v11zM7 10h5v5H7z"/>
-                            </svg>
-                            Book Your Appointment
-                        </a>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-    </main>
-    <!-- PORTFOLIO MODALS -->
-    
-    <!-- Editorial/Artistic Design Modal -->
-    <div id="editorialModal" class="portfolio-modal" role="dialog" aria-labelledby="editorialTitle" aria-modal="true">
+    <div id="editorialModal" class="portfolio-modal">
         <div class="portfolio-content">
             <div class="portfolio-header">
-                <h3 id="editorialTitle" class="portfolio-title">Artistic Design Portfolio</h3>
-                <button class="close-btn" onclick="closePortfolio('editorial')" aria-label="Close portfolio modal">&times;</button>
+                <h3 class="portfolio-title">Editorial & Commercial Portfolio</h3>
+                <button class="close-btn" onclick="closePortfolio('editorial')">&times;</button>
             </div>
             <div class="portfolio-statement">
-                <p style="font-style: italic; color: #d1d5db; margin-bottom: 2rem; font-size: 1rem; text-align: center; border-bottom: 1px solid rgba(255, 255, 255, 0.1); padding-bottom: 1rem;">
-                    "Being able to collaborate with artists in different avenues constantly molds a new vision towards our mission." - Alexander Elicona
-                </p>
+                <p style="font-style: italic; color: #d1d5db; margin-bottom: 2rem; font-size: 1rem; text-align: center; border-bottom: 1px solid rgba(255, 255, 255, 0.1); padding-bottom: 1rem;">"Being able to collaborate with artists in different avenues constantly molds a new vision towards our mission." - Alexander Elicona</p>
             </div>
             <div class="portfolio-grid">
                 <div class="portfolio-item" onclick="openImageViewer('cuts.7.jpg', 'Hair Creative 7', 'Clean fade perfection')">
-                    <img src="cuts.7.jpg" alt="Premium fade haircut showcasing clean lines and precision" loading="lazy" width="400" height="400">
+                    <img src="cuts.7.jpg" alt="Hair Creative 7" loading="lazy">
                 </div>
                 <div class="portfolio-item" onclick="openImageViewer('cuts.8.jpg', 'Hair Creative 8', 'Precision lineup')">
-                    <img src="cuts.8.jpg" alt="Sharp edge work with precision lineup technique" loading="lazy" width="400" height="400">
+                    <img src="cuts.8.jpg" alt="Hair Creative 8" loading="lazy">
                 </div>
                 <div class="portfolio-item" onclick="openImageViewer('cuts.9.jpg', 'Hair Creative 9', 'Classic style reimagined')">
-                    <img src="cuts.9.jpg" alt="Classic gentleman's cut with modern styling" loading="lazy" width="400" height="400">
+                    <img src="cuts.9.jpg" alt="Hair Creative 9" loading="lazy">
                 </div>
                 <div class="portfolio-item" onclick="openImageViewer('cuts.10.jpg', 'Hair Creative 10', 'Sharp edge details')">
-                    <img src="cuts.10.jpg" alt="Detailed edge work and sharp hairline design" loading="lazy" width="400" height="400">
+                    <img src="cuts.10.jpg" alt="Hair Creative 10" loading="lazy">
                 </div>
                 <div class="portfolio-item" onclick="openImageViewer('cuts.11.jpg', 'Hair Creative 11', 'Textured perfection')">
-                    <img src="cuts.11.jpg" alt="Textured top styling with clean fade" loading="lazy" width="400" height="400">
+                    <img src="cuts.11.jpg" alt="Hair Creative 11" loading="lazy">
                 </div>
                 <div class="portfolio-item" onclick="openImageViewer('cuts.12.jpg', 'Hair Creative 12', 'Modern taper mastery')">
-                    <img src="cuts.12.jpg" alt="Modern taper fade with seamless blending" loading="lazy" width="400" height="400">
+                    <img src="cuts.12.jpg" alt="Hair Creative 12" loading="lazy">
                 </div>
                 <div class="portfolio-item" onclick="openImageViewer('cuts.13.jpg', 'Hair Creative 13', 'Signature blend')">
-                    <img src="cuts.13.jpg" alt="Signature blending technique by Elicona Visuals" loading="lazy" width="400" height="400">
+                    <img src="cuts.13.jpg" alt="Hair Creative 13" loading="lazy">
                 </div>
                 <div class="portfolio-item" onclick="openImageViewer('cuts.14.jpg', 'Hair Creative 14', 'Refined craftsmanship')">
-                    <img src="cuts.14.jpg" alt="Refined haircut showcasing expert craftsmanship" loading="lazy" width="400" height="400">
+                    <img src="cuts.14.jpg" alt="Hair Creative 14" loading="lazy">
                 </div>
                 <div class="portfolio-item" onclick="openImageViewer('cuts.15.jpg', 'Hair Creative 15', 'Flawless finish')">
-                    <img src="cuts.15.jpg" alt="Flawless finish with attention to detail" loading="lazy" width="400" height="400">
+                    <img src="cuts.15.jpg" alt="Hair Creative 15" loading="lazy">
                 </div>
             </div>
         </div>
     </div>
 
-    <!-- Visuals Modal -->
-    <div id="visualsModal" class="portfolio-modal" role="dialog" aria-labelledby="visualsTitle" aria-modal="true">
+    <div id="visualsModal" class="portfolio-modal">
         <div class="portfolio-content">
             <div class="portfolio-header">
-                <h3 id="visualsTitle" class="portfolio-title">Visual Portfolio</h3>
-                <button class="close-btn" onclick="closePortfolio('visuals')" aria-label="Close portfolio modal">&times;</button>
+                <h3 class="portfolio-title">Visual Portfolio</h3>
+                <button class="close-btn" onclick="closePortfolio('visuals')">&times;</button>
             </div>
             <div class="portfolio-statement">
-                <p style="font-style: italic; color: #d1d5db; margin-bottom: 2rem; font-size: 1rem; text-align: center; border-bottom: 1px solid rgba(255, 255, 255, 0.1); padding-bottom: 1rem;">
-                    "Every canvas perfectly imperfect with a desire to lead with creative control." - Alexander Elicona
-                </p>
+                <p style="font-style: italic; color: #d1d5db; margin-bottom: 2rem; font-size: 1rem; text-align: center; border-bottom: 1px solid rgba(255, 255, 255, 0.1); padding-bottom: 1rem;">"Every canvas perfectly imperfect with a desire to lead with creative control." - Alexander Elicona</p>
             </div>
             <div class="portfolio-grid">
                 <div class="portfolio-item" onclick="openImageViewer('Vis.2.jpg', 'Visual 2', 'On set creativity')">
-                    <img src="Vis.2.jpg" alt="Behind the scenes creative photo shoot" loading="lazy" width="400" height="400">
+                    <img src="Vis.2.jpg" alt="Visual 2" loading="lazy">
                 </div>
                 <div class="portfolio-item" onclick="openImageViewer('viz.3.jpg', 'Visual 3', 'Behind the camera')">
-                    <img src="viz.3.jpg" alt="Production work behind the camera" loading="lazy" width="400" height="400">
+                    <img src="viz.3.jpg" alt="Visual 3" loading="lazy">
                 </div>
                 <div class="portfolio-item" onclick="openImageViewer('viz.4.jpg', 'Visual 4', 'Production day')">
-                    <img src="viz.4.jpg" alt="Professional production day at Elicona Visuals" loading="lazy" width="400" height="400">
+                    <img src="viz.4.jpg" alt="Visual 4" loading="lazy">
                 </div>
                 <div class="portfolio-item" onclick="openImageViewer('viz.5.jpg', 'Visual 5', 'Studio session')">
-                    <img src="viz.5.jpg" alt="Creative studio photography session" loading="lazy" width="400" height="400">
+                    <img src="viz.5.jpg" alt="Visual 5" loading="lazy">
                 </div>
                 <div class="portfolio-item" onclick="openImageViewer('viz.6.jpg', 'Visual 6', 'Creative vision')">
-                    <img src="viz.6.jpg" alt="Artistic creative vision shoot" loading="lazy" width="400" height="400">
+                    <img src="viz.6.jpg" alt="Visual 6" loading="lazy">
                 </div>
                 <div class="portfolio-item" onclick="openImageViewer('viz.8.jpg', 'Visual 8', 'Film work')">
-                    <img src="viz.8.jpg" alt="Film production work" loading="lazy" width="400" height="400">
+                    <img src="viz.8.jpg" alt="Visual 8" loading="lazy">
                 </div>
                 <div class="portfolio-item" onclick="openImageViewer('viz.10.jpg', 'Visual 10', 'Editorial shoot')">
-                    <img src="viz.10.jpg" alt="Professional editorial photo shoot" loading="lazy" width="400" height="400">
+                    <img src="viz.10.jpg" alt="Visual 10" loading="lazy">
                 </div>
                 <div class="portfolio-item" onclick="openImageViewer('viz.11.jpg', 'Visual 11', 'Capturing the moment')">
-                    <img src="viz.11.jpg" alt="Capturing creative moments on camera" loading="lazy" width="400" height="400">
+                    <img src="viz.11.jpg" alt="Visual 11" loading="lazy">
                 </div>
                 <div class="portfolio-item" onclick="openImageViewer('viz.12.jpg', 'Visual 12', 'Visual storytelling')">
-                    <img src="viz.12.jpg" alt="Visual storytelling through photography" loading="lazy" width="400" height="400">
+                    <img src="viz.12.jpg" alt="Visual 12" loading="lazy">
                 </div>
             </div>
         </div>
     </div>
 
-    <!-- Merch Modal -->
-    <div id="merchModal" class="portfolio-modal" role="dialog" aria-labelledby="merchTitle" aria-modal="true">
+    <div id="merchModal" class="portfolio-modal">
         <div class="portfolio-content">
             <div class="portfolio-header">
-                <h3 id="merchTitle" class="portfolio-title">Merch Catalog</h3>
-                <button class="close-btn" onclick="closePortfolio('merch')" aria-label="Close portfolio modal">&times;</button>
+                <h3 class="portfolio-title">Merch Catalog</h3>
+                <button class="close-btn" onclick="closePortfolio('merch')">&times;</button>
             </div>
             <div class="portfolio-statement">
-                <p style="font-style: italic; color: #d1d5db; margin-bottom: 2rem; font-size: 1rem; text-align: center; border-bottom: 1px solid rgba(255, 255, 255, 0.1); padding-bottom: 1rem;">
-                    "Our merchandise represents the Elicona Visuals brand - quality pieces that reflect our aesthetic and commitment to style." - Alexander Elicona
-                </p>
+                <p style="font-style: italic; color: #d1d5db; margin-bottom: 2rem; font-size: 1rem; text-align: center; border-bottom: 1px solid rgba(255, 255, 255, 0.1); padding-bottom: 1rem;">"Our merchandise represents the Elicona Visuals brand - quality pieces that reflect our aesthetic and commitment to style." - Alexander ELicona</p>
             </div>
             <div class="portfolio-grid">
                 <div class="portfolio-item" onclick="openImageViewer('IMG_7822.jpg', 'Merch Item 1', 'Brand essentials')">
-                    <img src="IMG_7822.jpg" alt="Elicona Visuals branded merchandise essentials" loading="lazy" width="400" height="400">
+                    <img src="IMG_7822.jpg" alt="Merch Item 1" loading="lazy">
                 </div>
                 <div class="portfolio-item" onclick="openImageViewer('IMG_7823.jpg', 'Merch Item 2', 'Street style')">
-                    <img src="IMG_7823.jpg" alt="Street style apparel collection" loading="lazy" width="400" height="400">
+                    <img src="IMG_7823.jpg" alt="Merch Item 2" loading="lazy">
                 </div>
                 <div class="portfolio-item" onclick="openImageViewer('IMG_7830.jpg', 'Merch Item 3', 'Signature collection')">
-                    <img src="IMG_7830.jpg" alt="Signature collection merchandise" loading="lazy" width="400" height="400">
+                    <img src="IMG_7830.jpg" alt="Merch Item 3" loading="lazy">
                 </div>
                 <div class="portfolio-item" onclick="openImageViewer('IMG_7831.jpg', 'Merch Item 4', 'Limited edition')">
-                    <img src="IMG_7831.jpg" alt="Limited edition branded apparel" loading="lazy" width="400" height="400">
+                    <img src="IMG_7831.jpg" alt="Merch Item 4" loading="lazy">
                 </div>
                 <div class="portfolio-item" onclick="openImageViewer('IMG_7832.jpg', 'Merch Item 5', 'Premium quality')">
-                    <img src="IMG_7832.jpg" alt="Premium quality Elicona Visuals merchandise" loading="lazy" width="400" height="400">
+                    <img src="IMG_7832.jpg" alt="Merch Item 5" loading="lazy">
                 </div>
             </div>
         </div>
     </div>
 
-    <!-- Image Viewer Modal -->
-    <div id="imageViewer" class="image-viewer" role="dialog" aria-label="Full size image viewer" aria-modal="true">
+    <div id="imageViewer" class="image-viewer">
         <div class="image-viewer-container">
-            <button class="image-viewer-close" onclick="closeImageViewer()" aria-label="Close image viewer">&times;</button>
+            <button class="image-viewer-close" onclick="closeImageViewer()">&times;</button>
             <div class="swipe-indicator">
-                <span class="swipe-arrow left" aria-hidden="true">←</span>
+                <span class="swipe-arrow left">←</span>
                 <span>Swipe to navigate</span>
-                <span class="swipe-arrow right" aria-hidden="true">→</span>
+                <span class="swipe-arrow right">→</span>
             </div>
             <div class="image-viewer-main">
                 <div id="imageCaption" class="image-caption"></div>
-                <img id="viewerImage" src="" alt="Full size portfolio image">
+                <img id="viewerImage" src="" alt="Full size image">
             </div>
-            <div id="imageCounter" class="image-counter" aria-live="polite"></div>
+            <div id="imageCounter" class="image-counter"></div>
         </div>
     </div>
 
-    <!-- Footer -->
     <footer class="footer">
         <div class="footer-content">
             <div class="footer-brand">
-                <img src="LogoFine.png" alt="Elicona Visuals Logo" class="footer-logo-img" width="19" height="19">
+                <img src="LogoFine.png" alt="Elicona Visuals Logo" class="footer-logo-img">
                 ELICONA VISUALS
             </div>
-            <nav class="footer-links" aria-label="Footer navigation">
-                <a href="#home">Home</a>
-                <a href="#mission">Mission</a>
-                <a href="#work">Work</a>
-                <a href="#reviews">Reviews</a>
-                <a href="#visit">Visit</a>
-            </nav>
             <div class="footer-copyright">
-                &copy; <span id="copyrightYear">2025</span> Elicona Visuals. All rights reserved.
+                &copy; 2025 Elicona Visuals. All rights reserved.
             </div>
             <div class="footer-powered">
-                Powered by <a href="https://www.xmarcellr.com/" target="_blank" rel="noopener noreferrer">Marcell Software Services</a>
+                Powered by <a href="#">Marcell Software Services</a>
             </div>
         </div>
     </footer>
 
-    <!-- JavaScript -->
     <script>
-        // Portfolio Data - All Images for Each Category
         const portfolioData = {
             editorial: [
                 { src: 'cuts.7.jpg', alt: 'Hair Creative 7', caption: 'Clean fade perfection' },
@@ -2255,85 +1726,22 @@
             ]
         };
 
-        // Reviews Data - Real Customer Reviews from Google
-        const reviews = [
-            {
-                text: "I was on a trip from Florida and came across BVRBERIV and let me tell you it is a one of a kind barbershop. The moment you enter the shop you automatically know the service you are about to receive is premium. Frank has a vision like no other.",
-                author: "Joseph H"
-            },
-            {
-                text: "I recently had the pleasure of visiting BVRBERIV Barber Shop. I was beyond impressed with the quality of service and expertise provided by Frank himself. From the moment I walked in, I was greeted with a warm welcome and made to feel right at home.",
-                author: "Justin A. Powell"
-            },
-            {
-                text: "This place is awesome!!! everyone is incredibly skilled and dedicated to their work. I've gotten 2 hair cuts and 1 custom cut and color with Frank! His attention to detail and artistic vision is the main reason I keep coming back!",
-                author: "Xiabelle Dominguez"
-            },
-            {
-                text: "This barber shop is unreal. Every barber is extremely talented, can't go wrong with any of them. Frank has been cutting my hair for a year now and does an amazing job every time. Insane attention to detail, couldn't recommend more.",
-                author: "Brady White"
-            },
-            {
-                text: "Absolute gem of a spot to get a haircut. I've been getting my cut with Frank for the past year & a half and it has only gotten better with each visit. The shop is overall very relaxing, ecclectic, and has a flow to it that's enjoyable to be apart of.",
-                author: "Ethan Biveibiss"
-            },
-            {
-                text: "I travel an hour for these hair cuts and I wouldn't have it any other way. Best services and the professional level is unmatched. Definitely worth it.",
-                author: "Jesse Fields"
-            },
-            {
-                text: "Hands down one of the best barbershops I've ever been to. Alex is a great barber and really takes his time to make sure you look your best. Definitely recommend the shop and the barber!",
-                author: "Tony Santos"
-            },
-            {
-                text: "After moving to the area, I was really struggling to find a go to barber. Francisco was recommended to me by a good friend and I haven't stopped going to him since. The haircuts are always perfect, the shop is always immaculate with great music and vibes.",
-                author: "Jason Romano"
-            },
-            {
-                text: "Sickest barber shop in Bergen county. Alex will CHANGE YOUR LIFE.",
-                author: "Joey LoSacco"
-            },
-            {
-                text: "By far one of the best experiences you can have at a Barber shop. The service you receive here is unlike any other place. Alex (one of the barbers) provides top-tier service and is extremely professional about his work.",
-                author: "Steven Silva"
-            },
-            {
-                text: "Going to BVRBERIV was the best decision I ever made. The environment is very welcoming calm clean and overall comfortable. My barber Alex never fails with the amazing customer service and always leaves me feeling confident as ever. Highly recommend.",
-                author: "Adrian Martinez"
-            }
-        ];
-
-        // Global Variables
-        let currentReviewIndex = 0;
         let currentPortfolio = null;
         let currentImageIndex = 0;
 
-        // Review Functions
-        function displayReview(index) {
-            const reviewText = document.getElementById('reviewText');
-            const reviewAuthor = document.getElementById('reviewAuthor');
-            const reviewContent = document.querySelector('.review-content');
-            
-            // Fade out
-            reviewContent.style.animation = 'none';
-            reviewContent.style.opacity = '0';
-            
-            setTimeout(() => {
-                // Update content
-                reviewText.textContent = reviews[index].text;
-                reviewAuthor.textContent = reviews[index].author;
-                
-                // Fade in
-                reviewContent.style.animation = 'fadeInReview 1s ease-in-out forwards';
-            }, 500);
-        }
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                }
+            });
+        });
 
-        function cycleReviews() {
-            currentReviewIndex = (currentReviewIndex + 1) % reviews.length;
-            displayReview(currentReviewIndex);
-        }
-
-        // Portfolio Functions
         function openEditorialPortfolio() {
             const modal = document.getElementById('editorialModal');
             modal.classList.add('show');
@@ -2370,15 +1778,11 @@
             } else if (type === 'merch') {
                 modal = document.getElementById('merchModal');
             }
-            if (modal) {
-                modal.classList.remove('show');
-                document.body.style.overflow = 'auto';
-            }
+            modal.classList.remove('show');
+            document.body.style.overflow = 'auto';
         }
 
-        // Image Viewer Functions
         function openImageViewer(imageSrc, altText, caption = '') {
-            // Find which portfolio this image belongs to
             for (let portfolio in portfolioData) {
                 const index = portfolioData[portfolio].findIndex(img => img.src === imageSrc);
                 if (index !== -1) {
@@ -2387,32 +1791,26 @@
                     break;
                 }
             }
-            
             displayCurrentImage();
             const viewer = document.getElementById('imageViewer');
             viewer.classList.add('show');
             document.body.style.overflow = 'hidden';
             
-            // Show swipe indicator briefly
             const swipeIndicator = document.querySelector('.swipe-indicator');
             swipeIndicator.classList.add('show');
             setTimeout(() => {
                 swipeIndicator.classList.remove('show');
-            }, 2000);
+            }, 1500);
         }
 
         function displayCurrentImage() {
             if (!currentPortfolio) return;
-            
             const viewerImage = document.getElementById('viewerImage');
             const imageCaption = document.getElementById('imageCaption');
             const imageCounter = document.getElementById('imageCounter');
             const images = portfolioData[currentPortfolio];
             const currentImage = images[currentImageIndex];
-            
-            // Fade out current image
             viewerImage.classList.add('fade-out');
-            
             setTimeout(() => {
                 viewerImage.src = currentImage.src;
                 viewerImage.alt = currentImage.alt;
@@ -2424,17 +1822,13 @@
 
         function navigateImage(direction) {
             if (!currentPortfolio) return;
-            
             const images = portfolioData[currentPortfolio];
             currentImageIndex += direction;
-            
-            // Loop around
             if (currentImageIndex < 0) {
                 currentImageIndex = images.length - 1;
             } else if (currentImageIndex >= images.length) {
                 currentImageIndex = 0;
             }
-            
             displayCurrentImage();
         }
 
@@ -2449,7 +1843,6 @@
         function initPortfolioObserver(modalId) {
             const modal = document.getElementById(modalId);
             const portfolioItems = modal.querySelectorAll('.portfolio-item');
-            
             const portfolioObserver = new IntersectionObserver((entries) => {
                 entries.forEach((entry) => {
                     if (entry.isIntersecting) {
@@ -2461,13 +1854,11 @@
                 threshold: 0.2,
                 rootMargin: '0px 0px -50px 0px'
             });
-            
             portfolioItems.forEach((item) => {
                 portfolioObserver.observe(item);
             });
         }
 
-        // Intersection Observer for Fade-in Animations
         const observerOptions = {
             threshold: 0.1,
             rootMargin: '0px 0px -100px 0px'
@@ -2482,94 +1873,58 @@
             });
         }, observerOptions);
 
-        // Smooth Scroll Function
-        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-            anchor.addEventListener('click', function (e) {
-                e.preventDefault();
-                const target = document.querySelector(this.getAttribute('href'));
-                if (target) {
-                    target.scrollIntoView({
-                        behavior: 'smooth',
-                        block: 'start'
-                    });
-                }
-            });
-        });
-
-        // Carousel Initialization Function
-        function initCarousel(carouselId, interval) {
-            const carousel = document.getElementById(carouselId);
-            if (!carousel) return;
-            
-            const images = carousel.querySelectorAll('img');
-            let currentIndex = 0;
-            
-            setInterval(() => {
-                images[currentIndex].classList.remove('active');
-                currentIndex = (currentIndex + 1) % images.length;
-                images[currentIndex].classList.add('active');
-            }, interval);
-        }
-
-        // DOMContentLoaded - Main Initialization
         document.addEventListener('DOMContentLoaded', () => {
-            // Loading state
+            // Add loading class to body
             document.body.classList.add('loading');
             
+            // Remove loading class after logo animation completes
             setTimeout(() => {
                 document.body.classList.remove('loading');
             }, 1800);
 
-            // Set copyright year
-            document.getElementById('copyrightYear').textContent = new Date().getFullYear();
-
-            // Initialize fade-in animations
             const fadeElements = document.querySelectorAll('.fade-in');
             fadeElements.forEach((element) => {
                 observer.observe(element);
             });
 
-            // Initialize carousels with different intervals
+            function initCarousel(carouselId, interval) {
+                const carousel = document.getElementById(carouselId);
+                if (!carousel) return;
+                const images = carousel.querySelectorAll('img');
+                let currentIndex = 0;
+                setInterval(() => {
+                    images[currentIndex].classList.remove('active');
+                    currentIndex = (currentIndex + 1) % images.length;
+                    images[currentIndex].classList.add('active');
+                }, interval);
+            }
+
             initCarousel('editorialCarousel', 1600);
             initCarousel('visualsCarousel', 2000);
             initCarousel('merchCarousel', 2500);
 
-            // Initialize reviews
-            if (reviews.length > 0) {
-                displayReview(0);
-                // Change review every 8 seconds
-                setInterval(cycleReviews, 8000);
-            }
-
-            // UPDATED Mobile menu functionality - WITH FIX
             const mobileMenu = document.querySelector('.mobile-menu');
             const navLinks = document.querySelector('.nav-links');
 
             mobileMenu.addEventListener('click', () => {
                 mobileMenu.classList.toggle('active');
                 navLinks.classList.toggle('mobile-active');
-                document.body.classList.toggle('menu-open'); // ADDED - Prevents scrolling
             });
 
-            // Close mobile menu when clicking on a link
             navLinks.addEventListener('click', (e) => {
                 if (e.target.tagName === 'A') {
                     mobileMenu.classList.remove('active');
                     navLinks.classList.remove('mobile-active');
-                    document.body.classList.remove('menu-open'); // ADDED
                 }
             });
 
-            // Close mobile menu when clicking outside
             document.addEventListener('click', (e) => {
                 if (!mobileMenu.contains(e.target) && !navLinks.contains(e.target)) {
                     mobileMenu.classList.remove('active');
                     navLinks.classList.remove('mobile-active');
-                    document.body.classList.remove('menu-open'); // ADDED
                 }
             });
 
-            // Video autoplay
             const video = document.querySelector('.hero-video');
             if (video) {
                 video.play().catch(e => {
@@ -2577,7 +1932,6 @@
                 });
             }
 
-            // Hero content visibility
             const heroContent = document.querySelector('.hero-content');
             let hasScrolled = false;
 
@@ -2591,7 +1945,6 @@
             window.addEventListener('scroll', checkScroll);
             checkScroll();
 
-            // Modal click handlers - Close on outside click
             const editorialModal = document.getElementById('editorialModal');
             const visualsModal = document.getElementById('visualsModal');
             const merchModal = document.getElementById('merchModal');
@@ -2615,13 +1968,6 @@
                 }
             });
 
-            imageViewer.addEventListener('click', function(e) {
-                if (e.target === imageViewer) {
-                    closeImageViewer();
-                }
-            });
-
-            // Touch swipe for image viewer
             let touchStartX = 0;
             let touchEndX = 0;
 
@@ -2637,21 +1983,16 @@
             function handleSwipe() {
                 const swipeThreshold = 50;
                 const diff = touchStartX - touchEndX;
-                
                 if (Math.abs(diff) > swipeThreshold) {
                     if (diff > 0) {
-                        // Swiped left - next image
                         navigateImage(1);
                     } else {
-                        // Swiped right - previous image
                         navigateImage(-1);
                     }
                 }
             }
 
-            // Keyboard navigation
             document.addEventListener('keydown', function(e) {
-                // Image viewer keyboard navigation
                 if (imageViewer.classList.contains('show')) {
                     if (e.key === 'ArrowLeft') {
                         navigateImage(-1);
@@ -2660,9 +2001,7 @@
                     } else if (e.key === 'Escape') {
                         closeImageViewer();
                     }
-                } 
-                // Portfolio modal keyboard navigation
-                else {
+                } else {
                     if (e.key === 'Escape') {
                         if (editorialModal.classList.contains('show')) {
                             closePortfolio('editorial');
@@ -2676,15 +2015,8 @@
                     }
                 }
             });
-
-            // Console welcome message
-            console.log('%cELICONA VISUALS', 'font-size: 20px; font-weight: bold; color: #ffffff; background: #0a0a0a; padding: 10px;');
-            console.log('%cWebsite by Marcell Software Services', 'font-size: 12px; color: #9ca3af;');
-            console.log('%chttps://www.xmarcellr.com/', 'font-size: 12px; color: #d1d5db;');
-
-        }); // End of DOMContentLoaded
+        });
 
     </script>
-
 </body>
 </html>
