@@ -1187,29 +1187,42 @@
                 }
             });
 
-            let touchStartX = 0;
-            let touchEndX = 0;
+           let touchStartX = 0;
+let touchEndX = 0;
+let touchStartY = 0;
+let touchEndY = 0;
 
-            imageViewer.addEventListener('touchstart', function(e) {
-                touchStartX = e.changedTouches[0].screenX;
-            }, false);
+imageViewer.addEventListener('touchstart', function(e) {
+    // Only handle single touch (not pinch-to-zoom which uses 2 fingers)
+    if (e.touches.length === 1) {
+        touchStartX = e.changedTouches[0].screenX;
+        touchStartY = e.changedTouches[0].screenY;
+    }
+}, { passive: true });
 
-            imageViewer.addEventListener('touchend', function(e) {
-                touchEndX = e.changedTouches[0].screenX;
-                handleSwipe();
-            }, false);
+imageViewer.addEventListener('touchend', function(e) {
+    // Only handle single touch
+    if (e.changedTouches.length === 1) {
+        touchEndX = e.changedTouches[0].screenX;
+        touchEndY = e.changedTouches[0].screenY;
+        handleSwipe();
+    }
+}, { passive: true });
 
-            function handleSwipe() {
-                const swipeThreshold = 50;
-                const diff = touchStartX - touchEndX;
-                if (Math.abs(diff) > swipeThreshold) {
-                    if (diff > 0) {
-                        navigateImage(1);
-                    } else {
-                        navigateImage(-1);
-                    }
-                }
-            }
+function handleSwipe() {
+    const swipeThreshold = 50;
+    const horizontalDiff = touchStartX - touchEndX;
+    const verticalDiff = Math.abs(touchStartY - touchEndY);
+    
+    // Only swipe if horizontal movement is significant and vertical is minimal
+    if (Math.abs(horizontalDiff) > swipeThreshold && verticalDiff < 50) {
+        if (horizontalDiff > 0) {
+            navigateImage(1);
+        } else {
+            navigateImage(-1);
+        }
+    }
+}
 
             document.addEventListener('keydown', function(e) {
                 if (imageViewer.classList.contains('show')) {
@@ -1237,4 +1250,5 @@
         });
     </script>
 </body>
+
 </html>
