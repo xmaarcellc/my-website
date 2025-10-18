@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0, user-scalable=yes">
     <title>Work - ELICONA VISUALS</title>
     <link rel="icon" type="image/jpeg" href="logoblacktrans.jpg">
     <style>
@@ -26,6 +26,8 @@
             -webkit-font-smoothing: antialiased;
             position: relative;
             overflow-x: hidden;
+            overscroll-behavior: none;
+            -webkit-overflow-scrolling: touch;
         }
 
         body::before {
@@ -404,6 +406,8 @@
             width: 100%;
             height: 100%;
             background: rgba(0, 0, 0, 0.95);
+            overscroll-behavior: none;
+            touch-action: pan-x pan-y;
         }
 
         .image-viewer.show {
@@ -1127,6 +1131,34 @@
                 }
                 lastTouchEnd = now;
             }, false);
+
+            // Prevent pull-to-refresh when image viewer is open
+            const imageViewer = document.getElementById('imageViewer');
+            let startY = 0;
+            
+            imageViewer.addEventListener('touchstart', function(e) {
+                startY = e.touches[0].pageY;
+            }, { passive: false });
+            
+            imageViewer.addEventListener('touchmove', function(e) {
+                // Prevent pull-to-refresh when scrolling in image viewer
+                if (imageViewer.classList.contains('show')) {
+                    const scrollY = window.pageYOffset || document.documentElement.scrollTop;
+                    const deltaY = e.touches[0].pageY - startY;
+                    
+                    // If at top of page and trying to scroll down, prevent default
+                    if (scrollY <= 0 && deltaY > 0) {
+                        e.preventDefault();
+                    }
+                }
+            }, { passive: false });
+
+            // Prevent zoom on double-tap in image viewer
+            imageViewer.addEventListener('touchend', function(e) {
+                if (imageViewer.classList.contains('show')) {
+                    e.preventDefault();
+                }
+            }, { passive: false });
 
             const fadeElements = document.querySelectorAll('.fade-in');
             fadeElements.forEach((element) => {
