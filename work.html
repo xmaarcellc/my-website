@@ -1,6 +1,3 @@
-
-
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -1121,6 +1118,16 @@
         }, observerOptions);
 
         document.addEventListener('DOMContentLoaded', () => {
+            // Prevent double-tap zoom on iOS
+            let lastTouchEnd = 0;
+            document.addEventListener('touchend', function(event) {
+                const now = Date.now();
+                if (now - lastTouchEnd <= 300) {
+                    event.preventDefault();
+                }
+                lastTouchEnd = now;
+            }, false);
+
             const fadeElements = document.querySelectorAll('.fade-in');
             fadeElements.forEach((element) => {
                 observer.observe(element);
@@ -1187,42 +1194,54 @@
                 }
             });
 
-           let touchStartX = 0;
-let touchEndX = 0;
-let touchStartY = 0;
-let touchEndY = 0;
+            let touchStartX = 0;
+            let touchEndX = 0;
+            let touchStartY = 0;
+            let touchEndY = 0;
+            let isSwiping = false;
 
-imageViewer.addEventListener('touchstart', function(e) {
-    // Only handle single touch (not pinch-to-zoom which uses 2 fingers)
-    if (e.touches.length === 1) {
-        touchStartX = e.changedTouches[0].screenX;
-        touchStartY = e.changedTouches[0].screenY;
-    }
-}, { passive: true });
+            imageViewer.addEventListener('touchstart', function(e) {
+                // Only handle single touch when image viewer is actually showing
+                if (e.touches.length === 1 && imageViewer.classList.contains('show')) {
+                    touchStartX = e.touches[0].clientX;
+                    touchStartY = e.touches[0].clientY;
+                    isSwiping = true;
+                } else {
+                    isSwiping = false;
+                }
+            }, { passive: true });
 
-imageViewer.addEventListener('touchend', function(e) {
-    // Only handle single touch
-    if (e.changedTouches.length === 1) {
-        touchEndX = e.changedTouches[0].screenX;
-        touchEndY = e.changedTouches[0].screenY;
-        handleSwipe();
-    }
-}, { passive: true });
+            imageViewer.addEventListener('touchmove', function(e) {
+                // Detect if this is a pinch gesture (2+ fingers)
+                if (e.touches.length > 1) {
+                    isSwiping = false;
+                }
+            }, { passive: true });
 
-function handleSwipe() {
-    const swipeThreshold = 50;
-    const horizontalDiff = touchStartX - touchEndX;
-    const verticalDiff = Math.abs(touchStartY - touchEndY);
-    
-    // Only swipe if horizontal movement is significant and vertical is minimal
-    if (Math.abs(horizontalDiff) > swipeThreshold && verticalDiff < 50) {
-        if (horizontalDiff > 0) {
-            navigateImage(1);
-        } else {
-            navigateImage(-1);
-        }
-    }
-}
+            imageViewer.addEventListener('touchend', function(e) {
+                // Only handle if we were tracking a swipe and image viewer is showing
+                if (isSwiping && e.changedTouches.length === 1 && imageViewer.classList.contains('show')) {
+                    touchEndX = e.changedTouches[0].clientX;
+                    touchEndY = e.changedTouches[0].clientY;
+                    handleSwipe();
+                }
+                isSwiping = false;
+            }, { passive: true });
+
+            function handleSwipe() {
+                const swipeThreshold = 75; // Increased threshold
+                const horizontalDiff = touchStartX - touchEndX;
+                const verticalDiff = Math.abs(touchStartY - touchEndY);
+                
+                // Only swipe if horizontal movement is significant and mostly horizontal
+                if (Math.abs(horizontalDiff) > swipeThreshold && Math.abs(horizontalDiff) > verticalDiff * 2) {
+                    if (horizontalDiff > 0) {
+                        navigateImage(1);
+                    } else {
+                        navigateImage(-1);
+                    }
+                }
+            }
 
             document.addEventListener('keydown', function(e) {
                 if (imageViewer.classList.contains('show')) {
@@ -1250,5 +1269,4 @@ function handleSwipe() {
         });
     </script>
 </body>
-
 </html>
