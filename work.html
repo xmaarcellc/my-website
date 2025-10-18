@@ -1122,14 +1122,17 @@
         }, observerOptions);
 
         document.addEventListener('DOMContentLoaded', () => {
-            // Prevent double-tap zoom on iOS
+            // Prevent double-tap zoom on iOS (global)
             let lastTouchEnd = 0;
+            let lastTouchTarget = null;
             document.addEventListener('touchend', function(event) {
                 const now = Date.now();
-                if (now - lastTouchEnd <= 300) {
+                // Only prevent double-tap if same target and within 300ms
+                if (now - lastTouchEnd <= 300 && event.target === lastTouchTarget) {
                     event.preventDefault();
                 }
                 lastTouchEnd = now;
+                lastTouchTarget = event.target;
             }, false);
 
             // Prevent pull-to-refresh when image viewer is open
@@ -1137,28 +1140,19 @@
             let startY = 0;
             
             imageViewer.addEventListener('touchstart', function(e) {
-                startY = e.touches[0].pageY;
-            }, { passive: false });
+                if (e.touches.length === 1) {
+                    startY = e.touches[0].pageY;
+                }
+            }, { passive: true });
             
             imageViewer.addEventListener('touchmove', function(e) {
                 // Prevent pull-to-refresh when scrolling in image viewer
-                if (imageViewer.classList.contains('show')) {
+                if (imageViewer.classList.contains('show') && e.touches.length === 1) {
                     const scrollY = window.pageYOffset || document.documentElement.scrollTop;
                     const deltaY = e.touches[0].pageY - startY;
                     
                     // If at top of page and trying to scroll down, prevent default
                     if (scrollY <= 0 && deltaY > 0) {
-                        e.preventDefault();
-                    }
-                }
-            }, { passive: false });
-
-            // Prevent zoom on double-tap in image viewer (but allow button clicks)
-            imageViewer.addEventListener('touchend', function(e) {
-                if (imageViewer.classList.contains('show')) {
-                    // Don't prevent if clicking on close button or buttons
-                    if (!e.target.closest('.image-viewer-close') && 
-                        !e.target.closest('button')) {
                         e.preventDefault();
                     }
                 }
