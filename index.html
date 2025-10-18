@@ -188,7 +188,8 @@
         .mobile-menu.active span:nth-child(3) {
             transform: rotate(-45deg) translate(7px, -6px);
         }
-.hero {
+
+        .hero {
             height: 100vh;
             display: flex;
             align-items: center;
@@ -322,45 +323,6 @@
             margin: 0;
         }
 
-        #work.section {
-            padding: 80px 0;
-            max-width: none;
-            margin: 0;
-            position: relative;
-            background-image: url('F36426F0-EC55-42AD-9BFE-8B76DC57D711.jpg');
-            background-size: cover;
-            background-position: center;
-            background-attachment: scroll;
-        }
-
-        #work::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background: linear-gradient(
-                135deg, 
-                rgba(10, 10, 10, 0.8) 0%, 
-                rgba(26, 26, 26, 0.7) 50%,
-                rgba(10, 10, 10, 0.8) 100%
-            );
-            z-index: 1;
-        }
-
-        #work .section-header,
-        #work .work-grid {
-            position: relative;
-            z-index: 2;
-        }
-
-        #work .work-grid {
-            max-width: 1200px;
-            margin: 0 auto;
-            padding: 0 1rem;
-        }
-
         .section-header {
             margin-bottom: 60px;
         }
@@ -467,88 +429,6 @@
         .mission-content p:last-child {
             font-size: 1rem;
             color: #9ca3af;
-        }
-
-        .work-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
-            gap: 2rem;
-            max-width: 1200px;
-            margin: 0 auto;
-        }
-
-        .work-item {
-            background: transparent;
-            border: 1px solid rgba(255, 255, 255, 0.15);
-            border-radius: 16px;
-            overflow: hidden;
-            text-align: center;
-            cursor: pointer;
-            transition: all 0.3s ease;
-            height: 500px;
-            display: flex;
-            flex-direction: column;
-        }
-
-        .work-item:hover {
-            border-color: rgba(255, 255, 255, 0.3);
-            transform: translateY(-5px);
-            background: rgba(255, 255, 255, 0.05);
-        }
-
-        .work-image-carousel {
-            position: relative;
-            width: 100%;
-            height: 350px;
-            overflow: hidden;
-        }
-
-        .work-image-carousel img {
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-            opacity: 0;
-            transition: opacity 0.8s ease-in-out;
-            will-change: opacity;
-        }
-
-        .work-image-carousel img.active {
-            opacity: 1;
-        }
-
-        .work-info {
-            padding: 1.5rem 2rem;
-            flex: 1;
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-            gap: 1rem;
-        }
-
-        .work-info h3 {
-            font-size: 1.3rem;
-            font-weight: 600;
-            color: #ffffff;
-        }
-
-        .work-btn {
-            background: transparent;
-            color: #d1d5db;
-            border: 1px solid rgba(255, 255, 255, 0.2);
-            padding: 12px 24px;
-            border-radius: 25px;
-            cursor: pointer;
-            font-weight: 500;
-            transition: all 0.3s ease;
-        }
-
-        .work-btn:hover {
-            color: #ffffff;
-            border-color: rgba(255, 255, 255, 0.4);
-            background: rgba(255, 255, 255, 0.05);
         }
 
         #behind-the-scenes {
@@ -680,7 +560,8 @@
             height: 48px;
             margin-bottom: 1rem;
         }
-/* Reviews Section Styles */
+
+        /* Reviews Section Styles */
         #reviews {
             background: #0a0a0a;
             padding: 80px 0;
@@ -870,267 +751,6 @@
             color: #0a0a0a;
             transform: translateY(-2px);
             box-shadow: 0 6px 20px rgba(255, 255, 255, 0.3);
-        }
-/* Portfolio Modal Styles */
-        .portfolio-modal {
-            display: none;
-            position: fixed;
-            z-index: 2000;
-            left: 0;
-            top: 0;
-            width: 100%;
-            height: 100%;
-            background: rgba(0, 0, 0, 0.9);
-        }
-
-        .portfolio-modal.show {
-            display: flex;
-            align-items: center;
-            justify-content: center;
-        }
-
-        .portfolio-content {
-            background: rgba(26, 26, 26, 0.95);
-            border: 1px solid rgba(255, 255, 255, 0.1);
-            border-radius: 20px;
-            padding: 2rem;
-            max-width: 90vw;
-            max-height: 90vh;
-            overflow-y: auto;
-            position: relative;
-        }
-
-        .portfolio-header {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            margin-bottom: 2rem;
-            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
-            padding-bottom: 1rem;
-        }
-
-        .portfolio-title {
-            font-size: 1.8rem;
-            font-weight: 600;
-            color: #ffffff;
-        }
-
-        .close-btn {
-            background: none;
-            border: none;
-            color: #9ca3af;
-            font-size: 2rem;
-            cursor: pointer;
-            padding: 0.5rem;
-            border-radius: 50%;
-            transition: all 0.3s ease;
-        }
-
-        .close-btn:hover {
-            color: #ffffff;
-            background: rgba(255, 255, 255, 0.1);
-        }
-
-        .portfolio-grid {
-            display: grid;
-            grid-template-columns: repeat(2, 1fr);
-            gap: 1.5rem;
-            max-height: 60vh;
-            overflow-y: auto;
-            padding-right: 10px;
-        }
-
-        .portfolio-grid::-webkit-scrollbar {
-            width: 6px;
-        }
-
-        .portfolio-grid::-webkit-scrollbar-track {
-            background: rgba(255, 255, 255, 0.1);
-            border-radius: 3px;
-        }
-
-        .portfolio-grid::-webkit-scrollbar-thumb {
-            background: rgba(255, 255, 255, 0.3);
-            border-radius: 3px;
-        }
-
-        .portfolio-grid::-webkit-scrollbar-thumb:hover {
-            background: rgba(255, 255, 255, 0.5);
-        }
-
-        .portfolio-item {
-            aspect-ratio: 1;
-            background: linear-gradient(135deg, #1a1a1a, #111827);
-            border-radius: 12px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            cursor: pointer;
-            transition: all 0.3s ease;
-            border: 1px solid rgba(255, 255, 255, 0.05);
-            overflow: hidden;
-            opacity: 0.3;
-            transform: translateY(20px);
-            will-change: opacity, transform;
-        }
-
-        .portfolio-item.visible {
-            opacity: 1;
-            transform: translateY(0);
-        }
-
-        .portfolio-item img {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-            transition: transform 0.3s ease;
-        }
-
-        .portfolio-item:hover img {
-            transform: scale(1.05);
-        }
-
-        .portfolio-item:hover {
-            border-color: rgba(255, 255, 255, 0.15);
-            transform: scale(1.02);
-        }
-
-        /* Image Viewer */
-        .image-viewer {
-            display: none;
-            position: fixed;
-            z-index: 3000;
-            left: 0;
-            top: 0;
-            width: 100%;
-            height: 100%;
-            background: rgba(0, 0, 0, 0.95);
-        }
-
-        .image-viewer.show {
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            flex-direction: column;
-        }
-
-        .image-viewer-container {
-            position: relative;
-            width: 100%;
-            height: 100%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            flex-direction: column;
-            padding: 0 2rem;
-        }
-
-        .image-viewer-main {
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            flex-direction: column;
-            gap: 2rem;
-        }
-
-        .image-caption {
-            color: #ffffff;
-            font-size: 1.2rem;
-            font-weight: 300;
-            text-align: center;
-            padding: 1rem 2rem;
-            font-family: 'Times New Roman', serif;
-            font-style: italic;
-            order: -1;
-        }
-
-        .image-viewer img {
-            max-width: 90vw;
-            max-height: 70vh;
-            object-fit: contain;
-            border-radius: 8px;
-            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.5);
-            user-select: none;
-            -webkit-user-drag: none;
-            opacity: 1;
-            transition: opacity 0.3s ease-in-out;
-        }
-
-        .image-viewer img.fade-out {
-            opacity: 0;
-        }
-
-        .image-viewer-close {
-            position: absolute;
-            top: 2rem;
-            right: 2rem;
-            background: rgba(255, 255, 255, 0.1);
-            border: none;
-            color: #ffffff;
-            font-size: 2rem;
-            cursor: pointer;
-            padding: 0.5rem 0.75rem;
-            border-radius: 50%;
-            transition: all 0.3s ease;
-            z-index: 10;
-        }
-
-        .image-viewer-close:hover {
-            background: rgba(255, 255, 255, 0.2);
-        }
-
-        .swipe-indicator {
-            position: absolute;
-            top: 50%;
-            left: 50%;
-            transform: translate(-50%, -50%);
-            display: flex;
-            align-items: center;
-            gap: 1rem;
-            background: rgba(0, 0, 0, 0.7);
-            padding: 1rem 2rem;
-            border-radius: 50px;
-            color: #ffffff;
-            font-size: 0.9rem;
-            z-index: 10;
-            opacity: 0;
-            transition: opacity 0.5s ease;
-            pointer-events: none;
-        }
-
-        .swipe-indicator.show {
-            opacity: 1;
-        }
-
-        .swipe-arrow {
-            font-size: 1.5rem;
-            animation: swipeHint 1.5s ease-in-out infinite;
-        }
-
-        .swipe-arrow.left {
-            animation-direction: reverse;
-        }
-
-        @keyframes swipeHint {
-            0%, 100% {
-                transform: translateX(0);
-            }
-            50% {
-                transform: translateX(10px);
-            }
-        }
-
-        .image-counter {
-            position: absolute;
-            bottom: 2rem;
-            left: 50%;
-            transform: translateX(-50%);
-            color: #ffffff;
-            font-size: 0.9rem;
-            background: rgba(0, 0, 0, 0.5);
-            padding: 0.5rem 1rem;
-            border-radius: 20px;
-            z-index: 10;
         }
 
         /* Visit Section */
@@ -1357,7 +977,8 @@
             transform: translateY(0);
             will-change: auto;
         }
-/* Responsive Design - Tablets and Mobile */
+
+        /* Responsive Design - Tablets and Mobile */
         @media (max-width: 768px) {
             .nav-links {
                 display: none;
@@ -1365,16 +986,6 @@
 
             .mobile-menu {
                 display: flex;
-            }
-
-            .portfolio-grid {
-                grid-template-columns: repeat(2, 1fr);
-                gap: 1.5rem;
-                padding: 0 1rem;
-            }
-
-            .portfolio-title {
-                font-size: 1.5rem;
             }
 
             .hero h1 {
@@ -1388,24 +999,6 @@
             .cta-button {
                 padding: 14px 28px;
                 font-size: 0.9rem;
-            }
-
-            #work.section {
-                padding: 60px 0;
-            }
-
-            .work-grid {
-                grid-template-columns: 1fr;
-                max-width: 100%;
-                padding: 0 1rem;
-            }
-
-            .work-item {
-                height: 450px;
-            }
-
-            .work-image-carousel {
-                height: 300px;
             }
 
             #mission {
@@ -1540,24 +1133,6 @@
                 max-width: 280px;
                 min-width: auto;
             }
-
-            .swipe-indicator {
-                padding: 0.75rem 1.5rem;
-                font-size: 0.85rem;
-            }
-
-            .swipe-arrow {
-                font-size: 1.2rem;
-            }
-
-            .image-viewer-close {
-                top: 1rem;
-                right: 1rem;
-            }
-
-            .portfolio-content {
-                padding: 1.5rem;
-            }
         }
 
         /* Mobile Phones */
@@ -1601,10 +1176,6 @@
                 font-size: 0.75rem;
             }
 
-            .portfolio-grid {
-                grid-template-columns: 1fr;
-            }
-
             .logo {
                 font-size: 1.2rem;
             }
@@ -1616,15 +1187,6 @@
             .review-box::before {
                 font-size: 5rem;
                 left: 1rem;
-            }
-
-            .image-viewer-container {
-                padding: 0 1rem;
-            }
-
-            .image-caption {
-                font-size: 1rem;
-                padding: 0.75rem 1rem;
             }
         }
 
@@ -1641,14 +1203,6 @@
             .counter-number {
                 font-size: 2.5rem;
             }
-
-            .work-item {
-                height: 400px;
-            }
-
-            .work-image-carousel {
-                height: 250px;
-            }
         }
     </style>
 </head>
@@ -1662,7 +1216,7 @@
             <ul class="nav-links">
                 <li><a href="#home">Home</a></li>
                 <li><a href="#mission">Mission</a></li>
-                <li><a href="#work">Work</a></li>
+                <li><a href="work.html">Work</a></li>
                 <li><a href="#behind-the-scenes">BTS</a></li>
                 <li><a href="#social">Social</a></li>
                 <li><a href="#reviews">Reviews</a></li>
@@ -1675,7 +1229,8 @@
             </div>
         </div>
     </nav>
-<section id="home" class="hero">
+
+    <section id="home" class="hero">
         <video class="hero-video" autoplay muted loop playsinline preload="metadata">
             <source src="Elicona.viz.mp4" type="video/mp4">
             Your browser does not support the video tag.
@@ -1704,47 +1259,6 @@
                     <p>As a licensed cosmetologist, I ensure every style accommodates not only your lifestyle, but also based off your needs with head shape. 
                         Every cut detailed and curated to enhance longevity and mobility. An environment which provides a traditional shop experience mixed with a modern approach. 
                     We aspire to inspire, which makes our objective to stay innovative yet creative in our craft</p>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <section id="work" class="section fade-in">
-        <div class="section-header fade-in">
-            <h2 class="section-title">WORK</h2>
-        </div>
-        <div class="work-grid">
-            <div class="work-item fade-in">
-                <div class="work-image-carousel" id="editorialCarousel">
-                    <img src="cuts.7.jpg" alt="Hair Creative 7" class="active" loading="lazy">
-                    <img src="cuts.8.jpg" alt="Hair Creative 8" loading="lazy">
-                    <img src="cuts.9.jpg" alt="Hair Creative 9" loading="lazy">
-                </div>
-                <div class="work-info">
-                    <h3>ARTISTIC DESIGN</h3>
-                    <button class="work-btn" onclick="openEditorialPortfolio()">View Portfolio</button>
-                </div>
-            </div>
-            <div class="work-item fade-in">
-                <div class="work-image-carousel" id="visualsCarousel">
-                    <img src="Vis.2.jpg" alt="Visual 2" class="active" loading="lazy">
-                    <img src="viz.3.jpg" alt="Visual 3" loading="lazy">
-                    <img src="viz.4.jpg" alt="Visual 4" loading="lazy">
-                </div>
-                <div class="work-info">
-                    <h3>VISUALS</h3>
-                    <button class="work-btn" onclick="openVisualsPortfolio()">View Portfolio</button>
-                </div>
-            </div>
-            <div class="work-item fade-in">
-                <div class="work-image-carousel" id="merchCarousel">
-                    <img src="IMG_7822.jpg" alt="Merch Item 1" class="active" loading="lazy">
-                    <img src="IMG_7823.jpg" alt="Merch Item 2" loading="lazy">
-                    <img src="IMG_7830.jpg" alt="Merch Item 3" loading="lazy">
-                </div>
-                <div class="work-info">
-                    <h3>MERCH</h3>
-                    <button class="work-btn" onclick="openMerchPortfolio()">View Portfolio</button>
                 </div>
             </div>
         </div>
@@ -1794,8 +1308,13 @@
                 <span>YouTube</span>
             </a>
         </div>
+        
+        <div style="text-align: center; margin-top: 3rem; position: relative; z-index: 2;" class="fade-in">
+            <a href="work.html" class="cta-button">View Our Work</a>
+        </div>
     </section>
-<section id="reviews" class="section fade-in">
+
+    <section id="reviews" class="section fade-in">
         <div class="reviews-container">
             <div class="section-header fade-in">
                 <h2 class="section-title">What Our Clients Say</h2>
@@ -1870,148 +1389,18 @@
             </div>
         </div>
     </section>
-<!-- Editorial/Artistic Design Modal -->
-    <div id="editorialModal" class="portfolio-modal">
-        <div class="portfolio-content">
-            <div class="portfolio-header">
-                <h3 class="portfolio-title">Artistic Design Portfolio</h3>
-                <button class="close-btn" onclick="closePortfolio('editorial')">&times;</button>
-            </div>
-            <div class="portfolio-statement">
-                <p style="font-style: italic; color: #d1d5db; margin-bottom: 2rem; font-size: 1rem; text-align: center; border-bottom: 1px solid rgba(255, 255, 255, 0.1); padding-bottom: 1rem;">
-                    "Being able to collaborate with artists in different avenues constantly molds a new vision towards our mission." - Alexander Elicona
-                </p>
-            </div>
-            <div class="portfolio-grid">
-                <div class="portfolio-item" onclick="openImageViewer('cuts.7.jpg', 'Hair Creative 7', 'Clean fade perfection')">
-                    <img src="cuts.7.jpg" alt="Hair Creative 7" loading="lazy">
-                </div>
-                <div class="portfolio-item" onclick="openImageViewer('cuts.8.jpg', 'Hair Creative 8', 'Precision lineup')">
-                    <img src="cuts.8.jpg" alt="Hair Creative 8" loading="lazy">
-                </div>
-                <div class="portfolio-item" onclick="openImageViewer('cuts.9.jpg', 'Hair Creative 9', 'Classic style reimagined')">
-                    <img src="cuts.9.jpg" alt="Hair Creative 9" loading="lazy">
-                </div>
-                <div class="portfolio-item" onclick="openImageViewer('cuts.10.jpg', 'Hair Creative 10', 'Sharp edge details')">
-                    <img src="cuts.10.jpg" alt="Hair Creative 10" loading="lazy">
-                </div>
-                <div class="portfolio-item" onclick="openImageViewer('cuts.11.jpg', 'Hair Creative 11', 'Textured perfection')">
-                    <img src="cuts.11.jpg" alt="Hair Creative 11" loading="lazy">
-                </div>
-                <div class="portfolio-item" onclick="openImageViewer('cuts.12.jpg', 'Hair Creative 12', 'Modern taper mastery')">
-                    <img src="cuts.12.jpg" alt="Hair Creative 12" loading="lazy">
-                </div>
-                <div class="portfolio-item" onclick="openImageViewer('cuts.13.jpg', 'Hair Creative 13', 'Signature blend')">
-                    <img src="cuts.13.jpg" alt="Hair Creative 13" loading="lazy">
-                </div>
-                <div class="portfolio-item" onclick="openImageViewer('cuts.14.jpg', 'Hair Creative 14', 'Refined craftsmanship')">
-                    <img src="cuts.14.jpg" alt="Hair Creative 14" loading="lazy">
-                </div>
-                <div class="portfolio-item" onclick="openImageViewer('cuts.15.jpg', 'Hair Creative 15', 'Flawless finish')">
-                    <img src="cuts.15.jpg" alt="Hair Creative 15" loading="lazy">
-                </div>
-            </div>
-        </div>
-    </div>
 
-    <!-- Visuals Modal -->
-    <div id="visualsModal" class="portfolio-modal">
-        <div class="portfolio-content">
-            <div class="portfolio-header">
-                <h3 class="portfolio-title">Visual Portfolio</h3>
-                <button class="close-btn" onclick="closePortfolio('visuals')">&times;</button>
-            </div>
-            <div class="portfolio-statement">
-                <p style="font-style: italic; color: #d1d5db; margin-bottom: 2rem; font-size: 1rem; text-align: center; border-bottom: 1px solid rgba(255, 255, 255, 0.1); padding-bottom: 1rem;">
-                    "Every canvas perfectly imperfect with a desire to lead with creative control." - Alexander Elicona
-                </p>
-            </div>
-            <div class="portfolio-grid">
-                <div class="portfolio-item" onclick="openImageViewer('Vis.2.jpg', 'Visual 2', 'On set creativity')">
-                    <img src="Vis.2.jpg" alt="Visual 2" loading="lazy">
-                </div>
-                <div class="portfolio-item" onclick="openImageViewer('viz.3.jpg', 'Visual 3', 'Behind the camera')">
-                    <img src="viz.3.jpg" alt="Visual 3" loading="lazy">
-                </div>
-                <div class="portfolio-item" onclick="openImageViewer('viz.4.jpg', 'Visual 4', 'Production day')">
-                    <img src="viz.4.jpg" alt="Visual 4" loading="lazy">
-                </div>
-                <div class="portfolio-item" onclick="openImageViewer('viz.5.jpg', 'Visual 5', 'Studio session')">
-                    <img src="viz.5.jpg" alt="Visual 5" loading="lazy">
-                </div>
-                <div class="portfolio-item" onclick="openImageViewer('viz.6.jpg', 'Visual 6', 'Creative vision')">
-                    <img src="viz.6.jpg" alt="Visual 6" loading="lazy">
-                </div>
-                <div class="portfolio-item" onclick="openImageViewer('viz.8.jpg', 'Visual 8', 'Film work')">
-                    <img src="viz.8.jpg" alt="Visual 8" loading="lazy">
-                </div>
-                <div class="portfolio-item" onclick="openImageViewer('viz.10.jpg', 'Visual 10', 'Editorial shoot')">
-                    <img src="viz.10.jpg" alt="Visual 10" loading="lazy">
-                </div>
-                <div class="portfolio-item" onclick="openImageViewer('viz.11.jpg', 'Visual 11', 'Capturing the moment')">
-                    <img src="viz.11.jpg" alt="Visual 11" loading="lazy">
-                </div>
-                <div class="portfolio-item" onclick="openImageViewer('viz.12.jpg', 'Visual 12', 'Visual storytelling')">
-                    <img src="viz.12.jpg" alt="Visual 12" loading="lazy">
-                </div>
-            </div>
-        </div>
-    </div>
-
-    <!-- Merch Modal -->
-    <div id="merchModal" class="portfolio-modal">
-        <div class="portfolio-content">
-            <div class="portfolio-header">
-                <h3 class="portfolio-title">Merch Catalog</h3>
-                <button class="close-btn" onclick="closePortfolio('merch')">&times;</button>
-            </div>
-            <div class="portfolio-statement">
-                <p style="font-style: italic; color: #d1d5db; margin-bottom: 2rem; font-size: 1rem; text-align: center; border-bottom: 1px solid rgba(255, 255, 255, 0.1); padding-bottom: 1rem;">
-                    "Our merchandise represents the Elicona Visuals brand - quality pieces that reflect our aesthetic and commitment to style." - Alexander Elicona
-                </p>
-            </div>
-            <div class="portfolio-grid">
-                <div class="portfolio-item" onclick="openImageViewer('IMG_7822.jpg', 'Merch Item 1', 'Brand essentials')">
-                    <img src="IMG_7822.jpg" alt="Merch Item 1" loading="lazy">
-                </div>
-                <div class="portfolio-item" onclick="openImageViewer('IMG_7823.jpg', 'Merch Item 2', 'Street style')">
-                    <img src="IMG_7823.jpg" alt="Merch Item 2" loading="lazy">
-                </div>
-                <div class="portfolio-item" onclick="openImageViewer('IMG_7830.jpg', 'Merch Item 3', 'Signature collection')">
-                    <img src="IMG_7830.jpg" alt="Merch Item 3" loading="lazy">
-                </div>
-                <div class="portfolio-item" onclick="openImageViewer('IMG_7831.jpg', 'Merch Item 4', 'Limited edition')">
-                    <img src="IMG_7831.jpg" alt="Merch Item 4" loading="lazy">
-                </div>
-                <div class="portfolio-item" onclick="openImageViewer('IMG_7832.jpg', 'Merch Item 5', 'Premium quality')">
-                    <img src="IMG_7832.jpg" alt="Merch Item 5" loading="lazy">
-                </div>
-            </div>
-        </div>
-    </div>
-
-    <!-- Image Viewer Modal -->
-    <div id="imageViewer" class="image-viewer">
-        <div class="image-viewer-container">
-            <button class="image-viewer-close" onclick="closeImageViewer()">&times;</button>
-            <div class="swipe-indicator">
-                <span class="swipe-arrow left">←</span>
-                <span>Swipe to navigate</span>
-                <span class="swipe-arrow right">→</span>
-            </div>
-            <div class="image-viewer-main">
-                <div id="imageCaption" class="image-caption"></div>
-                <img id="viewerImage" src="" alt="Full size image">
-            </div>
-            <div id="imageCounter" class="image-counter"></div>
-        </div>
-    </div>
-<!-- Footer -->
     <footer class="footer">
         <div class="footer-content">
             <div class="footer-brand">
                 <img src="LogoFine.png" alt="Elicona Visuals Logo" class="footer-logo-img">
                 ELICONA VISUALS
+            </div>
+            <div class="footer-links">
+                <a href="#home">Home</a>
+                <a href="#mission">Mission</a>
+                <a href="work.html">Work</a>
+                <a href="#visit">Visit</a>
             </div>
             <div class="footer-copyright">
                 &copy; 2025 Elicona Visuals. All rights reserved.
@@ -2021,40 +1410,8 @@
             </div>
         </div>
     </footer>
-<script>
-        // Portfolio Data
-        const portfolioData = {
-            editorial: [
-                { src: 'cuts.7.jpg', alt: 'Hair Creative 7', caption: 'Clean fade perfection' },
-                { src: 'cuts.8.jpg', alt: 'Hair Creative 8', caption: 'Precision lineup' },
-                { src: 'cuts.9.jpg', alt: 'Hair Creative 9', caption: 'Classic style reimagined' },
-                { src: 'cuts.10.jpg', alt: 'Hair Creative 10', caption: 'Sharp edge details' },
-                { src: 'cuts.11.jpg', alt: 'Hair Creative 11', caption: 'Textured perfection' },
-                { src: 'cuts.12.jpg', alt: 'Hair Creative 12', caption: 'Modern taper mastery' },
-                { src: 'cuts.13.jpg', alt: 'Hair Creative 13', caption: 'Signature blend' },
-                { src: 'cuts.14.jpg', alt: 'Hair Creative 14', caption: 'Refined craftsmanship' },
-                { src: 'cuts.15.jpg', alt: 'Hair Creative 15', caption: 'Flawless finish' }
-            ],
-            visuals: [
-                { src: 'Vis.2.jpg', alt: 'Visual 2', caption: 'On set creativity' },
-                { src: 'viz.3.jpg', alt: 'Visual 3', caption: 'Behind the camera' },
-                { src: 'viz.4.jpg', alt: 'Visual 4', caption: 'Production day' },
-                { src: 'viz.5.jpg', alt: 'Visual 5', caption: 'Studio session' },
-                { src: 'viz.6.jpg', alt: 'Visual 6', caption: 'Creative vision' },
-                { src: 'viz.8.jpg', alt: 'Visual 8', caption: 'Film work' },
-                { src: 'viz.10.jpg', alt: 'Visual 10', caption: 'Editorial shoot' },
-                { src: 'viz.11.jpg', alt: 'Visual 11', caption: 'Capturing the moment' },
-                { src: 'viz.12.jpg', alt: 'Visual 12', caption: 'Visual storytelling' }
-            ],
-            merch: [
-                { src: 'IMG_7822.jpg', alt: 'Merch Item 1', caption: 'Brand essentials' },
-                { src: 'IMG_7823.jpg', alt: 'Merch Item 2', caption: 'Street style' },
-                { src: 'IMG_7830.jpg', alt: 'Merch Item 3', caption: 'Signature collection' },
-                { src: 'IMG_7831.jpg', alt: 'Merch Item 4', caption: 'Limited edition' },
-                { src: 'IMG_7832.jpg', alt: 'Merch Item 5', caption: 'Premium quality' }
-            ]
-        };
 
+    <script>
         // Reviews Data
         const reviews = [
             {
@@ -2103,9 +1460,6 @@
             }
         ];
 
-        // Global Variables
-        let currentPortfolio = null;
-        let currentImageIndex = 0;
         let currentReviewIndex = 0;
 
         // Review Functions
@@ -2143,124 +1497,6 @@
             });
         });
 
-        // Portfolio functions
-        function openEditorialPortfolio() {
-            const modal = document.getElementById('editorialModal');
-            modal.classList.add('show');
-            document.body.style.overflow = 'hidden';
-            setTimeout(() => {
-                initPortfolioObserver('editorialModal');
-            }, 100);
-        }
-
-        function openVisualsPortfolio() {
-            const modal = document.getElementById('visualsModal');
-            modal.classList.add('show');
-            document.body.style.overflow = 'hidden';
-            setTimeout(() => {
-                initPortfolioObserver('visualsModal');
-            }, 100);
-        }
-
-        function openMerchPortfolio() {
-            const modal = document.getElementById('merchModal');
-            modal.classList.add('show');
-            document.body.style.overflow = 'hidden';
-            setTimeout(() => {
-                initPortfolioObserver('merchModal');
-            }, 100);
-        }
-
-        function closePortfolio(type) {
-            let modal;
-            if (type === 'editorial') {
-                modal = document.getElementById('editorialModal');
-            } else if (type === 'visuals') {
-                modal = document.getElementById('visualsModal');
-            } else if (type === 'merch') {
-                modal = document.getElementById('merchModal');
-            }
-            modal.classList.remove('show');
-            document.body.style.overflow = 'auto';
-        }
-
-        function openImageViewer(imageSrc, altText, caption = '') {
-            for (let portfolio in portfolioData) {
-                const index = portfolioData[portfolio].findIndex(img => img.src === imageSrc);
-                if (index !== -1) {
-                    currentPortfolio = portfolio;
-                    currentImageIndex = index;
-                    break;
-                }
-            }
-            displayCurrentImage();
-            const viewer = document.getElementById('imageViewer');
-            viewer.classList.add('show');
-            document.body.style.overflow = 'hidden';
-            
-            const swipeIndicator = document.querySelector('.swipe-indicator');
-            swipeIndicator.classList.add('show');
-            setTimeout(() => {
-                swipeIndicator.classList.remove('show');
-            }, 1500);
-        }
-
-        function displayCurrentImage() {
-            if (!currentPortfolio) return;
-            const viewerImage = document.getElementById('viewerImage');
-            const imageCaption = document.getElementById('imageCaption');
-            const imageCounter = document.getElementById('imageCounter');
-            const images = portfolioData[currentPortfolio];
-            const currentImage = images[currentImageIndex];
-            viewerImage.classList.add('fade-out');
-            setTimeout(() => {
-                viewerImage.src = currentImage.src;
-                viewerImage.alt = currentImage.alt;
-                imageCaption.textContent = currentImage.caption;
-                imageCounter.textContent = `${currentImageIndex + 1} / ${images.length}`;
-                viewerImage.classList.remove('fade-out');
-            }, 300);
-        }
-
-        function navigateImage(direction) {
-            if (!currentPortfolio) return;
-            const images = portfolioData[currentPortfolio];
-            currentImageIndex += direction;
-            if (currentImageIndex < 0) {
-                currentImageIndex = images.length - 1;
-            } else if (currentImageIndex >= images.length) {
-                currentImageIndex = 0;
-            }
-            displayCurrentImage();
-        }
-
-        function closeImageViewer() {
-            const viewer = document.getElementById('imageViewer');
-            viewer.classList.remove('show');
-            document.body.style.overflow = 'auto';
-            currentPortfolio = null;
-            currentImageIndex = 0;
-        }
-
-        function initPortfolioObserver(modalId) {
-            const modal = document.getElementById(modalId);
-            const portfolioItems = modal.querySelectorAll('.portfolio-item');
-            const portfolioObserver = new IntersectionObserver((entries) => {
-                entries.forEach((entry) => {
-                    if (entry.isIntersecting) {
-                        entry.target.classList.add('visible');
-                        portfolioObserver.unobserve(entry.target);
-                    }
-                });
-            }, {
-                threshold: 0.2,
-                rootMargin: '0px 0px -50px 0px'
-            });
-            portfolioItems.forEach((item) => {
-                portfolioObserver.observe(item);
-            });
-        }
-
         const observerOptions = {
             threshold: 0.1,
             rootMargin: '0px 0px -100px 0px'
@@ -2292,22 +1528,6 @@
                 displayReview(0);
                 setInterval(cycleReviews, 8000);
             }
-
-            function initCarousel(carouselId, interval) {
-                const carousel = document.getElementById(carouselId);
-                if (!carousel) return;
-                const images = carousel.querySelectorAll('img');
-                let currentIndex = 0;
-                setInterval(() => {
-                    images[currentIndex].classList.remove('active');
-                    currentIndex = (currentIndex + 1) % images.length;
-                    images[currentIndex].classList.add('active');
-                }, interval);
-            }
-
-            initCarousel('editorialCarousel', 1600);
-            initCarousel('visualsCarousel', 2000);
-            initCarousel('merchCarousel', 2500);
 
             const mobileMenu = document.querySelector('.mobile-menu');
             const navLinks = document.querySelector('.nav-links');
@@ -2350,77 +1570,6 @@
 
             window.addEventListener('scroll', checkScroll);
             checkScroll();
-
-            const editorialModal = document.getElementById('editorialModal');
-            const visualsModal = document.getElementById('visualsModal');
-            const merchModal = document.getElementById('merchModal');
-            const imageViewer = document.getElementById('imageViewer');
-            
-            editorialModal.addEventListener('click', function(e) {
-                if (e.target === editorialModal) {
-                    closePortfolio('editorial');
-                }
-            });
-
-            visualsModal.addEventListener('click', function(e) {
-                if (e.target === visualsModal) {
-                    closePortfolio('visuals');
-                }
-            });
-
-            merchModal.addEventListener('click', function(e) {
-                if (e.target === merchModal) {
-                    closePortfolio('merch');
-                }
-            });
-
-            let touchStartX = 0;
-            let touchEndX = 0;
-
-            imageViewer.addEventListener('touchstart', function(e) {
-                touchStartX = e.changedTouches[0].screenX;
-            }, false);
-
-            imageViewer.addEventListener('touchend', function(e) {
-                touchEndX = e.changedTouches[0].screenX;
-                handleSwipe();
-            }, false);
-
-            function handleSwipe() {
-                const swipeThreshold = 50;
-                const diff = touchStartX - touchEndX;
-                if (Math.abs(diff) > swipeThreshold) {
-                    if (diff > 0) {
-                        navigateImage(1);
-                    } else {
-                        navigateImage(-1);
-                    }
-                }
-            }
-
-            document.addEventListener('keydown', function(e) {
-                if (imageViewer.classList.contains('show')) {
-                    if (e.key === 'ArrowLeft') {
-                        navigateImage(-1);
-                    } else if (e.key === 'ArrowRight') {
-                        navigateImage(1);
-                    } else if (e.key === 'Escape') {
-                        closeImageViewer();
-                    }
-                } else {
-                    if (e.key === 'Escape') {
-                        if (editorialModal.classList.contains('show')) {
-                            closePortfolio('editorial');
-                        }
-                        if (visualsModal.classList.contains('show')) {
-                            closePortfolio('visuals');
-                        }
-                        if (merchModal.classList.contains('show')) {
-                            closePortfolio('merch');
-                        }
-                    }
-                }
-            });
         });
     </script>
 </body>
