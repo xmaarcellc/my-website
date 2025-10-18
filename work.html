@@ -1153,10 +1153,14 @@
                 }
             }, { passive: false });
 
-            // Prevent zoom on double-tap in image viewer
+            // Prevent zoom on double-tap in image viewer (but allow button clicks)
             imageViewer.addEventListener('touchend', function(e) {
                 if (imageViewer.classList.contains('show')) {
-                    e.preventDefault();
+                    // Don't prevent if clicking on close button or buttons
+                    if (!e.target.closest('.image-viewer-close') && 
+                        !e.target.closest('button')) {
+                        e.preventDefault();
+                    }
                 }
             }, { passive: false });
 
