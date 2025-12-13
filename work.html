@@ -797,8 +797,6 @@
             <div class="work-item fade-in">
                 <div class="work-image-carousel" id="editorialCarousel">
                     <img src="cuts.7.jpg" alt="Hair Creative 7" class="active" loading="lazy">
-                    <img src="cuts.8.jpg" alt="Hair Creative 8" loading="lazy">
-                    <img src="cuts.9.jpg" alt="Hair Creative 9" loading="lazy">
                 </div>
                 <div class="work-info">
                     <h3>ARTISTIC DESIGN</h3>
@@ -808,8 +806,6 @@
             <div class="work-item fade-in">
                 <div class="work-image-carousel" id="visualsCarousel">
                     <img src="Vis.2.jpg" alt="Visual 2" class="active" loading="lazy">
-                    <img src="viz.3.jpg" alt="Visual 3" loading="lazy">
-                    <img src="viz.4.jpg" alt="Visual 4" loading="lazy">
                 </div>
                 <div class="work-info">
                     <h3>VISUALS</h3>
@@ -819,8 +815,6 @@
             <div class="work-item fade-in">
                 <div class="work-image-carousel" id="merchCarousel">
                     <img src="IMG_7822.jpg" alt="Merch Item 1" class="active" loading="lazy">
-                    <img src="IMG_7823.jpg" alt="Merch Item 2" loading="lazy">
-                    <img src="IMG_7830.jpg" alt="Merch Item 3" loading="lazy">
                 </div>
                 <div class="work-info">
                     <h3>MERCH</h3>
@@ -1218,22 +1212,6 @@
             fadeElements.forEach((element) => {
                 observer.observe(element);
             });
-
-            function initCarousel(carouselId, interval) {
-                const carousel = document.getElementById(carouselId);
-                if (!carousel) return;
-                const images = carousel.querySelectorAll('img');
-                let currentIndex = 0;
-                setInterval(() => {
-                    images[currentIndex].classList.remove('active');
-                    currentIndex = (currentIndex + 1) % images.length;
-                    images[currentIndex].classList.add('active');
-                }, interval);
-            }
-
-            initCarousel('editorialCarousel', 1600);
-            initCarousel('visualsCarousel', 2000);
-            initCarousel('merchCarousel', 2500);
 
             const mobileMenu = document.querySelector('.mobile-menu');
             const navLinks = document.querySelector('.nav-links');
