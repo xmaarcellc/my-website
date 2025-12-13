@@ -99,7 +99,7 @@
         .logo-img {
             height: clamp(1rem, 3vw, 1.5rem);
             width: auto;
-            animation: logoEntrance 2.2s cubic-bezier(0.4, 0.0, 0.2, 1) forwards, sophisticatedSpin 5.5s ease-in-out infinite 2.2s;
+            animation: logoEntrance 1.8s ease-out forwards, sophisticatedSpin 5.5s ease-in-out infinite 1.8s;
             transform-style: preserve-3d;
         }
 
@@ -112,12 +112,8 @@
                 z-index: 10000;
                 opacity: 1;
             }
-            50% {
-                position: fixed;
-                top: 50%;
-                left: 50%;
+            60% {
                 transform: translate(-50%, -50%) scale(5.5) rotateY(360deg);
-                z-index: 10000;
             }
             99% {
                 position: fixed;
