@@ -72,29 +72,32 @@
             max-width: 1200px;
             margin: 0 auto;
             display: flex;
-            justify-content: center;
+            justify-content: space-between;
             align-items: center;
             padding: 0 1rem;
             position: relative;
+            gap: 1rem;
         }
 
         .logo {
-            font-size: 1.5rem;
+            font-size: clamp(1rem, 3vw, 1.5rem);
             font-weight: 300;
             color: #ffffff;
             text-decoration: none;
             font-family: 'Times New Roman', serif;
             font-style: italic;
+            white-space: nowrap;
         }
 
         .logo-container {
             display: flex;
             align-items: center;
             gap: 0.5rem;
+            flex-shrink: 0;
         }
 
         .logo-img {
-            height: 1.5rem;
+            height: clamp(1rem, 3vw, 1.5rem);
             width: auto;
             animation: logoEntrance 1.8s ease-out forwards, sophisticatedSpin 5.5s ease-in-out infinite 1.8s;
             transform-style: preserve-3d;
@@ -140,16 +143,17 @@
         .nav-links {
             display: flex;
             list-style: none;
-            gap: 2rem;
-            position: absolute;
-            right: 1rem;
+            gap: clamp(0.5rem, 2vw, 2rem);
+            position: relative;
+            margin-left: auto;
         }
 
         .nav-links a {
             color: #d1d5db;
             text-decoration: none;
             font-weight: 500;
-            font-size: 0.9rem;
+            font-size: clamp(0.75rem, 1.5vw, 0.9rem);
+            white-space: nowrap;
         }
 
         .nav-links a:hover {
@@ -988,6 +992,16 @@
         }
 
         /* Responsive Design - Tablets and Mobile */
+        @media (max-width: 968px) {
+            .nav-links {
+                display: none;
+            }
+
+            .mobile-menu {
+                display: flex;
+            }
+        }
+
         @media (max-width: 768px) {
             .nav-links {
                 display: none;
@@ -1183,14 +1197,6 @@
 
             .footer-copyright {
                 font-size: 0.75rem;
-            }
-
-            .logo {
-                font-size: 1.2rem;
-            }
-
-            .logo-img {
-                height: 1.2rem;
             }
 
             .review-box::before {
